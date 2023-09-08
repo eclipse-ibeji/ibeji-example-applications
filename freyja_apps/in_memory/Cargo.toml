@@ -14,7 +14,7 @@ freyja = { git = "https://github.com/eclipse-ibeji/freyja", branch = "wilyle/tes
 tokio = { version = "1.0", features = ["macros"] }
 
 # Put any dependencies that you need for your adapters down here.
-# This template utilizes the in-memory mock adapters as a sample
+# This samples utilizes the in-memory mock adapters.
 in-memory-mock-cloud-adapter = { git = "https://github.com/eclipse-ibeji/freyja", branch = "wilyle/test-freyja-lib" }
 in-memory-mock-digital-twin-adapter = { git = "https://github.com/eclipse-ibeji/freyja", branch = "wilyle/test-freyja-lib" }
 in-memory-mock-mapping-client = { git = "https://github.com/eclipse-ibeji/freyja", branch = "wilyle/test-freyja-lib" }
