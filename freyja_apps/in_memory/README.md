@@ -7,11 +7,10 @@ This Freyja Example Application utilizes the in-memory mocks provided by Freyja 
 To build and run the application, run the following from the repo root:
 
 ```shell
-cargo build -p freyja-in-memory-app
 cargo run -p freyja-in-memory-app
 ```
 
-Note that running `cargo build` without specifying the `-p` argument will build every project in the workspace! When working with this repository it's recommended to use the `-p` argument with Cargo commands.
+This will rebuild the application as necessary and then run it. Note that running `cargo run` without specifying the `-p` argument will build every project in the workspace! When working with this repository it's recommended to use the `-p` argument with Cargo commands.
 
 ## Supported Versions
 
