@@ -2,7 +2,7 @@
 
 This is a template for creating a Freyja application. For more information about writing Freyja applications, see the [Freyja documentation on the subject](https://github.com/eclipse-ibeji/freyja/blob/main/docs/custom-adapters.md).
 
-# Instructions
+## Instructions
 
 To edit this template and create a Freyja application, follow these steps:
 

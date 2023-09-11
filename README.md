@@ -2,17 +2,17 @@
 
 - [Introduction](#introduction)
 - [Ibeji Examples](#ibeji-examples)
-- [Freyja Samples](#freyja-examples)
+- [Freyja Examples](#freyja-examples)
 
-# Introduction
+## Introduction
 
 This repository contains example applications and code related to the Eclipse Ibeji project, including both [Ibeji](https://github.com/eclipse-ibeji/ibeji) and [Freyja](https://github.com/eclipse-ibeji/freyja).
 
-# Ibeji Examples
+## Ibeji Examples
 
 Coming soon!
 
-# Freyja Examples
+## Freyja Examples
 
 The Freyja examples include:
 
