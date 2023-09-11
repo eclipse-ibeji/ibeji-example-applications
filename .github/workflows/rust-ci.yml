@@ -44,7 +44,7 @@ jobs:
         with:
           command: fmt
           args: --all -- --check
-      # This step is currently disabled because the command will fail.
+      # This step is currently turned off because the command will fail.
       # Doc tests are only run against library targets, not binaries.
       # The only targets currently in the repo are binary targets,
       # so the command fails with the error message "no library targets found".
