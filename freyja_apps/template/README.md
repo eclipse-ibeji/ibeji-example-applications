@@ -7,7 +7,7 @@ This is a template for creating a Freyja application. For more information about
 To edit this template and create a Freyja application, follow these steps:
 
 1. Choose the adapters to use. Freyja requires users to select a Cloud Adapter, a Digital Twin Adapter, and a Mapping Client. Some potential choices are:
-    1. Freyja mocks. These are enumerated [here](https://github.com/eclipse-ibeji/freyja/blob/main/docs/quickstart.md#appendix-a) and are generally only suitable for tests or demos. 
+    1. Freyja mocks. These are enumerated [here](https://github.com/eclipse-ibeji/freyja/blob/main/docs/quickstart.md#appendix-a) and are generally only suitable for tests or demos.
     1. Example adapters from this repository (coming soon!)
     1. A custom adapter implementation
 1. Edit `Cargo.template.toml`:
