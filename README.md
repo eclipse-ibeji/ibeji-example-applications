@@ -16,5 +16,5 @@ Coming soon!
 
 The Freyja examples include:
 
-- [Example Freyja apps](./freyja-apps/): These are examples of how to write a Freyja application using its plugin model. Each example has a README describing its usage, and the `template` app can be used to get started with your own adapters.
+- [Example Freyja apps](./freyja_apps/): These are examples of how to write a Freyja application using its plugin model. Each example has a README describing its usage, and the `template` app can be used to get started with your own adapters.
 - Freyja Adapters: Coming soon!
