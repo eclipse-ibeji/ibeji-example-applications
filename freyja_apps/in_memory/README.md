@@ -12,3 +12,7 @@ cargo run -p freyja-in-memory-app
 ```
 
 Note that running `cargo build` without specifying the `-p` argument will build every project in the workspace! When working with this repository it's recommended to use the `-p` argument with Cargo commands.
+
+## Current Version
+
+This template is integrated with revision `a07b033` (authored 2023-11-09) of the Freyja main project.

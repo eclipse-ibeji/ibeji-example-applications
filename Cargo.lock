@@ -356,7 +356,7 @@ dependencies = [
 [[package]]
 name = "freyja"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja?branch=wilyle/test-freyja-lib#48a118eb99bba35785608c9768c6ec047dcef40d"
+source = "git+https://github.com/eclipse-ibeji/freyja?rev=a07b033#a07b03349d23b14d0c215ace341e05d9e4e5195e"
 dependencies = [
  "async-trait",
  "crossbeam",
@@ -373,7 +373,7 @@ dependencies = [
 [[package]]
 name = "freyja-common"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja?branch=wilyle/test-freyja-lib#48a118eb99bba35785608c9768c6ec047dcef40d"
+source = "git+https://github.com/eclipse-ibeji/freyja?rev=a07b033#a07b03349d23b14d0c215ace341e05d9e4e5195e"
 dependencies = [
  "freyja-contracts",
  "log",
@@ -383,7 +383,7 @@ dependencies = [
 [[package]]
 name = "freyja-contracts"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja?branch=wilyle/test-freyja-lib#48a118eb99bba35785608c9768c6ec047dcef40d"
+source = "git+https://github.com/eclipse-ibeji/freyja?rev=a07b033#a07b03349d23b14d0c215ace341e05d9e4e5195e"
 dependencies = [
  "async-trait",
  "crossbeam",
@@ -516,7 +516,7 @@ checksum = "6fb8d784f27acf97159b40fc4db5ecd8aa23b9ad5ef69cdd136d3bc80665f0c0"
 [[package]]
 name = "grpc-provider-proxy-v1"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja?branch=wilyle/test-freyja-lib#48a118eb99bba35785608c9768c6ec047dcef40d"
+source = "git+https://github.com/eclipse-ibeji/freyja?rev=a07b033#a07b03349d23b14d0c215ace341e05d9e4e5195e"
 dependencies = [
  "async-trait",
  "crossbeam",
@@ -609,7 +609,7 @@ dependencies = [
 [[package]]
 name = "http-mock-provider-proxy"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja?branch=wilyle/test-freyja-lib#48a118eb99bba35785608c9768c6ec047dcef40d"
+source = "git+https://github.com/eclipse-ibeji/freyja?rev=a07b033#a07b03349d23b14d0c215ace341e05d9e4e5195e"
 dependencies = [
  "async-trait",
  "axum",
@@ -707,7 +707,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-cloud-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja?branch=wilyle/test-freyja-lib#48a118eb99bba35785608c9768c6ec047dcef40d"
+source = "git+https://github.com/eclipse-ibeji/freyja?rev=a07b033#a07b03349d23b14d0c215ace341e05d9e4e5195e"
 dependencies = [
  "async-trait",
  "freyja-contracts",
@@ -721,7 +721,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-digital-twin-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja?branch=wilyle/test-freyja-lib#48a118eb99bba35785608c9768c6ec047dcef40d"
+source = "git+https://github.com/eclipse-ibeji/freyja?rev=a07b033#a07b03349d23b14d0c215ace341e05d9e4e5195e"
 dependencies = [
  "async-trait",
  "freyja-contracts",
@@ -733,7 +733,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-mapping-client"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja?branch=wilyle/test-freyja-lib#48a118eb99bba35785608c9768c6ec047dcef40d"
+source = "git+https://github.com/eclipse-ibeji/freyja?rev=a07b033#a07b03349d23b14d0c215ace341e05d9e4e5195e"
 dependencies = [
  "async-trait",
  "freyja-contracts",
@@ -745,7 +745,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-provider-proxy"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja?branch=wilyle/test-freyja-lib#48a118eb99bba35785608c9768c6ec047dcef40d"
+source = "git+https://github.com/eclipse-ibeji/freyja?rev=a07b033#a07b03349d23b14d0c215ace341e05d9e4e5195e"
 dependencies = [
  "async-trait",
  "crossbeam",
@@ -894,7 +894,7 @@ dependencies = [
 [[package]]
 name = "mock-digital-twin"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja?branch=wilyle/test-freyja-lib#48a118eb99bba35785608c9768c6ec047dcef40d"
+source = "git+https://github.com/eclipse-ibeji/freyja?rev=a07b033#a07b03349d23b14d0c215ace341e05d9e4e5195e"
 dependencies = [
  "async-trait",
  "axum",
@@ -1082,7 +1082,7 @@ dependencies = [
 [[package]]
 name = "proc-macros"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja?branch=wilyle/test-freyja-lib#48a118eb99bba35785608c9768c6ec047dcef40d"
+source = "git+https://github.com/eclipse-ibeji/freyja?rev=a07b033#a07b03349d23b14d0c215ace341e05d9e4e5195e"
 dependencies = [
  "convert_case",
  "proc-macro2",
@@ -1147,7 +1147,7 @@ dependencies = [
 [[package]]
 name = "provider-proxy-selector"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja?branch=wilyle/test-freyja-lib#48a118eb99bba35785608c9768c6ec047dcef40d"
+source = "git+https://github.com/eclipse-ibeji/freyja?rev=a07b033#a07b03349d23b14d0c215ace341e05d9e4e5195e"
 dependencies = [
  "async-trait",
  "crossbeam",
