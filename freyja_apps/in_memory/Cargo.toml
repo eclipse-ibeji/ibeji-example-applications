@@ -10,11 +10,11 @@ license = "MIT"
 
 [dependencies]
 # These two dependencies are required for anyone implementing a Freyja application
-freyja = { git = "https://github.com/eclipse-ibeji/freyja", rev = "a07b033" }
-tokio = { version = "1.0", features = ["macros"] }
+freyja = { workspace = true }
+tokio = { workspace = true, features = ["macros"] }
 
 # Put any dependencies that you need for your adapters down here.
 # This samples utilizes the in-memory mock adapters.
-in-memory-mock-cloud-adapter = { git = "https://github.com/eclipse-ibeji/freyja", rev = "a07b033" }
-in-memory-mock-digital-twin-adapter = { git = "https://github.com/eclipse-ibeji/freyja", rev = "a07b033" }
-in-memory-mock-mapping-client = { git = "https://github.com/eclipse-ibeji/freyja", rev = "a07b033" }
+in-memory-mock-cloud-adapter = { workspace = true }
+in-memory-mock-digital-twin-adapter = { workspace = true }
+in-memory-mock-mapping-client = { workspace = true }
