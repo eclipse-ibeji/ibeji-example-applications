@@ -44,28 +44,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "async-stream"
-version = "0.3.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cd56dd203fef61ac097dd65721a419ddccb106b2d2b70ba60a6b529f03961a51"
-dependencies = [
- "async-stream-impl",
- "futures-core",
- "pin-project-lite",
-]
-
-[[package]]
-name = "async-stream-impl"
-version = "0.3.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "16e62a023e7c117e27523144c5d2459f4397fcc3cab0085af8e2224f643a0193"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn 2.0.31",
-]
-
-[[package]]
 name = "async-trait"
 version = "0.1.73"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -146,7 +124,7 @@ dependencies = [
  "tempfile",
  "tokio",
  "tokio-stream",
- "tonic 0.10.0",
+ "tonic",
  "tower",
 ]
 
@@ -154,10 +132,10 @@ dependencies = [
 name = "azure-cloud-connector-proto"
 version = "0.1.0"
 dependencies = [
- "prost 0.12.0",
+ "prost",
  "tokio",
- "tonic 0.10.0",
- "tonic-build 0.10.0",
+ "tonic",
+ "tonic-build",
 ]
 
 [[package]]
@@ -172,13 +150,13 @@ dependencies = [
  "log",
  "paho-mqtt",
  "proc-macros",
- "prost 0.12.0",
+ "prost",
  "serde",
  "serde_json",
  "time",
  "tokio",
- "tonic 0.10.0",
- "tonic-build 0.10.0",
+ "tonic",
+ "tonic-build",
 ]
 
 [[package]]
@@ -283,6 +261,19 @@ name = "core-foundation-sys"
 version = "0.8.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e496a50fda8aacccc86d7529e2c1e0892dbd0f898a6b5645b5561b89c3210efa"
+
+[[package]]
+name = "core-protobuf-data-access"
+version = "0.1.0"
+source = "git+https://github.com/eclipse-ibeji/ibeji#370a4f5ae529239607a383f5260966959f55cf3f"
+dependencies = [
+ "prost",
+ "prost-types",
+ "serde",
+ "tokio",
+ "tonic",
+ "tonic-build",
+]
 
 [[package]]
 name = "crossbeam"
@@ -641,7 +632,7 @@ dependencies = [
  "tempfile",
  "tokio",
  "tokio-stream",
- "tonic 0.9.2",
+ "tonic",
  "tower",
 ]
 
@@ -736,7 +727,7 @@ dependencies = [
  "serde_json",
  "tokio",
  "tokio-stream",
- "tonic 0.9.2",
+ "tonic",
  "tower",
 ]
 
@@ -808,6 +799,29 @@ dependencies = [
 ]
 
 [[package]]
+name = "ibeji-adapter"
+version = "0.1.0"
+dependencies = [
+ "async-trait",
+ "core-protobuf-data-access",
+ "freyja-common",
+ "freyja-contracts",
+ "futures",
+ "log",
+ "proc-macros",
+ "serde",
+ "serde_json",
+ "service_discovery_proto",
+ "strum",
+ "strum_macros",
+ "tempfile",
+ "tokio",
+ "tokio-stream",
+ "tonic",
+ "tower",
+]
+
+[[package]]
 name = "idna"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -868,7 +882,7 @@ dependencies = [
  "serde",
  "serde_json",
  "tokio",
- "tonic 0.9.2",
+ "tonic",
  "tower",
 ]
 
@@ -1210,16 +1224,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "prettyplease"
-version = "0.2.15"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ae005bd773ab59b4725093fd7df83fd7892f7d8eafb48dbd7de6e024e4215f9d"
-dependencies = [
- "proc-macro2",
- "syn 2.0.31",
-]
-
-[[package]]
 name = "proc-macro2"
 version = "1.0.66"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1246,17 +1250,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0b82eaa1d779e9a4bc1c3217db8ffbeabaae1dca241bf70183242128d48681cd"
 dependencies = [
  "bytes",
- "prost-derive 0.11.9",
-]
-
-[[package]]
-name = "prost"
-version = "0.12.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aa8473a65b88506c106c28ae905ca4a2b83a2993640467a41bb3080627ddfd2c"
-dependencies = [
- "bytes",
- "prost-derive 0.12.0",
+ "prost-derive",
 ]
 
 [[package]]
@@ -1272,33 +1266,11 @@ dependencies = [
  "log",
  "multimap",
  "petgraph",
- "prettyplease 0.1.25",
- "prost 0.11.9",
- "prost-types 0.11.9",
+ "prettyplease",
+ "prost",
+ "prost-types",
  "regex",
  "syn 1.0.109",
- "tempfile",
- "which",
-]
-
-[[package]]
-name = "prost-build"
-version = "0.12.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "30d3e647e9eb04ddfef78dfee2d5b3fefdf94821c84b710a3d8ebc89ede8b164"
-dependencies = [
- "bytes",
- "heck",
- "itertools",
- "log",
- "multimap",
- "once_cell",
- "petgraph",
- "prettyplease 0.2.15",
- "prost 0.12.0",
- "prost-types 0.12.0",
- "regex",
- "syn 2.0.31",
  "tempfile",
  "which",
 ]
@@ -1317,34 +1289,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "prost-derive"
-version = "0.12.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "56075c27b20ae524d00f247b8a4dc333e5784f889fe63099f8e626bc8d73486c"
-dependencies = [
- "anyhow",
- "itertools",
- "proc-macro2",
- "quote",
- "syn 2.0.31",
-]
-
-[[package]]
 name = "prost-types"
 version = "0.11.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "213622a1460818959ac1181aaeb2dc9c7f63df720db7d788b3e24eacd1983e13"
 dependencies = [
- "prost 0.11.9",
-]
-
-[[package]]
-name = "prost-types"
-version = "0.12.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cebe0a918c97f86c217b0f76fd754e966f8b9f41595095cf7d74cb4e59d730f6"
-dependencies = [
- "prost 0.12.0",
+ "prost",
 ]
 
 [[package]]
@@ -1515,12 +1465,12 @@ name = "samples-protobuf-data-access"
 version = "1.0.0"
 source = "git+https://github.com/eclipse-ibeji/ibeji?rev=370a4f5ae529239607a383f5260966959f55cf3f#370a4f5ae529239607a383f5260966959f55cf3f"
 dependencies = [
- "prost 0.11.9",
- "prost-types 0.11.9",
+ "prost",
+ "prost-types",
  "serde",
  "tokio",
- "tonic 0.9.2",
- "tonic-build 0.9.2",
+ "tonic",
+ "tonic-build",
 ]
 
 [[package]]
@@ -1612,6 +1562,17 @@ dependencies = [
  "itoa",
  "ryu",
  "serde",
+]
+
+[[package]]
+name = "service_discovery_proto"
+version = "0.1.0"
+source = "git+https://github.com/eclipse-chariott/chariott#1a806fca4f9d40ed64f6b57a36c506e16f5f27d6"
+dependencies = [
+ "prost",
+ "tokio",
+ "tonic",
+ "tonic-build",
 ]
 
 [[package]]
@@ -1856,34 +1817,7 @@ dependencies = [
  "hyper-timeout",
  "percent-encoding",
  "pin-project",
- "prost 0.11.9",
- "tokio",
- "tokio-stream",
- "tower",
- "tower-layer",
- "tower-service",
- "tracing",
-]
-
-[[package]]
-name = "tonic"
-version = "0.10.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5469afaf78a11265c343a88969045c1568aa8ecc6c787dbf756e92e70f199861"
-dependencies = [
- "async-stream",
- "async-trait",
- "axum",
- "base64",
- "bytes",
- "h2",
- "http",
- "http-body",
- "hyper",
- "hyper-timeout",
- "percent-encoding",
- "pin-project",
- "prost 0.12.0",
+ "prost",
  "tokio",
  "tokio-stream",
  "tower",
@@ -1898,24 +1832,11 @@ version = "0.9.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a6fdaae4c2c638bb70fe42803a26fbd6fc6ac8c72f5c59f67ecc2a2dcabf4b07"
 dependencies = [
- "prettyplease 0.1.25",
+ "prettyplease",
  "proc-macro2",
- "prost-build 0.11.9",
+ "prost-build",
  "quote",
  "syn 1.0.109",
-]
-
-[[package]]
-name = "tonic-build"
-version = "0.10.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8b477abbe1d18c0b08f56cd01d1bc288668c5b5cfd19b2ae1886bbf599c546f1"
-dependencies = [
- "prettyplease 0.2.15",
- "proc-macro2",
- "prost-build 0.12.0",
- "quote",
- "syn 2.0.31",
 ]
 
 [[package]]
