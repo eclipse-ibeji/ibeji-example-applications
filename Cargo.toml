@@ -6,9 +6,10 @@
 # The default resolver for workspaces is different than for regular packages, so use v2 to avoid warnings
 resolver = "2"
 members = [
-    "freyja_apps/in_memory",
     "cloud_connectors/azure/mqtt_connector",
     "cloud_connectors/azure/proto-build",
+    "freyja_adapters/cloud/azure_cloud_adapter",
+    "freyja_apps/in_memory",
 ]
 
 [workspace.dependencies]
@@ -19,6 +20,7 @@ azure-cloud-connector-proto = { path = "cloud_connectors/azure/proto-build" }
 # Versioning is managed by the Cargo.lock file rather than copying rev properties to all of these
 freyja = { git = "https://github.com/eclipse-ibeji/freyja" }
 freyja-common = { git = "https://github.com/eclipse-ibeji/freyja" }
+freyja-contracts = { git = "https://github.com/eclipse-ibeji/freyja" }
 in-memory-mock-cloud-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 in-memory-mock-digital-twin-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 in-memory-mock-mapping-client = { git = "https://github.com/eclipse-ibeji/freyja" }
@@ -33,7 +35,9 @@ paho-mqtt = "0.12.1"
 prost = "0.12.0"
 serde = "1.0.188"
 serde_json = "1.0.106"
+tempfile = "3.8.0"
 time = "0.3.28"
 tokio = "1.32.0"
 tonic = "0.10.0"
 tonic-build = "0.10.0"
+tower = "0.4.13"
