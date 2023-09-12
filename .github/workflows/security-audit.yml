@@ -1,0 +1,27 @@
+name: Security Audit
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "**/Cargo.toml"
+      - "**/Cargo.lock"
+      - ".github/workflows/security-audit.yaml"
+  schedule:
+    - cron: "0 0 * * *" # once a day at midnight UTC
+    # NB: that cron trigger on GH actions runs only on the default branch
+jobs:
+  security_audit_rust:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Install Rust toolchain
+        uses: ./.github/actions/install-rust-toolchain
+      - name: Cargo audit
+        uses: actions-rs/cargo@v1
+        with:
+          command: audit
+          args: --deny warnings
