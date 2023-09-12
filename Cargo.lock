@@ -132,6 +132,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "azure-cloud-connector-adapter"
+version = "0.1.0"
+dependencies = [
+ "async-trait",
+ "azure-cloud-connector-proto",
+ "freyja-common",
+ "freyja-contracts",
+ "futures",
+ "log",
+ "serde",
+ "serde_json",
+ "tempfile",
+ "tokio",
+ "tokio-stream",
+ "tonic 0.10.0",
+ "tower",
+]
+
+[[package]]
 name = "azure-cloud-connector-proto"
 version = "0.1.0"
 dependencies = [
