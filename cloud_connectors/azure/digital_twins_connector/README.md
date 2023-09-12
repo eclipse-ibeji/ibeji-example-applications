@@ -6,7 +6,7 @@ Freyja is not tightly coupled with Azure and can synchronize data with any cloud
 
 ## Architecture
 
-The Azure Digital Twins Cloud Connector updates an Azure Digital Twin instance with the data emitted by Freyja. This cloud connector will connect directly to an Azure Digital Twins instance and serves as a minimal example of how to send data to Azure Digital Twins from the device.
+The Azure Digital Twins Cloud Connector forwards data emitted by Freyja to Azure Digital Twins. This cloud connector will connect directly to an Azure Digital Twins instance and serves as a minimal example of how to send data to Azure Digital Twins from the device.
 
 ## Prerequisites
 
