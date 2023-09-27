@@ -11,6 +11,7 @@ members = [
     "freyja_adapters/cloud/azure_cloud_connector_adapter",
     "freyja_adapters/digital_twin/ibeji_adapter",
     "freyja_apps/in_memory",
+    "freyja_apps/e2e",
 ]
 
 [workspace.dependencies]

@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 [package]
-name = "freyja-in-memory-app"
+name = "freyja-e2e-app"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"

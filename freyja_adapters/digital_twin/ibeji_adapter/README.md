@@ -15,7 +15,6 @@ Whether or not you are using Chariott, the following config values are required:
 - `max_retries`: The maximum number of times to retry failed attempts to communicate with the digital twin service.
 - `retry_interval_ms`: The duration between retries.
 
-
 ### Ibeji Without Chariott
 
 To use Ibeji without Chariott, the `service_type` must be `"InVehicleDigitalTwinService"`. No additional configuration is needed to use Ibeji without Chariott.
@@ -29,4 +28,4 @@ To use Ibeji with [Chariott's Service Discovery system](https://github.com/eclip
   - `name`: The service name for Ibeji.
   - `version`: The service version for Ibeji.
 
-Ibeji must also be configured to use Chariott.
+Ibeji must also be configured to use Chariott to use this feature.

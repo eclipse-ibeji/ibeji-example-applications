@@ -495,6 +495,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "freyja-e2e-app"
+version = "0.1.0"
+dependencies = [
+ "freyja",
+ "in-memory-mock-cloud-adapter",
+ "in-memory-mock-digital-twin-adapter",
+ "in-memory-mock-mapping-client",
+ "tokio",
+]
+
+[[package]]
 name = "freyja-in-memory-app"
 version = "0.1.0"
 dependencies = [
