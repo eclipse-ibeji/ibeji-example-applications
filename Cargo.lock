@@ -587,9 +587,9 @@ dependencies = [
 name = "freyja-e2e-app"
 version = "0.1.0"
 dependencies = [
+ "azure-cloud-connector-adapter",
  "freyja",
  "ibeji-adapter",
- "in-memory-mock-cloud-adapter",
  "in-memory-mock-mapping-client",
  "tokio",
 ]

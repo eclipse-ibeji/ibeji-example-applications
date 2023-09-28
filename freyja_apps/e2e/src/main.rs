@@ -3,11 +3,11 @@
 // SPDX-License-Identifier: MIT
 
 use ibeji_adapter::ibeji_adapter::IbejiAdapter;
-use in_memory_mock_cloud_adapter::in_memory_mock_cloud_adapter::InMemoryMockCloudAdapter;
+use azure_cloud_connector_adapter::azure_cloud_connector_adapter::AzureCloudConnectorAdapter;
 use in_memory_mock_mapping_client::in_memory_mock_mapping_client::InMemoryMockMappingClient;
 
 freyja::freyja_main! {
     IbejiAdapter,
-    InMemoryMockCloudAdapter,
+    AzureCloudConnectorAdapter,
     InMemoryMockMappingClient
 }
