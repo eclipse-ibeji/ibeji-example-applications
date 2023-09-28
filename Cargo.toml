@@ -16,7 +16,9 @@ members = [
 
 [workspace.dependencies]
 # Local dependencies
+azure-cloud-connector-adapter = { path = "freyja_adapters/cloud/azure_cloud_connector_adapter" }
 azure-cloud-connector-proto = { path = "cloud_connectors/azure/proto-build" }
+ibeji-adapter = { path = "freyja_adapters/digital_twin/ibeji_adapter" }
 
 # ESDV dependencies
 # Versioning is managed by the Cargo.lock file rather than copying rev properties to all of these
