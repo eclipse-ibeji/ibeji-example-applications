@@ -20,7 +20,7 @@ serde_json = { workspace = true }
 tempfile = { workspace = true }
 tonic = { workspace = true }
 tokio = { workspace = true }
-tokio-stream = { workspace = true }
+tokio-stream = { workspace = true, features = ["net"] }
 tower = { workspace = true }
 
 [build-dependencies]
