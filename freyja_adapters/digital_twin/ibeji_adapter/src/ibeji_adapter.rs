@@ -13,7 +13,7 @@ use service_discovery_proto::service_registry::v1::service_registry_client::Serv
 use service_discovery_proto::service_registry::v1::DiscoverRequest;
 use tonic::{transport::Channel, Request};
 
-use freyja_common::{retry_utils::execute_with_retry, config_utils, out_dir};
+use freyja_common::{config_utils, out_dir, retry_utils::execute_with_retry};
 use freyja_contracts::{
     digital_twin_adapter::{
         DigitalTwinAdapter, DigitalTwinAdapterError, GetDigitalTwinProviderRequest,

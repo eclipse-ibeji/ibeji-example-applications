@@ -12,7 +12,7 @@ use log::debug;
 use serde::{Deserialize, Serialize};
 use tonic::transport::Channel;
 
-use freyja_common::{retry_utils::execute_with_retry, config_utils, out_dir};
+use freyja_common::{config_utils, out_dir, retry_utils::execute_with_retry};
 use freyja_contracts::cloud_adapter::{
     CloudAdapter, CloudAdapterError, CloudMessageRequest, CloudMessageResponse,
 };
