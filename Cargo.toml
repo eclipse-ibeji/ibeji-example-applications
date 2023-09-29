@@ -24,6 +24,7 @@ ibeji-adapter = { path = "freyja_adapters/digital_twin/ibeji_adapter" }
 # Versioning is managed by the Cargo.lock file rather than copying rev properties to all of these
 core-protobuf-data-access = { git = "https://github.com/eclipse-ibeji/ibeji" }
 freyja = { git = "https://github.com/eclipse-ibeji/freyja" }
+freyja-build-common = { git = "https://github.com/eclipse-ibeji/freyja" }
 freyja-common = { git = "https://github.com/eclipse-ibeji/freyja" }
 freyja-contracts = { git = "https://github.com/eclipse-ibeji/freyja" }
 in-memory-mock-cloud-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }

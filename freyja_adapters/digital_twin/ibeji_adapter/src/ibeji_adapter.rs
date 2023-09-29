@@ -2,7 +2,7 @@
 // Licensed under the MIT license.
 // SPDX-License-Identifier: MIT
 
-use std::{fs, path::Path, str::FromStr, time::Duration};
+use std::{str::FromStr, time::Duration};
 
 use async_trait::async_trait;
 use core_protobuf_data_access::invehicle_digital_twin::v1::{
@@ -13,8 +13,7 @@ use service_discovery_proto::service_registry::v1::service_registry_client::Serv
 use service_discovery_proto::service_registry::v1::DiscoverRequest;
 use tonic::{transport::Channel, Request};
 
-use crate::config::{IbejiDiscoveryMetadata, Settings, CONFIG_FILE};
-use freyja_common::retry_utils::execute_with_retry;
+use freyja_common::{retry_utils::execute_with_retry, config_utils, out_dir};
 use freyja_contracts::{
     digital_twin_adapter::{
         DigitalTwinAdapter, DigitalTwinAdapterError, GetDigitalTwinProviderRequest,
@@ -24,6 +23,9 @@ use freyja_contracts::{
     provider_proxy::OperationKind,
 };
 
+use crate::config::{ChariottDiscoverRequest, Config};
+
+const CONFIG_FILE_STEM: &str = "ibeji_adapter_config";
 const GET_OPERATION: &str = "Get";
 const SUBSCRIBE_OPERATION: &str = "Subscribe";
 
@@ -36,11 +38,11 @@ impl IbejiAdapter {
     /// Retrieves Ibeji's In-Vehicle Digital Twin URI from Chariott
     ///
     /// # Arguments
-    /// - `chariott_service_discovery_uri`: the uri for Chariott's service discovery
+    /// - `chariott_discovery_request`: the uri for Chariott's service discovery
     /// - `metadata`: optional configuration metadata for discovering Ibeji using Chariott
     async fn retrieve_ibeji_invehicle_digital_twin_uri_from_chariott(
         chariott_service_discovery_uri: &str,
-        chariott_ibeji_config: IbejiDiscoveryMetadata,
+        chariott_discovery_request: ChariottDiscoverRequest,
     ) -> Result<String, DigitalTwinAdapterError> {
         let mut service_registry_client =
             ServiceRegistryClient::connect(String::from(chariott_service_discovery_uri))
@@ -48,9 +50,9 @@ impl IbejiAdapter {
                 .map_err(DigitalTwinAdapterError::communication)?;
 
         let discover_request = Request::new(DiscoverRequest {
-            namespace: chariott_ibeji_config.namespace,
-            name: chariott_ibeji_config.name,
-            version: chariott_ibeji_config.version,
+            namespace: chariott_discovery_request.namespace,
+            name: chariott_discovery_request.name,
+            version: chariott_discovery_request.version,
         });
 
         let service = service_registry_client
@@ -73,21 +75,25 @@ impl IbejiAdapter {
 impl DigitalTwinAdapter for IbejiAdapter {
     /// Creates a new instance of a DigitalTwinAdapter with default settings
     fn create_new() -> Result<Self, DigitalTwinAdapterError> {
-        let settings_content =
-            fs::read_to_string(Path::new(env!("OUT_DIR")).join(CONFIG_FILE)).unwrap();
-        let settings: Settings = serde_json::from_str(settings_content.as_str()).unwrap();
+        let config = config_utils::read_from_files(
+            CONFIG_FILE_STEM,
+            config_utils::JSON_EXT,
+            out_dir!(),
+            DigitalTwinAdapterError::io,
+            DigitalTwinAdapterError::deserialize,
+        )?;
 
-        let (invehicle_digital_twin_service_uri, max_retries, retry_interval_ms) = match settings {
-            Settings::InVehicleDigitalTwinService {
+        let (invehicle_digital_twin_service_uri, max_retries, retry_interval_ms) = match config {
+            Config::Config {
                 uri,
                 max_retries,
                 retry_interval_ms,
             } => (uri, max_retries, retry_interval_ms),
-            Settings::ChariottDiscoveryService {
+            Config::ChariottServiceDiscovery {
                 uri,
                 max_retries,
                 retry_interval_ms,
-                metadata,
+                discover_request,
             } => {
                 let invehicle_digital_twin_service_uri = futures::executor::block_on(async {
                     execute_with_retry(
@@ -96,14 +102,15 @@ impl DigitalTwinAdapter for IbejiAdapter {
                         || {
                             Self::retrieve_ibeji_invehicle_digital_twin_uri_from_chariott(
                                 &uri,
-                                metadata.clone(),
+                                discover_request,
                             )
                         },
                         Some(String::from("Connection retry for connecting to Chariott")),
                     )
                     .await
                 })
-                .unwrap();
+                .map_err(DigitalTwinAdapterError::communication)?;
+
                 info!("Discovered the uri of the In-Vehicle Digital Twin Service via Chariott: {invehicle_digital_twin_service_uri}");
 
                 (
@@ -124,7 +131,7 @@ impl DigitalTwinAdapter for IbejiAdapter {
             .await
             .map_err(DigitalTwinAdapterError::communication)
         })
-        .unwrap();
+        .map_err(DigitalTwinAdapterError::communication)?;
 
         Ok(Self { client })
     }

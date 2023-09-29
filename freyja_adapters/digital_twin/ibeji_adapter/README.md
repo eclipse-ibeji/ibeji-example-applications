@@ -4,28 +4,32 @@ The Ibeji Adapter is used to integrate with the [Ibeji In-Vehicle Digital Twin S
 
 ## Configuration
 
-The `res` directory contains two sample config files. The `ibeji_adapter_config.sample.json` will be copied to the build output, so you can edit this file to configure the adapter.
+This adapter supports two different configuration schemas depending on how you want to discover the In-Vehicle Digital Twin Service:
 
-### Common Configuration Fields
+### Without Chariott
 
-Whether or not you are using Chariott, the following config values are required:
+To bypass Chariott and use a configuration value to specify the In-Vehicle Digital Twin Service URI, you must specify the following configuration:
 
-- `service_type`: Specifies whether to call Ibeji directly or use Chariott's Service Discovery system to find it. Valid values are `"ChariottDiscoveryService"` and `"InVehicleDigitalTwinService"`.
-- `uri`: The URI for the selected service.
-- `max_retries`: The maximum number of times to retry failed attempts to communicate with the digital twin service.
+- `service_discovery_method`: Set this value to `"Config"`.
+- `uri`: The URI for the In-Vehicle Digital Twin Service.
+- `max_retries`: The maximum number of times to retry failed attempts to communicate with the In-Vehicle Digital Twin Service.
 - `retry_interval_ms`: The duration between retries in milliseconds.
 
-### Ibeji Without Chariott
+### Using Chariott
 
-To use Ibeji without Chariott, the `service_type` must be `"InVehicleDigitalTwinService"`. No additional configuration is needed to use Ibeji without Chariott.
+To use Chariott to discover the In-Vehicle Digital Twin Service, you must specify the following configuration:
 
-### Ibeji With Chariott
+- `service_discovery_method`: Set this value to `"ChariottServiceDiscovery"` to use Chariott.
+- `uri`: The URI for Chariott's Service Discovery system.
+- `max_retries`: The maximum number of times to retry failed attempts to communicate with Chariott or the In-Vehicle Digital Twin Service.
+- `retry_interval_ms`: The duration between retries in milliseconds.
+- `metadata`: Metadata for the discovery operation:
+  - `namespace`: The namespace for the In-Vehicle Digital Twin Service.
+  - `name`: The service name for the In-Vehicle Digital Twin Service.
+  - `version`: The version of the In-Vehicle Digital Twin Service to query for.
 
-To use Ibeji with [Chariott's Service Discovery system](https://github.com/eclipse-chariott/chariott/blob/main/service_discovery/README.md), the `service_type` must be `"ChariottDiscoveryService"` and you must specify the following additional config for the adapter:
+An example of a configuration file that uses Chariott can be found at `res/ibeji_adapter_config.chariott_sample.json`.
 
-- `metadata`: Information used to query Chariott's Service Discovery system. This is an object with the following properties:
-  - `namespace`: The service namespace for Ibeji.
-  - `name`: The service name for Ibeji.
-  - `version`: The service version for Ibeji.
+### Configuration Overrides
 
-Ibeji must also be configured to use Chariott to use this feature.
+This adapter supports the same [config overrides](../../docs/config-overrides.md) as the Freyja mocks. The override filename is `ibeji_adapter_config.json`, and the default config is located at `res/ibeji_adapter_config.default.json`.
