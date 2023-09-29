@@ -1,0 +1,5 @@
+{
+    "cloud_connector_uri": "http://[::1]:8890",
+    "max_retries": 5,
+    "retry_interval_ms": 1000
+}

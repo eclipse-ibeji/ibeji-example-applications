@@ -22,7 +22,11 @@ ibeji-adapter = { path = "freyja_adapters/digital_twin/ibeji_adapter" }
 
 # ESDV dependencies
 # Versioning is managed by the Cargo.lock file rather than copying rev properties to all of these
+
+## Ibeji
 core-protobuf-data-access = { git = "https://github.com/eclipse-ibeji/ibeji" }
+
+## Freyja
 freyja = { git = "https://github.com/eclipse-ibeji/freyja" }
 freyja-build-common = { git = "https://github.com/eclipse-ibeji/freyja" }
 freyja-common = { git = "https://github.com/eclipse-ibeji/freyja" }
@@ -31,6 +35,8 @@ in-memory-mock-cloud-adapter = { git = "https://github.com/eclipse-ibeji/freyja"
 in-memory-mock-digital-twin-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 in-memory-mock-mapping-client = { git = "https://github.com/eclipse-ibeji/freyja" }
 proc-macros = { git = "https://github.com/eclipse-ibeji/freyja" }
+
+## Chariott
 service_discovery_proto = { git = "https://github.com/eclipse-chariott/chariott" }
 
 # Cargo dependencies

@@ -84,7 +84,7 @@ impl DigitalTwinAdapter for IbejiAdapter {
         )?;
 
         let (invehicle_digital_twin_service_uri, max_retries, retry_interval_ms) = match config {
-            Config::Config {
+            Config::FromConfig {
                 uri,
                 max_retries,
                 retry_interval_ms,
@@ -102,7 +102,7 @@ impl DigitalTwinAdapter for IbejiAdapter {
                         || {
                             Self::retrieve_ibeji_invehicle_digital_twin_uri_from_chariott(
                                 &uri,
-                                discover_request,
+                                discover_request.clone(),
                             )
                         },
                         Some(String::from("Connection retry for connecting to Chariott")),

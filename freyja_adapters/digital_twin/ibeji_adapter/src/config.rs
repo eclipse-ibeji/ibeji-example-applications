@@ -10,7 +10,7 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "service_discovery_method")]
 pub enum Config {
     /// Use a URI from the config for the In-Vehicle Digital Twin Service
-    Config {
+    FromConfig {
         /// The URI for the In-Vehicle Digital Twin Service
         uri: String,
 
