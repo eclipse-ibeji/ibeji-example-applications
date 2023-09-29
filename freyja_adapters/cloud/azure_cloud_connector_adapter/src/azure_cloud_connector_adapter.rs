@@ -2,7 +2,7 @@
 // Licensed under the MIT license.
 // SPDX-License-Identifier: MIT
 
-use std::{env, fs, path::Path, time::Duration};
+use std::{env, time::Duration};
 
 use async_trait::async_trait;
 use azure_cloud_connector_proto::azure_cloud_connector::{
@@ -12,12 +12,14 @@ use log::debug;
 use serde::{Deserialize, Serialize};
 use tonic::transport::Channel;
 
-use crate::azure_cloud_connector_adapter_config::{Config, CONFIG_FILE};
-use freyja_common::retry_utils::execute_with_retry;
+use freyja_common::{config_utils, out_dir, retry_utils::execute_with_retry};
 use freyja_contracts::cloud_adapter::{
     CloudAdapter, CloudAdapterError, CloudMessageRequest, CloudMessageResponse,
 };
 
+use crate::config::Config;
+
+const CONFIG_FILE_STEM: &str = "azure_cloud_connector_adapter_config";
 const MODEL_ID_KEY: &str = "model_id";
 const INSTANCE_ID_KEY: &str = "instance_id";
 const INSTANCE_PROPERTY_PATH_KEY: &str = "instance_property_path";
@@ -82,16 +84,18 @@ impl CloudAdapter for AzureCloudConnectorAdapter {
     /// Creates a new instance of a CloudAdapter with default settings
     fn create_new() -> Result<Self, CloudAdapterError> {
         let cloud_connector_client = futures::executor::block_on(async {
-            let config_file = fs::read_to_string(Path::new(env!("OUT_DIR")).join(CONFIG_FILE))
-                .map_err(CloudAdapterError::io)?;
-            // Load the config
-            let config: Config =
-                serde_json::from_str(&config_file).map_err(CloudAdapterError::deserialize)?;
+            let config: Config = config_utils::read_from_files(
+                CONFIG_FILE_STEM,
+                config_utils::JSON_EXT,
+                out_dir!(),
+                CloudAdapterError::io,
+                CloudAdapterError::deserialize,
+            )?;
 
             execute_with_retry(
                 config.max_retries,
                 Duration::from_millis(config.retry_interval_ms),
-                || AzureCloudConnectorClient::connect(config.cloud_connector_url.clone()),
+                || AzureCloudConnectorClient::connect(config.cloud_connector_uri.clone()),
                 Some(String::from(
                     "Connection retry for connecting to Azure Cloud Connector",
                 )),

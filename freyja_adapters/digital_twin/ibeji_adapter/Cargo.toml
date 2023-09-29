@@ -26,3 +26,6 @@ tokio = { workspace = true }
 tokio-stream = { workspace = true, features = ["net"] }
 tonic = { workspace = true }
 tower = { workspace = true }
+
+[build-dependencies]
+freyja-build-common = { workspace = true }

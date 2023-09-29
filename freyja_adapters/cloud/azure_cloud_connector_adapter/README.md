@@ -1,8 +1,6 @@
 # Azure Cloud Connector Adapter
 
-This is an example implementation of an adapter for the [Azure Cloud Connectors](../../../cloud_connectors/azure/README.md).
-
-This adapter is used to communicate with an Azure Cloud Connector to synchronize in-vehicle signals with the cloud.
+The Azure Cloud Connector Adapter is used to communicate with the [Azure Cloud Connectors](../../../cloud_connectors/azure/README.md) to synchronize in-vehicle signals with the cloud.
 
 ## Prerequisites
 
@@ -12,8 +10,10 @@ You will need to either have the [Azure Digital Twins Connector](../../../cloud_
 
 ## Configuration
 
-This cloud adapter can be configured using the `res/azure_cloud_connector_adapter_config.json` file. This file is automatically copied to the build output and contains the following properties:
+This adapter supports the following configuration settings:
 
-- `cloud_connector_url`: The URL of the cloud connector. This should match the configuration for your cloud connector.
+- `cloud_connector_uri`: The URI of the cloud connector. This should match the configuration for your cloud connector.
 - `max_retries`: The maximum number of times to retry failed attempts to send data to the cloud connector.
-- `retry_interval_ms`: The duration between retries.
+- `retry_interval_ms`: The duration between retries in milliseconds.
+
+This adapter supports the same [config override method](https://github.com/eclipse-ibeji/freyja/blob/main/docs/config-overrides.md) as the Freyja mocks. The override filename is `azure_cloud_connector_adapter_config.json`, and the default config is located at `res/azure_cloud_connector_adapter_config.default.json`.
