@@ -13,7 +13,7 @@ Whether or not you are using Chariott, the following config values are required:
 - `service_type`: Specifies whether to call Ibeji directly or use Chariott's Service Discovery system to find it. Valid values are `"ChariottDiscoveryService"` and `"InVehicleDigitalTwinService"`.
 - `uri`: The URI for the selected service.
 - `max_retries`: The maximum number of times to retry failed attempts to communicate with the digital twin service.
-- `retry_interval_ms`: The duration between retries.
+- `retry_interval_ms`: The duration between retries in milliseconds.
 
 ### Ibeji Without Chariott
 
