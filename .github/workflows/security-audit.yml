@@ -7,6 +7,7 @@ on:
       - "**/Cargo.toml"
       - "**/Cargo.lock"
       - ".github/workflows/security-audit.yaml"
+      - "cloud_connectors/azure/**"
   schedule:
     - cron: "0 0 * * *" # once a day at midnight UTC
     # NB: that cron trigger on GH actions runs only on the default branch
