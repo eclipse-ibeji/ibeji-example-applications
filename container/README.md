@@ -6,7 +6,7 @@ This document describes how to utilize the provided Dockerfiles for containeriza
 
 ### Freyja Apps
 
-To containerize the [Example Freyja Apps](./freyja_apps/), use
+To containerize the [Example Freyja Apps](../freyja_apps/), use
 [Dockerfile.freyja_apps](../Dockerfile.freyja_apps). This dockerfile defaults to the
 [In Memory Example Application](../freyja_apps/in_memory/).
 
