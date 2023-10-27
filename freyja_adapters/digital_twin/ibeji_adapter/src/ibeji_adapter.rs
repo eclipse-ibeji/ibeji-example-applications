@@ -22,7 +22,7 @@ use freyja_contracts::{
     entity::Entity,
 };
 
-use crate::config::{ChariottDiscoverRequest, Config};
+use crate::config::{self, ChariottDiscoverRequest, Config};
 
 const CONFIG_FILE_STEM: &str = "ibeji_adapter_config";
 const GET_OPERATION: &str = "Get";
@@ -43,10 +43,12 @@ impl IbejiAdapter {
         chariott_service_discovery_uri: &str,
         chariott_discovery_request: ChariottDiscoverRequest,
     ) -> Result<String, DigitalTwinAdapterError> {
-        let mut service_registry_client =
-            ServiceRegistryClient::connect(String::from(chariott_service_discovery_uri))
-                .await
-                .map_err(DigitalTwinAdapterError::communication)?;
+        let chariott_uri =
+            config::get_uri(chariott_service_discovery_uri).map_err(DigitalTwinAdapterError::io)?;
+
+        let mut service_registry_client = ServiceRegistryClient::connect(chariott_uri)
+            .await
+            .map_err(DigitalTwinAdapterError::communication)?;
 
         let discover_request = Request::new(DiscoverRequest {
             namespace: chariott_discovery_request.namespace,
@@ -120,11 +122,14 @@ impl DigitalTwinAdapter for IbejiAdapter {
             }
         };
 
+        let invehicle_digital_twin_uri = config::get_uri(&invehicle_digital_twin_service_uri)
+            .map_err(DigitalTwinAdapterError::io)?;
+
         let client = futures::executor::block_on(async {
             execute_with_retry(
                 max_retries,
                 Duration::from_millis(retry_interval_ms),
-                || InvehicleDigitalTwinClient::connect(invehicle_digital_twin_service_uri.clone()),
+                || InvehicleDigitalTwinClient::connect(invehicle_digital_twin_uri.clone()),
                 Some(String::from("Connection retry for connecting to Ibeji")),
             )
             .await
@@ -193,12 +198,14 @@ impl DigitalTwinAdapter for IbejiAdapter {
             String::from(GET_OPERATION)
         };
 
+        let entity_uri = config::get_uri(&endpoint.uri).map_err(DigitalTwinAdapterError::io)?;
+
         let entity = Entity {
             id: entity_id,
             description: Some(entity_access_info.description),
             name: Some(entity_access_info.name),
             operation,
-            uri: endpoint.uri,
+            uri: entity_uri,
             protocol: endpoint.protocol,
         };
 
