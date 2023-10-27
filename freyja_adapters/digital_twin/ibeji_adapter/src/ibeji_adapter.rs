@@ -2,7 +2,7 @@
 // Licensed under the MIT license.
 // SPDX-License-Identifier: MIT
 
-use std::{str::FromStr, time::Duration};
+use std::time::Duration;
 
 use async_trait::async_trait;
 use core_protobuf_data_access::invehicle_digital_twin::v1::{
@@ -20,7 +20,6 @@ use freyja_contracts::{
         GetDigitalTwinProviderResponse,
     },
     entity::Entity,
-    provider_proxy::OperationKind,
 };
 
 use crate::config::{self, ChariottDiscoverRequest, Config};
@@ -199,9 +198,6 @@ impl DigitalTwinAdapter for IbejiAdapter {
             String::from(GET_OPERATION)
         };
 
-        let operation =
-            OperationKind::from_str(&operation).map_err(DigitalTwinAdapterError::parse_error)?;
-
         let entity_uri = config::get_uri(&endpoint.uri).map_err(DigitalTwinAdapterError::io)?;
 
         let entity = Entity {
@@ -346,7 +342,7 @@ mod ibeji_digital_twin_adapter_tests {
                 assert!(result.is_ok());
 
                 let response = result.unwrap();
-                assert_eq!(response.entity.operation, OperationKind::Subscribe);
+                assert_eq!(response.entity.operation, SUBSCRIBE_OPERATION);
             };
 
             tokio::select! {
