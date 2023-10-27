@@ -7,8 +7,8 @@
 use serde::{Deserialize, Serialize};
 use std::env;
 
-/// If feature 'containerize' is set, will modify a localhost uri to point to container's localhost
-/// DNS alias. Otherwise, returns the uri as a String.
+/// If feature 'containerize' is set, it will modify a localhost uri to point to container's
+/// localhost DNS alias. Otherwise, returns the uri as a String.
 ///
 /// # Arguments
 /// * `uri` - The uri to potentially modify.
