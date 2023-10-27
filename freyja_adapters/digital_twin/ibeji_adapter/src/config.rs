@@ -16,14 +16,14 @@ pub fn get_uri(uri: &str) -> Result<String, Box<dyn std::error::Error + Send + S
     #[cfg(feature = "containerize")]
     let uri = {
         // Container env variable names.
-        const HOST_GATEWAY_ENV_VAR: &str = "HOST_GATEWAY";
-        const LOCALHOST_ALIAS_ENV_VAR: &str = "LOCALHOST_ALIAS";
+        let host_gateway_env_var: &str = "HOST_GATEWAY";
+        let host_alias_env_var: &str = "LOCALHOST_ALIAS";
 
         // Return an error if container env variables are not set.
-        let host_gateway = env::var(HOST_GATEWAY_ENV_VAR)?;
-        let localhost_alias = env::var(LOCALHOST_ALIAS_ENV_VAR)?; // DevSkim: ignore DS162092
+        let host_gateway = env::var(host_gateway_env_var)?;
+        let host_alias = env::var(host_alias_env_var)?;
 
-        uri.replace(&localhost_alias, &host_gateway) // DevSkim: ignore DS162092
+        uri.replace(&host_alias, &host_gateway)
     };
 
     Ok(uri.to_string())
