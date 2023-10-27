@@ -4,8 +4,8 @@
 
 #![allow(unused_imports)]
 
-use std::env;
 use serde::{Deserialize, Serialize};
+use std::env;
 
 /// If feature 'containerize' is set, will modify a localhost uri to point to container's localhost
 /// DNS alias. Otherwise, returns the uri as a String.

@@ -44,12 +44,12 @@ impl IbejiAdapter {
         chariott_service_discovery_uri: &str,
         chariott_discovery_request: ChariottDiscoverRequest,
     ) -> Result<String, DigitalTwinAdapterError> {
-        let chariott_uri = config::get_uri(chariott_service_discovery_uri).map_err(DigitalTwinAdapterError::io)?;
+        let chariott_uri =
+            config::get_uri(chariott_service_discovery_uri).map_err(DigitalTwinAdapterError::io)?;
 
-        let mut service_registry_client =
-            ServiceRegistryClient::connect(chariott_uri)
-                .await
-                .map_err(DigitalTwinAdapterError::communication)?;
+        let mut service_registry_client = ServiceRegistryClient::connect(chariott_uri)
+            .await
+            .map_err(DigitalTwinAdapterError::communication)?;
 
         let discover_request = Request::new(DiscoverRequest {
             namespace: chariott_discovery_request.namespace,
