@@ -11,6 +11,7 @@ To containerize the [Example Freyja Apps](../freyja_apps/), use
 [In Memory Example Application](../freyja_apps/in_memory/).
 
 Currently the following example applications can be containerized:
+
 - [In Memory Example Application](../freyja_apps/in_memory/)
 - [Ibeji Adapter Example Application](../freyja_apps/ibeji_adapter)
 
