@@ -43,7 +43,7 @@ Dockerfile:
 command in the project's root directory:
 
     ```shell
-    docker run --name freyja_in_memory -it --rm freyja_in_memory
+    docker run --name freyja_in_memory --env-file=./container/config/docker.env -it --rm freyja_in_memory
     ```
 
 1. To detach from the container, enter:
@@ -77,7 +77,7 @@ Dockerfile:
 project's root directory:
 
     ```shell
-    podman run localhost/freyja_in_memory
+    podman run --env-file=./container/config/podman.env localhost/freyja_in_memory
     ```
 
 1. To stop the container, run:

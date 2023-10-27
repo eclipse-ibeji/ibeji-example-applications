@@ -8,10 +8,10 @@ This document describes how to utilize the provided Dockerfiles for containeriza
 
 To containerize the [Example Freyja Apps](./freyja_apps/), use
 [Dockerfile.freyja_apps](../Dockerfile.freyja_apps). This dockerfile defaults to the
-[In-Memory Example Application](../freyja_apps/in_memory/).
+[In Memory Example Application](../freyja_apps/in_memory/).
 
 Currently the following example applications can be containerized:
-- [In-Memory Example Application](../freyja_apps/in_memory/)
+- [In Memory Example Application](../freyja_apps/in_memory/)
 - [Ibeji Adapter Example Application](../freyja_apps/ibeji_adapter)
 
 Each supported application has a README describing the steps to containerize the application.

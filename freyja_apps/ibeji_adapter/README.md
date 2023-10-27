@@ -43,7 +43,7 @@ Dockerfile:
     ```
 
     The `APP_NAME` build arg needs to be set as `Dockerfile.freyja_apps` defaults to the
-    [in-memory](../in_memory/) example application.
+    [In Memory Example Application](../in_memory/).
 
 1. Once the container has been built, start the container in interactive mode with the following
 command in the project's root directory:
@@ -52,8 +52,8 @@ command in the project's root directory:
     docker run -v ${FREYJA_HOME}:/sdv/.freyja --name freyja_ibeji_adapter -p 60010:60010 --env-file=./container/config/docker.env --add-host=host.docker.internal:host-gateway -it --rm freyja_ibeji_adapter
     ```
 
-    This command mounts the `$FREYJA_HOME` path set above in the container allowing the application
-    to use the provided overrides for the mixed sample in Ibeji. 
+    `-v` mounts the `$FREYJA_HOME` path set above in the container allowing the application to use
+    the provided overrides for the mixed sample in Ibeji. 
 
 1. To detach from the container, enter:
 
@@ -83,7 +83,7 @@ Dockerfile:
     ```
 
     The `APP_NAME` build arg needs to be set as `Dockerfile.freyja_apps` defaults to the
-    [in-memory](../in_memory/) example application.
+    [In Memory Example Application](../in_memory/).
 
 1. Once the container has been built, start the container with the following command in the
 project's root directory:
@@ -92,8 +92,8 @@ project's root directory:
     podman run --mount=type=bind,src=${FREYJA_HOME},dst=/sdv/.freyja,ro=true -p 60010:60010 --env-file=./container/config/podman.env --network=slirp4netns:allow_host_loopback=true localhost/freyja_ibeji_adapter
     ```
 
-    This command mounts the `$FREYJA_HOME` path set above in the container allowing the application
-    to use the provided overrides for the mixed sample in Ibeji. 
+    `-v` mounts the `$FREYJA_HOME` path set above in the container allowing the application to use
+    the provided overrides for the mixed sample in Ibeji. 
 
 1. To stop the container, run:
 
