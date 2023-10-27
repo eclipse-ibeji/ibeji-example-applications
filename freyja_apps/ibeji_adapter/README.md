@@ -53,7 +53,7 @@ command in the project's root directory:
     ```
 
     `-v` mounts the `$FREYJA_HOME` path set above in the container allowing the application to use
-    the provided overrides for the mixed sample in Ibeji. 
+    the provided overrides for the mixed sample in Ibeji.
 
 1. To detach from the container, enter:
 
@@ -93,7 +93,7 @@ project's root directory:
     ```
 
     `-v` mounts the `$FREYJA_HOME` path set above in the container allowing the application to use
-    the provided overrides for the mixed sample in Ibeji. 
+    the provided overrides for the mixed sample in Ibeji.
 
 1. To stop the container, run:
 
