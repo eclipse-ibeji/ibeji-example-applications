@@ -19,4 +19,4 @@ To create your own Freyja application, you can copy this template and make the f
     1. Import your adapters with `use` statements.
     1. Change the type names in the `freyja_main!` macro invocation to your imported types. Order matters here, so make sure you list your adapters in the same order as they are presented in the template.
 
-To build and run your application, you can use Cargo commands such as `cargo run`.
+To build and run your application, you can use Cargo commands such as `cargo run`. When working with this repository it's recommended to use the `-p` argument followed by the application package name with Cargo commands. Note that running Cargo commands without specifying the `-p` argument might target every package in the workspace!

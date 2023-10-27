@@ -10,7 +10,7 @@ To build and run the application, run the following from the repo root:
 cargo run -p freyja-in-memory-app
 ```
 
-This will rebuild the application as necessary and then run it. Note that running Cargo commands without specifying the `-p` argument might target every package in the workspace! When working with this repository it's recommended to use the `-p` argument with Cargo commands.
+This will rebuild the `freyja-in-memory-app` application as necessary and then run it.
 
 ## Supported Versions
 

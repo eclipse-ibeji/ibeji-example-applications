@@ -18,7 +18,7 @@ To build and run the application, follow these steps:
 
         cargo run -p freyja-ibeji-adapter-app
 
-    This will rebuild the application as necessary and then run it. Note that running Cargo commands without specifying the `-p` argument might target every package in the workspace! When working with this repository it's recommended to use the `-p` argument with Cargo commands.
+    This will rebuild the `freyja-ibeji-adapter-app` application as necessary and then run it.
 
 ## Containerize the Ibeji Adapter Freyja Example Application
 
