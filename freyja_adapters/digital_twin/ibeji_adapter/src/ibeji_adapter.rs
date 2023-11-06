@@ -6,7 +6,8 @@ use std::time::Duration;
 
 use async_trait::async_trait;
 use core_protobuf_data_access::invehicle_digital_twin::v1::{
-    invehicle_digital_twin_client::InvehicleDigitalTwinClient, FindByIdRequest as IbejiFindByIdRequest,
+    invehicle_digital_twin_client::InvehicleDigitalTwinClient,
+    FindByIdRequest as IbejiFindByIdRequest,
 };
 use log::info;
 use service_discovery_proto::service_registry::v1::service_registry_client::ServiceRegistryClient;
@@ -18,8 +19,7 @@ use freyja_build_common::config_file_stem;
 use freyja_common::{config_utils, out_dir, retry_utils::execute_with_retry};
 use freyja_contracts::{
     digital_twin_adapter::{
-        DigitalTwinAdapter, DigitalTwinAdapterError, FindByIdRequest,
-        FindByIdResponse,
+        DigitalTwinAdapter, DigitalTwinAdapterError, FindByIdRequest, FindByIdResponse,
     },
     entity::{Entity, EntityEndpoint},
 };
@@ -168,21 +168,26 @@ impl DigitalTwinAdapter for IbejiAdapter {
                 id: entity_access_info.id,
                 name: Some(entity_access_info.name),
                 description: Some(entity_access_info.description),
-                endpoints: entity_access_info.endpoint_info_list.into_iter().map(|e| {
-                    EntityEndpoint {
+                endpoints: entity_access_info
+                    .endpoint_info_list
+                    .into_iter()
+                    .map(|e| EntityEndpoint {
                         protocol: e.protocol,
                         operations: e.operations,
                         uri: e.uri,
-                    }
-                }).collect()
-            }
+                    })
+                    .collect(),
+            },
         })
     }
 }
 
 #[cfg(test)]
 mod ibeji_digital_twin_adapter_tests {
-    use core_protobuf_data_access::invehicle_digital_twin::v1::{invehicle_digital_twin_server::InvehicleDigitalTwin, EndpointInfo, EntityAccessInfo, RegisterRequest, RegisterResponse, FindByIdResponse as IbejiFindByIdResponse};
+    use core_protobuf_data_access::invehicle_digital_twin::v1::{
+        invehicle_digital_twin_server::InvehicleDigitalTwin, EndpointInfo, EntityAccessInfo,
+        FindByIdResponse as IbejiFindByIdResponse, RegisterRequest, RegisterResponse,
+    };
     use tonic::{Response, Status};
 
     use super::*;
