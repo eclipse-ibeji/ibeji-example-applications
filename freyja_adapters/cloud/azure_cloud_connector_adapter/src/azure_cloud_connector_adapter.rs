@@ -12,6 +12,7 @@ use log::debug;
 use serde::{Deserialize, Serialize};
 use tonic::transport::Channel;
 
+use freyja_build_common::config_file_stem;
 use freyja_common::{config_utils, out_dir, retry_utils::execute_with_retry};
 use freyja_contracts::cloud_adapter::{
     CloudAdapter, CloudAdapterError, CloudMessageRequest, CloudMessageResponse,
@@ -19,7 +20,6 @@ use freyja_contracts::cloud_adapter::{
 
 use crate::config::Config;
 
-const CONFIG_FILE_STEM: &str = "azure_cloud_connector_adapter_config";
 const MODEL_ID_KEY: &str = "model_id";
 const INSTANCE_ID_KEY: &str = "instance_id";
 const INSTANCE_PROPERTY_PATH_KEY: &str = "instance_property_path";
@@ -85,7 +85,7 @@ impl CloudAdapter for AzureCloudConnectorAdapter {
     fn create_new() -> Result<Self, CloudAdapterError> {
         let cloud_connector_client = futures::executor::block_on(async {
             let config: Config = config_utils::read_from_files(
-                CONFIG_FILE_STEM,
+                config_file_stem!(),
                 config_utils::JSON_EXT,
                 out_dir!(),
                 CloudAdapterError::io,

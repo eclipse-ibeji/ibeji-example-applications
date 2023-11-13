@@ -6,27 +6,23 @@ use std::time::Duration;
 
 use async_trait::async_trait;
 use core_protobuf_data_access::invehicle_digital_twin::v1::{
-    invehicle_digital_twin_client::InvehicleDigitalTwinClient, EndpointInfo, FindByIdRequest,
+    invehicle_digital_twin_client::InvehicleDigitalTwinClient,
+    FindByIdRequest as IbejiFindByIdRequest,
 };
-use log::{info, warn};
+use log::info;
 use service_discovery_proto::service_registry::v1::service_registry_client::ServiceRegistryClient;
 use service_discovery_proto::service_registry::v1::DiscoverRequest;
 use tonic::{transport::Channel, Request};
 
+use crate::config::{self, ChariottDiscoverRequest, Config};
+use freyja_build_common::config_file_stem;
 use freyja_common::{config_utils, out_dir, retry_utils::execute_with_retry};
 use freyja_contracts::{
     digital_twin_adapter::{
-        DigitalTwinAdapter, DigitalTwinAdapterError, GetDigitalTwinProviderRequest,
-        GetDigitalTwinProviderResponse,
+        DigitalTwinAdapter, DigitalTwinAdapterError, FindByIdRequest, FindByIdResponse,
     },
-    entity::Entity,
+    entity::{Entity, EntityEndpoint},
 };
-
-use crate::config::{self, ChariottDiscoverRequest, Config};
-
-const CONFIG_FILE_STEM: &str = "ibeji_adapter_config";
-const GET_OPERATION: &str = "Get";
-const SUBSCRIBE_OPERATION: &str = "Subscribe";
 
 /// Contacts the In-Vehicle Digital Twin Service in Ibeji
 pub struct IbejiAdapter {
@@ -77,7 +73,7 @@ impl DigitalTwinAdapter for IbejiAdapter {
     /// Creates a new instance of a DigitalTwinAdapter with default settings
     fn create_new() -> Result<Self, DigitalTwinAdapterError> {
         let config = config_utils::read_from_files(
-            CONFIG_FILE_STEM,
+            config_file_stem!(),
             config_utils::JSON_EXT,
             out_dir!(),
             DigitalTwinAdapterError::io,
@@ -146,10 +142,10 @@ impl DigitalTwinAdapter for IbejiAdapter {
     /// - `request`: the request for finding an entity's access information
     async fn find_by_id(
         &self,
-        request: GetDigitalTwinProviderRequest,
-    ) -> Result<GetDigitalTwinProviderResponse, DigitalTwinAdapterError> {
+        request: FindByIdRequest,
+    ) -> Result<FindByIdResponse, DigitalTwinAdapterError> {
         let entity_id = request.entity_id;
-        let request = tonic::Request::new(FindByIdRequest {
+        let request = tonic::Request::new(IbejiFindByIdRequest {
             id: entity_id.clone(),
         });
 
@@ -166,62 +162,35 @@ impl DigitalTwinAdapter for IbejiAdapter {
             .entity_access_info
             .ok_or(format!("Cannot find {entity_id} with find_by_id"))
             .map_err(DigitalTwinAdapterError::entity_not_found)?;
-        let entity_endpoint_info_list = entity_access_info.endpoint_info_list;
 
-        let endpoint: Option<(EndpointInfo, String)> = entity_endpoint_info_list
-            .into_iter()
-            .find_map(|endpoint_info| {
-                endpoint_info.operations.iter().find_map(|operation| {
-                    if *operation == SUBSCRIBE_OPERATION || *operation == GET_OPERATION {
-                        return Some((endpoint_info.clone(), operation.clone()));
-                    }
-                    None
-                })
-            });
-
-        if endpoint.is_none() {
-            let message = format!("No access info to connect with {entity_id}");
-            warn!("{message}");
-            return Err(DigitalTwinAdapterError::communication(message));
-        }
-
-        let (endpoint, _) = endpoint.unwrap();
-
-        // If both Subscribe and Get are supported, then we pick Subscribe over Get
-        let operation = if endpoint
-            .operations
-            .iter()
-            .any(|op| op == SUBSCRIBE_OPERATION)
-        {
-            String::from(SUBSCRIBE_OPERATION)
-        } else {
-            String::from(GET_OPERATION)
-        };
-
-        let entity_uri = config::get_uri(&endpoint.uri).map_err(DigitalTwinAdapterError::io)?;
-
-        let entity = Entity {
-            id: entity_id,
-            description: Some(entity_access_info.description),
-            name: Some(entity_access_info.name),
-            operation,
-            uri: entity_uri,
-            protocol: endpoint.protocol,
-        };
-
-        Ok(GetDigitalTwinProviderResponse { entity })
+        Ok(FindByIdResponse {
+            entity: Entity {
+                id: entity_access_info.id,
+                name: Some(entity_access_info.name),
+                description: Some(entity_access_info.description),
+                endpoints: entity_access_info
+                    .endpoint_info_list
+                    .into_iter()
+                    .map(|e| EntityEndpoint {
+                        protocol: e.protocol,
+                        operations: e.operations,
+                        uri: e.uri,
+                    })
+                    .collect(),
+            },
+        })
     }
 }
 
 #[cfg(test)]
 mod ibeji_digital_twin_adapter_tests {
-    use super::*;
-
     use core_protobuf_data_access::invehicle_digital_twin::v1::{
-        invehicle_digital_twin_server::InvehicleDigitalTwin, EntityAccessInfo, FindByIdRequest,
-        FindByIdResponse, RegisterRequest, RegisterResponse,
+        invehicle_digital_twin_server::InvehicleDigitalTwin, EndpointInfo, EntityAccessInfo,
+        FindByIdResponse as IbejiFindByIdResponse, RegisterRequest, RegisterResponse,
     };
-    use tonic::{Request, Response, Status};
+    use tonic::{Response, Status};
+
+    use super::*;
 
     const AMBIENT_AIR_TEMPERATURE_ID: &str = "dtmi:sdv:Vehicle:Cabin:HVAC:AmbientAirTemperature;1";
 
@@ -231,8 +200,8 @@ mod ibeji_digital_twin_adapter_tests {
     impl InvehicleDigitalTwin for MockInVehicleTwin {
         async fn find_by_id(
             &self,
-            request: Request<FindByIdRequest>,
-        ) -> Result<Response<FindByIdResponse>, Status> {
+            request: Request<IbejiFindByIdRequest>,
+        ) -> Result<Response<IbejiFindByIdResponse>, Status> {
             let entity_id = request.into_inner().id;
 
             if entity_id != AMBIENT_AIR_TEMPERATURE_ID {
@@ -240,6 +209,7 @@ mod ibeji_digital_twin_adapter_tests {
                     "Unable to find the entity with id {entity_id}",
                 ));
             }
+
             let endpoint_info = EndpointInfo {
                 protocol: String::from("grpc"),
                 uri: String::from("http://[::1]:40010"), // Devskim: ignore DS137138
@@ -254,7 +224,7 @@ mod ibeji_digital_twin_adapter_tests {
                 endpoint_info_list: vec![endpoint_info],
             };
 
-            let response = FindByIdResponse {
+            let response = IbejiFindByIdResponse {
                 entity_access_info: Some(entity_access_info),
             };
 
@@ -327,7 +297,7 @@ mod ibeji_digital_twin_adapter_tests {
                 let client = create_test_grpc_client(bind_path.clone()).await;
                 let ibeji_digital_twin_adapter = IbejiAdapter { client };
 
-                let request = GetDigitalTwinProviderRequest {
+                let request = FindByIdRequest {
                     entity_id: String::from("invalid_entity"),
                 };
 
@@ -335,14 +305,12 @@ mod ibeji_digital_twin_adapter_tests {
 
                 assert!(result.is_err());
 
-                let request = GetDigitalTwinProviderRequest {
+                let request = FindByIdRequest {
                     entity_id: String::from(AMBIENT_AIR_TEMPERATURE_ID),
                 };
+
                 let result = ibeji_digital_twin_adapter.find_by_id(request).await;
                 assert!(result.is_ok());
-
-                let response = result.unwrap();
-                assert_eq!(response.entity.operation, SUBSCRIBE_OPERATION);
             };
 
             tokio::select! {
