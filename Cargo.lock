@@ -549,7 +549,7 @@ dependencies = [
 [[package]]
 name = "freyja"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#045fdc25a1525f188be2f1166325763b6783fdd8"
+source = "git+https://github.com/eclipse-ibeji/freyja#a163a0bc4e109d117e40817303e32409c9b63d80"
 dependencies = [
  "crossbeam",
  "env_logger",
@@ -565,12 +565,12 @@ dependencies = [
 [[package]]
 name = "freyja-build-common"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#045fdc25a1525f188be2f1166325763b6783fdd8"
+source = "git+https://github.com/eclipse-ibeji/freyja#a163a0bc4e109d117e40817303e32409c9b63d80"
 
 [[package]]
 name = "freyja-common"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#045fdc25a1525f188be2f1166325763b6783fdd8"
+source = "git+https://github.com/eclipse-ibeji/freyja#a163a0bc4e109d117e40817303e32409c9b63d80"
 dependencies = [
  "config",
  "freyja-contracts",
@@ -583,7 +583,7 @@ dependencies = [
 [[package]]
 name = "freyja-contracts"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#045fdc25a1525f188be2f1166325763b6783fdd8"
+source = "git+https://github.com/eclipse-ibeji/freyja#a163a0bc4e109d117e40817303e32409c9b63d80"
 dependencies = [
  "async-trait",
  "crossbeam",
@@ -749,7 +749,7 @@ checksum = "6fb8d784f27acf97159b40fc4db5ecd8aa23b9ad5ef69cdd136d3bc80665f0c0"
 [[package]]
 name = "grpc-provider-proxy-v1"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#045fdc25a1525f188be2f1166325763b6783fdd8"
+source = "git+https://github.com/eclipse-ibeji/freyja#a163a0bc4e109d117e40817303e32409c9b63d80"
 dependencies = [
  "async-trait",
  "crossbeam",
@@ -846,7 +846,7 @@ dependencies = [
 [[package]]
 name = "http-mock-provider-proxy"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#045fdc25a1525f188be2f1166325763b6783fdd8"
+source = "git+https://github.com/eclipse-ibeji/freyja#a163a0bc4e109d117e40817303e32409c9b63d80"
 dependencies = [
  "async-trait",
  "axum",
@@ -963,7 +963,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-cloud-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#045fdc25a1525f188be2f1166325763b6783fdd8"
+source = "git+https://github.com/eclipse-ibeji/freyja#a163a0bc4e109d117e40817303e32409c9b63d80"
 dependencies = [
  "async-trait",
  "freyja-contracts",
@@ -975,7 +975,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-digital-twin-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#045fdc25a1525f188be2f1166325763b6783fdd8"
+source = "git+https://github.com/eclipse-ibeji/freyja#a163a0bc4e109d117e40817303e32409c9b63d80"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -988,7 +988,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-mapping-client"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#045fdc25a1525f188be2f1166325763b6783fdd8"
+source = "git+https://github.com/eclipse-ibeji/freyja#a163a0bc4e109d117e40817303e32409c9b63d80"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -1001,7 +1001,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-provider-proxy"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#045fdc25a1525f188be2f1166325763b6783fdd8"
+source = "git+https://github.com/eclipse-ibeji/freyja#a163a0bc4e109d117e40817303e32409c9b63d80"
 dependencies = [
  "async-trait",
  "crossbeam",
@@ -1446,7 +1446,7 @@ dependencies = [
 [[package]]
 name = "proc-macros"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#045fdc25a1525f188be2f1166325763b6783fdd8"
+source = "git+https://github.com/eclipse-ibeji/freyja#a163a0bc4e109d117e40817303e32409c9b63d80"
 dependencies = [
  "convert_case",
  "proc-macro2",
@@ -1511,7 +1511,7 @@ dependencies = [
 [[package]]
 name = "provider-proxy-selector"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#045fdc25a1525f188be2f1166325763b6783fdd8"
+source = "git+https://github.com/eclipse-ibeji/freyja#a163a0bc4e109d117e40817303e32409c9b63d80"
 dependencies = [
  "async-trait",
  "crossbeam",
