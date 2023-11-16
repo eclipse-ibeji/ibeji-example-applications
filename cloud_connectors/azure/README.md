@@ -16,6 +16,8 @@ The [Digital Twins Connector](./digital_twins_connector/README.md) updates an Az
 
 The deployment scripts in the `{freyja-root-dir}/cloud_connectors/azure/scripts` directory will automate the deployment of necessary Azure resources depending on which Azure Cloud Connector sample you wish to use.
 
+>NOTE: The deployment scripts are compatible with the [`mixed` sample for Ibeji](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/mixed). Modification of the Cloud Digital Twin may be required for other scenarios.
+
 To run the deployment scripts, you will need to complete each prerequisite section specified below.
 
 Alternatively, you can create Azure resources via the Azure portal. Please see [Manual Azure Digital Twins Setup](./digital_twins_connector/README.md#manual-azure-digital-twins-setup) for the Digital Twins Connector sample, and [Manual Deployment of Azure Key Vault, Event Grid, and Azure Function App](./mqtt_connector/README.md#manual-deployment-of-azure-key-vault-event-grid-and-azure-function-app) for the MQTT Connector sample.

@@ -6,7 +6,7 @@ This Freyja Example Application utilizes the [Ibeji Digital Twin Adapter](../../
 
 To build and run the application, follow these steps:
 
-1. (Optional) If necessary, author configuration overrides for the [`InMemoryMockMappingClient`](https://github.com/eclipse-ibeji/freyja/tree/main/mapping_clients/in_memory_mock_mapping_client). Refer to the adapter README files for instructions on how to do this. This repository provides overrides in the [`.freyja`](../../.freyja/) directory that can be used with the [`mixed` sample`](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/mixed), [`managed subscribe` sample](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/managed_subscribe), and ['property' sample](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/property) found in Ibeji.
+1. (Optional) If necessary, author configuration overrides for the [`InMemoryMockMappingClient`](https://github.com/eclipse-ibeji/freyja/tree/main/mapping_clients/in_memory_mock_mapping_client). Refer to the adapter README files for instructions on how to do this. This repository provides overrides for the samples listed under [Supported Samples](#supported-samples).
 
 1. Set the `$FREYJA_HOME` environment variable. If you are using the provided overrides, you can run the following command to set the variable:
 
@@ -19,6 +19,14 @@ To build and run the application, follow these steps:
         cargo run -p freyja-ibeji-adapter-app
 
     This will rebuild the `freyja-ibeji-adapter-app` application as necessary and then run it.
+
+## Supported Samples
+
+This repository provides overrides in the [`.freyja`](../../.freyja/) directory that support the following Ibeji samples:
+
+- [`managed subscribe` sample](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/managed_subscribe)
+- [`mixed` sample`](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/mixed)
+- ['property' sample](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/property)
 
 ## Containerize the Ibeji Adapter Freyja Example Application
 
