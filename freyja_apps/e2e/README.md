@@ -10,7 +10,7 @@ To build and run the application, follow these steps:
 
 1. Set the `$FREYJA_HOME` environment variable. If you are using the provided overrides, you can run the following command to set the variable:
 
-        export FREYJA_HOME={path-to-repo-root}/.freyja
+        export FREYJA_HOME={path-to-repo-root}/.freyja/mixed_sample
 
     Alternatively, you can set the variable in a [Cargo configuration file](https://doc.rust-lang.org/cargo/reference/config.html) to only enable the variable while running a Cargo command.
 

@@ -6,11 +6,11 @@ This Freyja Example Application utilizes the [Ibeji Digital Twin Adapter](../../
 
 To build and run the application, follow these steps:
 
-1. (Optional) If necessary, author configuration overrides for the [`InMemoryMockMappingClient`](https://github.com/eclipse-ibeji/freyja/tree/main/mapping_clients/in_memory_mock_mapping_client). Refer to the adapter README files for instructions on how to do this. This repository provides overrides in the [`.freyja`](../../.freyja/) directory that can be used with the [`mixed` sample provided by Ibeji](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/mixed).
+1. (Optional) If necessary, author configuration overrides for the [`InMemoryMockMappingClient`](https://github.com/eclipse-ibeji/freyja/tree/main/mapping_clients/in_memory_mock_mapping_client). Refer to the adapter README files for instructions on how to do this. This repository provides overrides in the [`.freyja`](../../.freyja/) directory that can be used with the [`mixed` sample`](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/mixed), [`managed subscribe` sample](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/manages_subscribe), and ['property' sample](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/property) found in Ibeji.
 
 1. Set the `$FREYJA_HOME` environment variable. If you are using the provided overrides, you can run the following command to set the variable:
 
-        export FREYJA_HOME={path-to-repo-root}/.freyja
+        export FREYJA_HOME={path-to-repo-root}/.freyja/{sample-folder}
 
     Alternatively, you can set the variable in a [Cargo configuration file](https://doc.rust-lang.org/cargo/reference/config.html) to only enable the variable while running a Cargo command.
 
