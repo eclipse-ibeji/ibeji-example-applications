@@ -24,9 +24,9 @@ To build and run the application, follow these steps:
 
 This repository provides overrides in the [`.freyja`](../../.freyja/) directory that support the following Ibeji samples:
 
-- [`managed subscribe` sample](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/managed_subscribe)
-- [`mixed` sample`](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/mixed)
-- ['property' sample](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/property)
+- [managed subscribe](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/managed_subscribe)
+- [mixed](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/mixed)
+- [property](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/property)
 
 ## Containerize the Ibeji Adapter Freyja Example Application
 
