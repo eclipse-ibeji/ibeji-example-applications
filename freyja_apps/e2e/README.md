@@ -8,7 +8,7 @@ To build and run the application, follow these steps:
 
 1. (Optional) If necessary, author configuration overrides for the [`InMemoryMockMappingClient`](https://github.com/eclipse-ibeji/freyja/tree/main/mapping_clients/in_memory_mock_mapping_client). Refer to the adapter README files for instructions on how to do this. This repository provides overrides for the samples listed under [Supported Samples](../ibeji_adapter/README.md#supported-samples).
 
-1. Set the `$FREYJA_HOME` environment variable. If you are using the provided overrides, you can run the following command to set the variable:
+1. Set the `$FREYJA_HOME` environment variable. For example, to use the provided overrides for the [Ibeji mixed sample](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/mixed), you can run the command below. For a full list of sample scenarios provided in this repo, see [Sample Scenarios](#sample-scenarios).
 
         export FREYJA_HOME={path-to-repo-root}/.freyja/mixed_sample
 
