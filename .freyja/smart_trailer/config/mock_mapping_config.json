@@ -1,0 +1,19 @@
+{
+    "values": [
+        {
+            "begin": 2,
+            "end": null,
+            "value": {
+                "source": "dtmi:sdv:Trailer:Weight;1",
+                "target": {
+                    "model_id": "dtmi:sdv:Cloud:Trailer:Weight;1",
+                    "instance_id": "trailer",
+                    "instance_property_path": "/Weight"
+                },
+                "interval_ms": 3000,
+                "conversion": null,
+                "emit_on_change": false
+            }
+        }
+    ]
+}

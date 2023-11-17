@@ -175,6 +175,7 @@ impl DigitalTwinAdapter for IbejiAdapter {
                         protocol: e.protocol,
                         operations: e.operations,
                         uri: e.uri,
+                        context: e.context,
                     })
                     .collect(),
             },
