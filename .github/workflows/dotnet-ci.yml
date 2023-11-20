@@ -17,10 +17,10 @@ jobs:
     steps:
       - name: Checkout repository and submodules
         uses: actions/checkout@v3
-      - name: Install .NET ${DOTNET_VERSION}
+      - name: Install .NET ${{ env.DOTNET_VERSION }}
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: ${DOTNET_VERSION}
+          dotnet-version: ${{ env.DOTNET_VERSION }}
           global-json-file: cloud_connectors/azure/digital_twins_connector/global.json
       - name: Cache NuGet dependencies
         uses: actions/cache@v3
@@ -38,7 +38,7 @@ jobs:
         uses: dotnet/code-analysis@main
         id: net-code-analysis
         with:
-          dotnet-version: ${DOTNET_VERSION}
+          dotnet-version: ${{ env.DOTNET_VERSION }}
           projects: cloud_connectors/azure/digital_twins_connector/src/core/DigitalTwinsConnector.csproj;
             cloud_connectors/azure/digital_twins_connector/src/DigitalTwinsClientWrapper/DigitalTwinsClientWrapper.csproj;
             cloud_connectors/azure/digital_twins_connector/tests/DigitalTwinsClientWrapper.Tests/DigitalTwinsClientWrapper.Tests.csproj;
