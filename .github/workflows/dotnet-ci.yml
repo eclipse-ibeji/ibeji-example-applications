@@ -35,7 +35,7 @@ jobs:
       - name: Build MQTT Connector's Azure Function
         run: |
           dotnet build cloud_connectors/azure/mqtt_connector/azure_function/src/function.csproj -warnaserror
-          dotnet build cloud_connectors/azure/mqtt_connector/azure_function/testsMQTTConnectorAzureFunction.Tests.csproj -warnaserror
+          dotnet build cloud_connectors/azure/mqtt_connector/azure_function/tests/MQTTConnectorAzureFunction.Tests.csproj -warnaserror
       - name: Digital Twins Connector Tests
         run: dotnet test cloud_connectors/azure/digital_twins_connector/tests/**/*.csproj
       - name: MQTT Connector's Azure Function Tests
