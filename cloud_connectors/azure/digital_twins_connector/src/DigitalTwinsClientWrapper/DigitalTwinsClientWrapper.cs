@@ -59,7 +59,7 @@ namespace Microsoft.ESDV.CloudConnector.Azure
         /// <returns>Returns a task for updating a digital twin instance.</returns>
         public async Task UpdateDigitalTwinAsync(string modelID, string instanceID, string instancePropertyPath, string data)
         {
-            List<Type> dataTypes = new List<Type>() { typeof(Double), typeof(Boolean), typeof(Int32) };
+            List<Type> dataTypes = new() { typeof(double), typeof(bool), typeof(int) };
             var jsonPatchDocument = new JsonPatchDocument();
 
             foreach (Type type in dataTypes)
@@ -73,19 +73,31 @@ namespace Microsoft.ESDV.CloudConnector.Azure
                     {
                         instancePropertyPath = "$/{instancePropertyPath}";
                     }
+
                     // Once we're able to parse the data string to a type
                     // we append it to the jsonPatchDocument
                     jsonPatchDocument.AppendAdd(instancePropertyPath, value);
 
                     // First UpdateDigitalTwinAsync call may block due to initial authorization.
                     await _client.UpdateDigitalTwinAsync(instanceID, jsonPatchDocument);
-                    _logger.LogInformation($"Successfully set instance {instanceID}{instancePropertyPath} based on model {modelID} to {data}");
+                    _logger.LogInformation(
+                        "Successfully set instance {InstanceID}{InstancePropertyPath} based on model {ModelID} to {Data}",
+                        instanceID,
+                        instancePropertyPath,
+                        modelID,
+                        data);
                     return;
                 }
                 catch (RequestFailedException ex)
                 {
-                    _logger.LogError($"Cannot set instance {instanceID}{instancePropertyPath} based on model {modelID} to {data} due to {ex.Message}");
-                    throw ex;
+                    _logger.LogError(
+                        "Cannot set instance {InstanceID}{InstancePropertyPath} based on model {ModelID} to {Data} due to {Message}",
+                        instanceID,
+                        instancePropertyPath,
+                        modelID,
+                        data,
+                        ex.Message);
+                    throw;
                 }
                 // Try to parse string data with the next type if we're unsuccessful.
                 catch (Exception ex) when (ex is NotSupportedException || ex is ArgumentException || ex is FormatException)
