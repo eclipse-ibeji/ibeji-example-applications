@@ -43,7 +43,7 @@ namespace Microsoft.ESDV.CloudConnector.Azure.Tests
         }
 
         [Test]
-        public async Task UpdateDigitalTwinAsync_ShouldSucceed()
+        public async Task UpdateDigitalTwinAsyncShouldSucceed()
         {
             _instance.Data = "44.5";
             await MQTTConnectorAzureFunction.UpdateDigitalTwinAsync(_client, _instance, "double");
@@ -59,7 +59,7 @@ namespace Microsoft.ESDV.CloudConnector.Azure.Tests
         }
 
         [Test]
-        public void UpdateDigitalTwinAsync_ThrowNotSupported()
+        public void UpdateDigitalTwinAsyncThrowNotSupported()
         {
             _instance.Data = null;
             Assert.ThrowsAsync<NotSupportedException>(async () => await MQTTConnectorAzureFunction.UpdateDigitalTwinAsync(_client, _instance));

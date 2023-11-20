@@ -99,7 +99,7 @@ namespace Microsoft.ESDV.CloudConnector.Azure
                         modelID,
                         data,
                         ex.Message);
-                    throw;
+                    throw ex;
                 }
                 // Try to parse string data with the next type if we're unsuccessful.
                 catch (Exception ex) when (ex is NotSupportedException || ex is ArgumentException || ex is FormatException)

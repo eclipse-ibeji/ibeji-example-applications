@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
@@ -88,7 +89,7 @@ namespace Microsoft.ESDV.CloudConnector.Azure {
                 // Get the concrete data type of an instance's data based on its string data type name
                 // then uses that concrete data type to change the data from string to its concrete data type.
                 Type dataType = GetDataTypeFromString(dataTypeName);
-                dynamic convertedDataToType = Convert.ChangeType(instance.Data, dataType);
+                dynamic convertedDataToType = Convert.ChangeType(instance.Data, dataType, CultureInfo.InvariantCulture);
 
                 if (!DoesPathStartsWithSlash(instance.InstancePropertyPath))
                 {

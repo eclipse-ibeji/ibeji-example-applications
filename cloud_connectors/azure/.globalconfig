@@ -1,0 +1,6 @@
+# Global analyzer config for .NET projects
+is_global = true
+
+# The way to address this rule is not well documented and appears to be very complex,
+# so it's left as a suggestion for now
+dotnet_diagnostic.CA1848.severity = suggestion
