@@ -67,11 +67,11 @@ namespace Microsoft.ESDV.CloudConnector.Azure {
         /// <param name="dataTypeName">the name of the data type.
         /// <returns>Returns a task for updating a digital twin instance.</returns>
         public static Type GetDataTypeFromString(string dataTypeName) {
-            if (!dataTypeNameToConverterMap.ContainsKey(dataTypeName)) {
+            if (!dataTypeNameToConverterMap.TryGetValue(dataTypeName, out Type value)) {
                 throw new NotSupportedException($"No conversion for {dataTypeName}");
             }
 
-            return dataTypeNameToConverterMap[dataTypeName];
+            return value;
         }
 
         /// <summary>

@@ -31,7 +31,7 @@ namespace Microsoft.ESDV.CloudConnector.Azure.Tests
         }
 
         [Test]
-        public void ConvertStringToDataType_ShouldSucceed()
+        public void ConvertStringToDataTypeShouldSucceed()
         {
             Assert.Multiple(() =>
             {
