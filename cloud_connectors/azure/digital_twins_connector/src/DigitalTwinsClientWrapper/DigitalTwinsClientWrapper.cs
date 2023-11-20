@@ -56,6 +56,8 @@ namespace Microsoft.ESDV.CloudConnector.Azure
         /// <param name="instanceID">the digital twin instance ID.</param>
         /// <param name="instancePropertyPath">the property path of a digital twin instance to update.</param>
         /// <param name="data">the data used to update a digital twin instance's property.</param>
+        /// <exception cref="Azure.RequestFailedException">Rethrown if the client throws this exception</exception>
+        /// <exception cref="NotSupportedException">Thrown if the data parameter could not be parsed</exception>
         /// <returns>Returns a task for updating a digital twin instance.</returns>
         public async Task UpdateDigitalTwinAsync(string modelID, string instanceID, string instancePropertyPath, string data)
         {
