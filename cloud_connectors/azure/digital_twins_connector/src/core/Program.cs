@@ -36,6 +36,7 @@ namespace Microsoft.ESDV.CloudConnector.Azure
                 c.TimestampFormat = "[yyyy-MM-ddTHH:mm::ssZ] ";
                 c.UseUtcTimestamp = true;
             }));
+
             loggerFactory.CreateLogger("Main").LogInformation("Started the Azure Digital Twins Connector");
 
             // Instantiate the DigitalTwinClient first before adding it as a service for dependency injection.

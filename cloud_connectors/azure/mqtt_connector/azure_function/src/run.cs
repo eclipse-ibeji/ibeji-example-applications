@@ -20,7 +20,8 @@ namespace Microsoft.ESDV.CloudConnector.Azure {
     /// <summary>
     /// This class contains the info to target an Azure Digital Twin instance.
     /// </summary>
-    public class DigitalTwinsInstance {
+    public class DigitalTwinsInstance
+    {
         [JsonPropertyName("model_id")]
         public string ModelId { get; set; }
 
@@ -34,7 +35,8 @@ namespace Microsoft.ESDV.CloudConnector.Azure {
         public string Data { get; set; }
     }
 
-    public class MQTTConnectorAzureFunction {
+    public class MQTTConnectorAzureFunction
+    {
         private readonly ILogger _logger;
 
         private const string KEYVAULT_SETTINGS = "KEYVAULT_SETTINGS";
@@ -57,7 +59,8 @@ namespace Microsoft.ESDV.CloudConnector.Azure {
         /// </summary>
         /// <param name="path">the path.</param>
         /// <returns>Returns true if the path starts with a slash, otherwise false.</returns>
-        public static bool DoesPathStartsWithSlash(string path) {
+        public static bool DoesPathStartsWithSlash(string path)
+        {
             return path.StartsWith('/');
         }
 
@@ -66,8 +69,10 @@ namespace Microsoft.ESDV.CloudConnector.Azure {
         /// </summary>
         /// <param name="dataTypeName">the name of the data type.
         /// <returns>Returns a task for updating a digital twin instance.</returns>
-        public static Type GetDataTypeFromString(string dataTypeName) {
-            if (!dataTypeNameToConverterMap.TryGetValue(dataTypeName, out Type value)) {
+        public static Type GetDataTypeFromString(string dataTypeName)
+        {
+            if (!dataTypeNameToConverterMap.TryGetValue(dataTypeName, out Type value))
+            {
                 throw new NotSupportedException($"No conversion for {dataTypeName}");
             }
 
@@ -81,7 +86,8 @@ namespace Microsoft.ESDV.CloudConnector.Azure {
         /// <param name="instance">the digital twin instance to update.</param>
         /// <param name="dataTypeName">the name of the data type.
         /// <returns>Returns a task for updating a digital twin instance.</returns>
-        public static async Task UpdateDigitalTwinAsync(DigitalTwinsClient client, DigitalTwinsInstance instance, string dataTypeName = "double") {
+        public static async Task UpdateDigitalTwinAsync(DigitalTwinsClient client, DigitalTwinsInstance instance, string dataTypeName = "double")
+        {
             JsonPatchDocument jsonPatchDocument = new();
 
             try
@@ -122,10 +128,12 @@ namespace Microsoft.ESDV.CloudConnector.Azure {
         /// <exception>An exception is thrown if the Azure Digital Twin client cannot update an instance.</exception>
         /// <returns></returns>
         [FunctionName("MQTTConnectorAzureFunction")]
-        public async Task Run([EventGridTrigger] CloudEvent cloudEvent) {
+        public async Task Run([EventGridTrigger] CloudEvent cloudEvent)
+        {
             DigitalTwinsInstance instance = cloudEvent.Data.ToObjectFromJson<DigitalTwinsInstance>();
 
-            try {
+            try
+            {
                 DefaultAzureCredential credential = new();
                 string adt_instance_url = Environment.GetEnvironmentVariable(KEYVAULT_SETTINGS, EnvironmentVariableTarget.Process);
                 DigitalTwinsClient client = new(new Uri(adt_instance_url), credential);
@@ -133,7 +141,8 @@ namespace Microsoft.ESDV.CloudConnector.Azure {
                 _logger.LogInformation(@$"Successfully set instance {instance.InstanceId}{instance.InstancePropertyPath}
                     based on model {instance.ModelId} to {instance.Data}");
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 _logger.LogError(ex.Message);
                 throw;
             }
