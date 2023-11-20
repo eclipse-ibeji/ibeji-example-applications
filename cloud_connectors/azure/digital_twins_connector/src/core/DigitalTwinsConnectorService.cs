@@ -43,7 +43,7 @@ namespace Microsoft.ESDV.CloudConnector.Azure.GrpcService.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError("Error updating digital twin: {Message}", ex.Message);
+                _logger.LogError("Error updating digital twin: {ExceptionType}: {Message}", ex.GetType(), ex.Message);
                 throw;
             }
 

@@ -106,9 +106,13 @@ namespace Microsoft.ESDV.CloudConnector.Azure
                 }
             }
 
-            string errorMessage = $"Failed to parse {data}. Cannot set instance {instanceID}{instancePropertyPath} based on model {modelID} to {data}";
-            _logger.LogError(errorMessage);
-            throw new NotSupportedException(errorMessage);
+            _logger.LogError(
+                "Failed to parse data. Cannot set instance {InstanceID}{InstancePropertyPath} based on model {ModelID} to {Data}",
+                instanceID,
+                instancePropertyPath,
+                modelID,
+                data);
+            throw new NotSupportedException();
         }
     }
 }
