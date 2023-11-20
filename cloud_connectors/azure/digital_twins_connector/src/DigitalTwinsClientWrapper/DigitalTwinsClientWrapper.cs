@@ -28,7 +28,7 @@ namespace Microsoft.ESDV.CloudConnector.Azure
         /// </summary>
         /// <param name="path">the path.</param>
         /// <returns>Returns true if the path starts with a slash, otherwise false.</returns>
-        private bool DoesPathStartsWithSlash(string path)
+        private static bool DoesPathStartsWithSlash(string path)
         {
             return path.StartsWith('/');
         }

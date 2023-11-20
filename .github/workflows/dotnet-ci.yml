@@ -31,6 +31,17 @@ jobs:
         run: ./cloud_connectors/azure/digital_twins_connector/build.sh
       - name: Build MQTT Connector's Azure Function
         run: dotnet build cloud_connectors/azure/mqtt_connector/azure_function/src/function.csproj
+      - name: Run .NET Code Analysis
+        uses: dotnet/code-analysis@v1
+        id: net-code-analysis
+        with:
+          projects: cloud_connectors/azure/digital_twins_connector/src/core/DigitalTwinsConnector.csproj;
+            cloud_connectors/azure/digital_twins_connector/src/DigitalTwinsClientWrapper/DigitalTwinsClientWrapper.csproj;
+            cloud_connectors/azure/digital_twins_connector/tests/DigitalTwinsClientWrapper.Tests/DigitalTwinsClientWrapper.Tests.csproj;
+            cloud_connectors/azure/mqtt_connector/azure_function/src/function.csproj;
+            cloud_connectors/azure/mqtt_connector/azure_function/tests/MQTTConnectorAzureFunction.Tests.csproj
+          build-breaking: true
+          all-categories: latest-recommended
       - name: Digital Twins Connector Tests
         run: dotnet test cloud_connectors/azure/digital_twins_connector/tests/**/*.csproj
       - name: MQTT Connector's Azure Function Tests

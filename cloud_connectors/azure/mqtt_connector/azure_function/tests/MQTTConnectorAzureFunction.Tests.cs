@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 // SPDX-License-Identifier: MIT
 
+using System.Text.Json;
 using Azure.DigitalTwins.Core;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -22,49 +23,67 @@ namespace Microsoft.ESDV.CloudConnector.Azure.Tests
             _connector = new MQTTConnectorAzureFunction(new Mock<ILogger<MQTTConnectorAzureFunction>>().Object);
             _instance = new DigitalTwinsInstance
             {
-                model_id = "some-model",
-                instance_id = "some-instance",
-                instance_property_path = "some-instance-property",
-                data = null
+                ModelId = "some-model",
+                InstanceId = "some-instance",
+                InstancePropertyPath = "some-instance-property",
+                Data = null
             };
         }
 
         [Test]
         public void ConvertStringToDataType_ShouldSucceed()
         {
-            Assert.That(_connector.GetDataTypeFromString("int"), Is.EqualTo(typeof(int)));
-            Assert.That(_connector.GetDataTypeFromString("double"), Is.EqualTo(typeof(double)));
-            Assert.That(_connector.GetDataTypeFromString("boolean"), Is.EqualTo(typeof(bool)));
-            Assert.Throws<NotSupportedException>(() => _connector.GetDataTypeFromString("invalid-converter"));
+            Assert.Multiple(() =>
+            {
+                Assert.That(MQTTConnectorAzureFunction.GetDataTypeFromString("int"), Is.EqualTo(typeof(int)));
+                Assert.That(MQTTConnectorAzureFunction.GetDataTypeFromString("double"), Is.EqualTo(typeof(double)));
+                Assert.That(MQTTConnectorAzureFunction.GetDataTypeFromString("boolean"), Is.EqualTo(typeof(bool)));
+            });
+            Assert.Throws<NotSupportedException>(() => MQTTConnectorAzureFunction.GetDataTypeFromString("invalid-converter"));
         }
 
         [Test]
         public async Task UpdateDigitalTwinAsync_ShouldSucceed()
         {
-            _instance.data = "44.5";
-            await _connector.UpdateDigitalTwinAsync(_client, _instance, "double");
+            _instance.Data = "44.5";
+            await MQTTConnectorAzureFunction.UpdateDigitalTwinAsync(_client, _instance, "double");
             Assert.Pass();
 
-            _instance.data = "44";
-            await _connector.UpdateDigitalTwinAsync(_client, _instance, "int");
+            _instance.Data = "44";
+            await MQTTConnectorAzureFunction.UpdateDigitalTwinAsync(_client, _instance, "int");
             Assert.Pass();
 
-            _instance.data = "true";
-            await _connector.UpdateDigitalTwinAsync(_client, _instance, "boolean");
+            _instance.Data = "true";
+            await MQTTConnectorAzureFunction.UpdateDigitalTwinAsync(_client, _instance, "boolean");
             Assert.Pass();
         }
 
         [Test]
         public void UpdateDigitalTwinAsync_ThrowNotSupported()
         {
-            _instance.data = null;
-            Assert.ThrowsAsync<NotSupportedException>(async () => await _connector.UpdateDigitalTwinAsync(_client, _instance));
+            _instance.Data = null;
+            Assert.ThrowsAsync<NotSupportedException>(async () => await MQTTConnectorAzureFunction.UpdateDigitalTwinAsync(_client, _instance));
 
-            _instance.data = "test1234";
-            Assert.ThrowsAsync<NotSupportedException>(async () => await _connector.UpdateDigitalTwinAsync(_client, _instance, "invalid-converter"));
+            _instance.Data = "test1234";
+            Assert.ThrowsAsync<NotSupportedException>(async () => await MQTTConnectorAzureFunction.UpdateDigitalTwinAsync(_client, _instance, "invalid-converter"));
 
-            _instance.data = "";
-            Assert.ThrowsAsync<NotSupportedException>(async () => await _connector.UpdateDigitalTwinAsync(_client, _instance, "double"));
+            _instance.Data = "";
+            Assert.ThrowsAsync<NotSupportedException>(async () => await MQTTConnectorAzureFunction.UpdateDigitalTwinAsync(_client, _instance, "double"));
+        }
+
+        [Test]
+        public void CanDeserializeDigitalTwinsInstance()
+        {
+            string input = @"{
+                ""model_id"": ""some-model"",
+                ""instance_id"": ""some-instance"",
+                ""instance_property_path"": ""some-instance-property"",
+                ""data"": ""42""
+            }";
+
+            BinaryData data = BinaryData.FromString(input);
+
+            Assert.DoesNotThrow(() => data.ToObjectFromJson<DigitalTwinsInstance>());
         }
     }
 }

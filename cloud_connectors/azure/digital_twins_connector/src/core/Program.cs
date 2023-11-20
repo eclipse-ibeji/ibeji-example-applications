@@ -29,7 +29,7 @@ namespace Microsoft.ESDV.CloudConnector.Azure
 
             string adtInstanceUrl = adtInstanceConfig.AzureDigitalTwinsInstanceUrl;
             var credential = new DefaultAzureCredential();
-            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
+            DigitalTwinsClient client = new(new Uri(adtInstanceUrl), credential);
 
             ILoggerFactory loggerFactory = LoggerFactory.Create(builder => builder.AddSimpleConsole(c =>
             {
