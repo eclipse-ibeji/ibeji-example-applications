@@ -15,33 +15,33 @@ usage() {
 # Parse command line arguments
 while [[ $# -gt 0 ]]
 do
-key="$1"
+    key="$1"
 
-case $key in
-    -r|--resource-group-name)
-    resource_group="$2"
-    shift # past argument
-    shift # past value
-    ;;
-    -l|--location)
-    location="$2"
-    shift # past argument
-    shift # past value
-    ;;
-    -d|--digital-twins-name)
-    digital_twin_name="$2"
-    shift # past argument
-    shift # past value
-    ;;
-    -h|--help)
-    usage
-    exit 0
-    ;;
-    *)
-    echo "Unknown argument: $key"
-    usage
-    exit 1
-esac
+    case $key in
+        -r|--resource-group-name)
+            resource_group="$2"
+            shift # past argument
+            shift # past value
+            ;;
+        -l|--location)
+            location="$2"
+            shift # past argument
+            shift # past value
+            ;;
+        -d|--digital-twins-name)
+            digital_twin_name="$2"
+            shift # past argument
+            shift # past value
+            ;;
+        -h|--help)
+            usage
+            exit 0
+            ;;
+        *)
+            echo "Unknown argument: $key"
+            usage
+            exit 1
+    esac
 done
 
 # Check if all required arguments have been set
@@ -65,8 +65,8 @@ fi
 
 # Assign the Digital Twins Data Owner role
 echo -e "\nAssigning the Azure Digital Twins Data Owner role"
-userObjectID=$(az ad signed-in-user show --query id -o tsv)
-az dt role-assignment create --dt-name "$digital_twin_name" --assignee "$userObjectID"  --role "Azure Digital Twins Data Owner"
+user_object_id=$(az ad signed-in-user show --query id -o tsv)
+az dt role-assignment create --dt-name "$digital_twin_name" --assignee "$user_object_id"  --role "Azure Digital Twins Data Owner"
 
 # Upload the sample-dtdl models
 echo -e "\nUploading sample-dtdl models"

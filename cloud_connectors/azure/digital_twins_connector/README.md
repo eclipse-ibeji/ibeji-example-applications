@@ -20,7 +20,7 @@ sudo apt install dotnet-sdk-6.0
 
 ### Automated Azure Digital Twins Setup
 
-Before starting this section, please view [Prerequisites for Automated Deployment of Azure Resources](../README.md#prerequisites-for-automated-deployment-of-azure-resources).
+Before starting this section, please read [Prerequisites for Automated Deployment of Azure Resources](../README.md#prerequisites-for-automated-deployment-of-azure-resources).
 
 1. Sign in with Azure CLI. Follow the prompts after entering the following command.
 
@@ -33,12 +33,12 @@ az login --use-device-code
 ```shell
 cd {freyja-root-dir}/cloud_connectors/azure/scripts
 chmod +x digital_twins_setup.sh
-./digital_twins_setup.sh -r myRG -l westus2 -d myADT
+./digital_twins_setup.sh -r {myRG} -l westus2 -d {myADT}
 ```
 
 ### Automated Azure Digital Twins Setup for Smart Trailer Example
 
-Before starting this section, please view [Prerequisites for Automated Deployment of Azure Resources](../README.md#prerequisites-for-automated-deployment-of-azure-resources).
+Before starting this section, please read [Prerequisites for Automated Deployment of Azure Resources](../README.md#prerequisites-for-automated-deployment-of-azure-resources).
 
 1. Sign in with Azure CLI. Follow the prompts after entering the following command.
 
@@ -51,7 +51,7 @@ az login --use-device-code
 ```shell
 cd {freyja-root-dir}/cloud_connectors/azure/scripts
 chmod +x digital_twins_setup_smart_trailer.sh
-./digital_twins_setup.sh -r myRG -l westus2 -d myADT
+./digital_twins_setup.sh -r {myRG} -l westus2 -d {myADT}
 ```
 
 ### Manual Azure Digital Twins Setup
