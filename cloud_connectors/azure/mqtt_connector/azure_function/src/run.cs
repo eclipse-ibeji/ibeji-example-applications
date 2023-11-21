@@ -68,7 +68,8 @@ namespace Microsoft.ESDV.CloudConnector.Azure {
         /// Gets the data type from a data type name.
         /// </summary>
         /// <param name="dataTypeName">the name of the data type.
-        /// <returns>Returns a task for updating a digital twin instance.</returns>
+        /// <exception cref="NotSupportedException">Thrown if the data type is not supported.</exception>
+       /// <returns>Returns a task for updating a digital twin instance.</returns>
         public static Type GetDataTypeFromString(string dataTypeName)
         {
             if (!dataTypeNameToConverterMap.TryGetValue(dataTypeName, out Type value))
