@@ -36,6 +36,24 @@ chmod +x digital_twins_setup.sh
 ./digital_twins_setup.sh -r myRG -l westus2 -d myADT
 ```
 
+### Automated Azure Digital Twins Setup for Smart Trailer Example
+
+Before starting this section, please view [Prerequisites for Automated Deployment of Azure Resources](../README.md#prerequisites-for-automated-deployment-of-azure-resources).
+
+1. Sign in with Azure CLI. Follow the prompts after entering the following command.
+
+```shell
+az login --use-device-code
+```
+
+1. Deploy Azure Digital Twins to your resource group.
+
+```shell
+cd {freyja-root-dir}/cloud_connectors/azure/scripts
+chmod +x digital_twins_setup_smart_trailer.sh
+./digital_twins_setup.sh -r myRG -l westus2 -d myADT
+```
+
 ### Manual Azure Digital Twins Setup
 
 If you have successfully ran the `digital_twins_setup.sh`, you do not need to follow this section.

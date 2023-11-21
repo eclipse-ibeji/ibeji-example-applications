@@ -34,7 +34,7 @@ You must install the following:
 
 ### Azure Resource Group Role-Based Access Control
 
-You will need to be an Owner or a Contributor for your Azure resource group to deploy Azure resources using the scripts. Please see [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) for more details.
+You will need to be an Owner for your Azure resource group to deploy Azure resources using the scripts. Please see [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) for more details.
 
 ## Automated Deployment of Azure Resources
 
