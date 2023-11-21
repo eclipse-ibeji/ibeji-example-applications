@@ -22,26 +22,50 @@ namespace Microsoft.ESDV.CloudConnector.Azure {
     /// </summary>
     public class DigitalTwinsInstance
     {
+        /// <summary>
+        /// The Azure Digital Twins model ID
+        /// </summary>
         [JsonPropertyName("model_id")]
         public string ModelId { get; set; }
 
+        /// <summary>
+        /// The Azure Digital Twins instance ID
+        /// </summary>
         [JsonPropertyName("instance_id")]
         public string InstanceId { get; set; }
 
+        /// <summary>
+        /// The Azure Digital Twins instance property path
+        /// </summary>
         [JsonPropertyName("instance_property_path")]
         public string InstancePropertyPath { get; set; }
 
+        /// <summary>
+        /// The data to synchronize
+        /// </summary>
         [JsonPropertyName("data")]
         public string Data { get; set; }
     }
 
+    /// <summary>
+    /// Azure function for use with the MQTT connector.
+    /// Reads data from an event grid and forwards it to Azure Digital Twins.
+    /// </summary>
     public class MQTTConnectorAzureFunction
     {
+        /// <summary>
+        /// The logger for this function
+        /// </summary>
         private readonly ILogger _logger;
 
+        /// <summary>
+        /// The environment variable name for the keyvault settings
+        /// </summary>
         private const string KEYVAULT_SETTINGS = "KEYVAULT_SETTINGS";
 
-        // Maps a string data type name to its concrete data type.
+        /// <summary>
+        /// Maps a string data type name to its concrete data type.
+        /// </summary>
         private static readonly Dictionary<string, Type> dataTypeNameToConverterMap = new()
         {
             { "int", typeof(int) },
@@ -49,6 +73,10 @@ namespace Microsoft.ESDV.CloudConnector.Azure {
             { "boolean", typeof(bool) }
         };
 
+        /// <summary>
+        /// Create a new MQTTConnectorAzureFunction
+        /// </summary>
+        /// <param name="logger">The logger to use</param>
         public MQTTConnectorAzureFunction(ILogger<MQTTConnectorAzureFunction> logger)
         {
             _logger = logger;
@@ -67,7 +95,7 @@ namespace Microsoft.ESDV.CloudConnector.Azure {
         /// <summary>
         /// Gets the data type from a data type name.
         /// </summary>
-        /// <param name="dataTypeName">the name of the data type.
+        /// <param name="dataTypeName">the name of the data type.</param>
         /// <exception cref="NotSupportedException">Thrown if the data type is not supported.</exception>
         /// <returns>Returns a task for updating a digital twin instance.</returns>
         public static Type GetDataTypeFromString(string dataTypeName)
@@ -85,7 +113,7 @@ namespace Microsoft.ESDV.CloudConnector.Azure {
         /// </summary>
         /// <param name="client">the Azure Digital Twins client.</param>
         /// <param name="instance">the digital twin instance to update.</param>
-        /// <param name="dataTypeName">the name of the data type.
+        /// <param name="dataTypeName">the name of the data type. Defaults to "double".</param>
         /// <returns>Returns a task for updating a digital twin instance.</returns>
         public static async Task UpdateDigitalTwinAsync(DigitalTwinsClient client, DigitalTwinsInstance instance, string dataTypeName = "double")
         {
