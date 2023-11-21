@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
+# SPDX-License-Identifier: MIT
+
 set -e
 
 # Set the current directory to where the script lives.
@@ -70,7 +74,7 @@ az dt role-assignment create --dt-name "$digital_twin_name" --assignee "$user_ob
 
 # Upload the sample-dtdl models
 echo -e "\nUploading sample-dtdl models"
-for file in $(find ../sample-dtdl -name "*.json"); do
+for file in $(find ../sample-dtdl -name "trailer.json"); do
     if ! az dt model create --dt-name ${digital_twin_name} --models $file; then
         echo "$file" dtdl already uploaded.
     fi
@@ -78,24 +82,7 @@ done
 
 # Create the Azure Digital Twin instances
 echo -e "\nCreating the Azure Digital Twin instances"
-az dt twin create --dt-name "$digital_twin_name" --dtmi "dtmi:sdv:Cloud:Vehicle;1" --twin-id vehicle
-az dt twin create --dt-name "$digital_twin_name" --dtmi "dtmi:sdv:Cloud:Vehicle:OBD;1" --twin-id obd
-az dt twin create --dt-name "$digital_twin_name" --dtmi "dtmi:sdv:Cloud:Vehicle:Cabin:HVAC;1" --twin-id hvac
-
-# Create the relationships
-echo -e "\nCreating the Azure Digital Twin instance relationships"
-az dt twin relationship create \
-    --dt-name "$digital_twin_name" \
-    --relationship-id rel_has_hvac \
-    --relationship rel_has_hvac \
-    --twin-id vehicle \
-    --target hvac
-az dt twin relationship create \
-    --dt-name "$digital_twin_name" \
-    --relationship-id rel_has_obd \
-    --relationship rel_has_obd \
-    --twin-id vehicle \
-    --target obd
+az dt twin create --dt-name "$digital_twin_name" --dtmi "dtmi:sdv:Cloud:Trailer;1" --twin-id trailer
 
 echo -e "\nSetup finished for Freyja's Sample Azure Digital Twins"
 exit 0

@@ -1,0 +1,17 @@
+{
+    "@context": [
+        "dtmi:dtdl:context;2"
+    ],
+    "@type": "Interface",
+    "@id": "dtmi:sdv:Cloud:Trailer;1",
+    "description": "Trailer used for transporting cargo",
+    "contents": [
+        {
+            "@type": "Property",
+            "@id": "dtmi:sdv:Cloud:Trailer:Weight;1",
+            "name": "Weight",
+            "description": "The weight of the trailer",
+            "schema": "integer"
+        }
+    ]
+}
