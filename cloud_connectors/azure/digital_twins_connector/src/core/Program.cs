@@ -29,13 +29,14 @@ namespace Microsoft.ESDV.CloudConnector.Azure
 
             string adtInstanceUrl = adtInstanceConfig.AzureDigitalTwinsInstanceUrl;
             var credential = new DefaultAzureCredential();
-            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
+            DigitalTwinsClient client = new(new Uri(adtInstanceUrl), credential);
 
             ILoggerFactory loggerFactory = LoggerFactory.Create(builder => builder.AddSimpleConsole(c =>
             {
                 c.TimestampFormat = "[yyyy-MM-ddTHH:mm::ssZ] ";
                 c.UseUtcTimestamp = true;
             }));
+
             loggerFactory.CreateLogger("Main").LogInformation("Started the Azure Digital Twins Connector");
 
             // Instantiate the DigitalTwinClient first before adding it as a service for dependency injection.

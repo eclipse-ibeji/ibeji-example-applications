@@ -23,7 +23,7 @@ namespace Microsoft.ESDV.CloudConnector.Azure.Tests
         }
 
         [Test]
-        public async Task UpdateDigitalTwinAsync_ShouldSucceed()
+        public async Task UpdateDigitalTwinAsyncShouldSucceed()
         {
             const string modelID = "some-model";
             const string instanceID = "some-instance";
@@ -33,7 +33,7 @@ namespace Microsoft.ESDV.CloudConnector.Azure.Tests
         }
 
         [Test]
-        public void UpdateDigitalTwinAsync_ThrowNotSupported()
+        public void UpdateDigitalTwinAsyncThrowNotSupported()
         {
             const string modelID = "some-model";
             const string instanceID = "some-instance";
