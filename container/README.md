@@ -56,6 +56,8 @@ under the [.freyja/mixed_sample](../.freyja/mixed_sample/) directory.
 
 To run the service in a Docker container:
 
+>Note: Before running any of the following commands, replace all placeholders (wrapped with `<>`).
+
 1. Run the following command in the project root directory to build the docker container from the
 Dockerfile:
 
@@ -152,6 +154,8 @@ environment variable called CONFIG_HOME to the path to the config file:
 ### Running in Podman
 
 To run the service in a Podman container:
+
+>Note: Before running any of the following commands, replace all placeholders (wrapped with `<>`).
 
 1. Run the following command in the project root directory to build the podman container from the
 Dockerfile:
