@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  DOTNET_VERSION: 6.0.119
+  DOTNET_VERSION: 6.0.x
 
 jobs:
   static_code_analysis:
@@ -21,7 +21,6 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
-          global-json-file: cloud_connectors/azure/digital_twins_connector/global.json
       - name: Cache NuGet dependencies
         uses: actions/cache@v3
         with:

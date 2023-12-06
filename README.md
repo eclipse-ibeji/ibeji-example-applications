@@ -22,7 +22,7 @@ The Freyja examples include:
 
 ### Supported Ibeji Samples
 
-This repository provides freyja configuration overrides in the [`.freyja`](../../.freyja/) directory that support the following Ibeji samples:
+This repository provides freyja configuration overrides in the [`.freyja`](.freyja/) directory that support the following Ibeji samples:
 
 - [managed subscribe](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/managed_subscribe)
 - [mixed](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/mixed)

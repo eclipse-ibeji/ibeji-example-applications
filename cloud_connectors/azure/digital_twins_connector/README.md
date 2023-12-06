@@ -118,8 +118,8 @@ dotnet run --project src/core/
 ## Containerize the Azure Digital Twins Cloud Connector Application
 
 To build and run the application in a container, follow the steps under
-[Docker Containers](../../container/README.md#docker-containers) or
-[Podman Containers](../../container/README.md#podman-containers).
+[Docker Containers](../../../container/README.md#docker-containers) or
+[Podman Containers](../../../container/README.md#podman-containers).
 
 Set `CONFIG_HOME` to point to the directory containing the `adt_instance_config.json` file modified
 in step 4 of [Manual Azure Digital Twins Setup](#manual-azure-digital-twins-setup).
