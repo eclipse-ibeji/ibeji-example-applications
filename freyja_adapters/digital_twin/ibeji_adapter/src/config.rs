@@ -7,28 +7,6 @@
 use serde::{Deserialize, Serialize};
 use std::env;
 
-/// If feature 'containerize' is set, it will modify a localhost uri to point to container's
-/// localhost DNS alias. Otherwise, returns the uri as a String.
-///
-/// # Arguments
-/// * `uri` - The uri to potentially modify.
-pub fn get_uri(uri: &str) -> Result<String, Box<dyn std::error::Error + Send + Sync>> {
-    #[cfg(feature = "containerize")]
-    let uri = {
-        // Container env variable names.
-        let host_gateway_env_var: &str = "HOST_GATEWAY";
-        let host_alias_env_var: &str = "LOCALHOST_ALIAS";
-
-        // Return an error if container env variables are not set.
-        let host_gateway = env::var(host_gateway_env_var)?;
-        let host_alias = env::var(host_alias_env_var)?;
-
-        uri.replace(&host_alias, &host_gateway)
-    };
-
-    Ok(uri.to_string())
-}
-
 /// Configuration for the Ibeji Adapter.
 /// Supports two different schemas based on the service discovery method.
 #[derive(Clone, Serialize, Deserialize)]

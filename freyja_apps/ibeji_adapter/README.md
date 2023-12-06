@@ -6,7 +6,7 @@ This Freyja Example Application utilizes the [Ibeji Digital Twin Adapter](../../
 
 To build and run the application, follow these steps:
 
-1. (Optional) If necessary, author configuration overrides for the [`InMemoryMockMappingClient`](https://github.com/eclipse-ibeji/freyja/tree/main/mapping_clients/in_memory_mock_mapping_client). Refer to the adapter README files for instructions on how to do this. This repository provides overrides for the samples listed under [Supported Samples](#supported-samples).
+1. (Optional) If necessary, author configuration overrides for the [`InMemoryMockMappingClient`](https://github.com/eclipse-ibeji/freyja/tree/main/mapping_clients/in_memory_mock_mapping_client). Refer to the adapter README files for instructions on how to do this. This repository provides overrides for the samples listed under [Supported Ibeji Samples](../../README.md#supported-ibeji-samples).
 
 1. Set the `$FREYJA_HOME` environment variable. For example, to use the provided overrides for the [Ibeji mixed sample](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/mixed), you can run the command below.
 
@@ -20,91 +20,10 @@ To build and run the application, follow these steps:
 
     This will rebuild the `freyja-ibeji-adapter-app` application as necessary and then run it.
 
-## Supported Samples
-
-This repository provides overrides in the [`.freyja`](../../.freyja/) directory that support the following Ibeji samples:
-
-- [managed subscribe](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/managed_subscribe)
-- [mixed](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/mixed)
-- [property](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/property)
-
 ## Containerize the Ibeji Adapter Freyja Example Application
 
-To build and run the application in a container, follow the steps under [Docker](#docker) or
-[Podman](#podman). Ensure that the `$FREYJA_HOME` environment variable is set.
+To build and run the application in a container, follow the steps under
+[Docker Containers](../../container/README.md#docker-containers) or
+[Podman Containers](../../container/README.md#podman-containers).
 
-### Docker
-
-#### Prerequisites
-
-[Install Docker](https://docs.docker.com/engine/install/)
-
-#### Running in Docker
-
-To run the service in a Docker container:
-
-1. Run the following command in the project's root directory to build the docker container from the
-Dockerfile:
-
-    ```shell
-    docker build -t freyja_ibeji_adapter --build-arg APP_NAME=freyja-ibeji-adapter-app -f Dockerfile.freyja_apps .
-    ```
-
-    The `APP_NAME` build arg needs to be set as `Dockerfile.freyja_apps` defaults to the
-    [In Memory Example Application](../in_memory/).
-
-1. Once the container has been built, start the container in interactive mode with the following
-command in the project's root directory:
-
-    ```shell
-    docker run -v ${FREYJA_HOME}:/sdv/.freyja --name freyja_ibeji_adapter -p 60010:60010 --env-file=./container/config/docker.env --add-host=host.docker.internal:host-gateway -it --rm freyja_ibeji_adapter
-    ```
-
-    `-v` mounts the `$FREYJA_HOME` path set above in the container allowing the application to use
-    the provided overrides for the mixed sample in Ibeji.
-
-1. To detach from the container, enter:
-
-    <kbd>Ctrl</kbd> + <kbd>p</kbd>, <kbd>Ctrl</kbd> + <kbd>q</kbd>
-
-1. To stop the container, enter:
-
-    ```shell
-    docker stop freyja_ibeji_adapter
-    ```
-
-### Podman
-
-#### Prerequisites
-
-[Install Podman](https://podman.io/docs/installation)
-
-#### Running in Podman
-
-To run the service in a Podman container:
-
-1. Run the following command in the project's root directory to build the podman container from the
-Dockerfile:
-
-    ```shell
-    podman build -t freyja_ibeji_adapter --build-arg=APP_NAME=freyja-ibeji-adapter-app -f Dockerfile.freyja_apps .
-    ```
-
-    The `APP_NAME` build arg needs to be set as `Dockerfile.freyja_apps` defaults to the
-    [In Memory Example Application](../in_memory/).
-
-1. Once the container has been built, start the container with the following command in the
-project's root directory:
-
-    ```shell
-    podman run --mount=type=bind,src=${FREYJA_HOME},dst=/sdv/.freyja,ro=true -p 60010:60010 --env-file=./container/config/podman.env --network=slirp4netns:allow_host_loopback=true localhost/freyja_ibeji_adapter
-    ```
-
-    `-v` mounts the `$FREYJA_HOME` path set above in the container allowing the application to use
-    the provided overrides for the mixed sample in Ibeji.
-
-1. To stop the container, run:
-
-    ```shell
-    podman ps -f ancestor=localhost/freyja_ibeji_adapter:latest --format="{{.Names}}" | xargs podman stop
-    ```
+Use `freyja-ibeji-adapter-app` for the `APP_NAME` build arg when building the container.

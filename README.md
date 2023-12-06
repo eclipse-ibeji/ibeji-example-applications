@@ -19,3 +19,11 @@ The Freyja examples include:
 - [Example Freyja Apps](./freyja_apps/): These are examples of how to write a Freyja application using its plugin model. Each example has a README describing its usage, and the `template` app can be used to get started with your own adapters.
 - [Example Freyja Adapters](./freyja_adapters/): These are examples of adapters that can be used with Freyja. Each adapter has a README describing its usage.
 - [Example Cloud Connectors](./cloud_connectors/): These are examples of cloud connectors that Freyja can interface with through the `CloudAdapter` trait. These serve as examples of how to integrate with specific cloud solutions.
+
+### Supported Ibeji Samples
+
+This repository provides freyja configuration overrides in the [`.freyja`](../../.freyja/) directory that support the following Ibeji samples:
+
+- [managed subscribe](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/managed_subscribe)
+- [mixed](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/mixed)
+- [property](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/property)
