@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 // SPDX-License-Identifier: MIT
 
+using System.Reflection;
 using System.Text.Json;
 
 using Azure.DigitalTwins.Core;
@@ -20,8 +21,8 @@ namespace Microsoft.ESDV.CloudConnector.Azure
     {
         static void Main(string[] args)
         {
-            const string AZURE_DIGITAL_TWINS_INSTANCE_CONFIG_PATH = @"bin/Debug/net6.0/config/adt_instance_config.json";
-            string contents = File.ReadAllText(AZURE_DIGITAL_TWINS_INSTANCE_CONFIG_PATH);
+            string azure_digital_twins_config_path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"config/adt_instance_config.json");
+            string contents = File.ReadAllText(azure_digital_twins_config_path);
             AzureDigitalTwinsInstanceConfig adtInstanceConfig = JsonSerializer.Deserialize<AzureDigitalTwinsInstanceConfig>(contents);
 
             // Configure the builder

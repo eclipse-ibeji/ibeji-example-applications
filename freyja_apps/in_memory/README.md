@@ -18,70 +18,10 @@ This template is integrated with [revision `a07b033`](https://github.com/eclipse
 
 ## Containerize the In Memory Freyja Example Application
 
-To build and run the application in a container, follow the steps under [Docker](#docker) or
-[Podman](#podman). This is not a very useful example but shows how the application can be
-containerized.
+To build and run the application in a container, follow the steps under
+[Docker Containers](../../container/README.md#docker-containers) or
+[Podman Containers](../../container/README.md#podman-containers).
 
-### Docker
+Use `freyja-in-memory-app` for the `APP_NAME` build arg when building the container.
 
-#### Prerequisites
-
-[Install Docker](https://docs.docker.com/engine/install/)
-
-#### Running in Docker
-
-To run the service in a Docker container:
-
-1. Run the following command in the project's root directory to build the docker container from the
-Dockerfile:
-
-    ```shell
-    docker build -t freyja_in_memory -f Dockerfile.freyja_apps .
-    ```
-
-1. Once the container has been built, start the container in interactive mode with the following
-command in the project's root directory:
-
-    ```shell
-    docker run --name freyja_in_memory --env-file=./container/config/docker.env -it --rm freyja_in_memory
-    ```
-
-1. To detach from the container, enter:
-
-    <kbd>Ctrl</kbd> + <kbd>p</kbd>, <kbd>Ctrl</kbd> + <kbd>q</kbd>
-
-1. To stop the container, enter:
-
-    ```shell
-    docker stop freyja_in_memory
-    ```
-
-### Podman
-
-#### Prerequisites
-
-[Install Podman](https://podman.io/docs/installation)
-
-#### Running in Podman
-
-To run the service in a Podman container:
-
-1. Run the following command in the project's root directory to build the podman container from the
-Dockerfile:
-
-    ```shell
-    podman build -t freyja_in_memory -f Dockerfile.freyja_apps .
-    ```
-
-1. Once the container has been built, start the container with the following command in the
-project's root directory:
-
-    ```shell
-    podman run --env-file=./container/config/podman.env localhost/freyja_in_memory
-    ```
-
-1. To stop the container, run:
-
-    ```shell
-    podman ps -f ancestor=localhost/freyja_in_memory:latest --format="{{.Names}}" | xargs podman stop
-    ```
+>Note: This is not a very useful example but shows how the application can be containerized.

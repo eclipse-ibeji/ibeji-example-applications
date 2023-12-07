@@ -38,11 +38,10 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: recursive
-      - name: Install .NET 6.0.119
+      - name: Install .NET 6.0.x
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 6.0.119
-          global-json-file: cloud_connectors/azure/digital_twins_connector/global.json
+          dotnet-version: '6.0.x'
       - name: Cache NuGet dependencies
         uses: actions/cache@v3
         with:

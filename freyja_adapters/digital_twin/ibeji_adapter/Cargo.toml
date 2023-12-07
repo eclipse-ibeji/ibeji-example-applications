@@ -30,6 +30,3 @@ tower = { workspace = true }
 
 [build-dependencies]
 freyja-build-common = { workspace = true }
-
-[features]
-containerize = []

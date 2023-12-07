@@ -18,3 +18,7 @@ tokio = { workspace = true, features = ["macros"] }
 azure-cloud-connector-adapter = { workspace = true }
 ibeji-adapter = { workspace = true }
 in-memory-mock-mapping-client = { workspace = true }
+
+# If built for aarch64, enable the 'vendored-ssl' feature.
+[target.'cfg(target_arch = "aarch64")'.dependencies]
+paho-mqtt = { workspace = true, features = ["vendored-ssl"] }

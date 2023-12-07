@@ -6,7 +6,7 @@ This Freyja Example Application utilizes the [Ibeji Digital Twin Adapter](../../
 
 To build and run the application, follow these steps:
 
-1. (Optional) If necessary, author configuration overrides for the [`InMemoryMockMappingClient`](https://github.com/eclipse-ibeji/freyja/tree/main/mapping_clients/in_memory_mock_mapping_client). Refer to the adapter README files for instructions on how to do this. This repository provides overrides for the samples listed under [Supported Samples](../ibeji_adapter/README.md#supported-samples).
+1. (Optional) If necessary, author configuration overrides for the [`InMemoryMockMappingClient`](https://github.com/eclipse-ibeji/freyja/tree/main/mapping_clients/in_memory_mock_mapping_client). Refer to the adapter README files for instructions on how to do this. This repository provides overrides for the samples listed under [Supported Samples](../../README.md#supported-ibeji-samples).
 
 1. Set the `$FREYJA_HOME` environment variable. For example, to use the provided overrides for the [Ibeji mixed sample](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/mixed), you can run the command below.
 
@@ -19,3 +19,11 @@ To build and run the application, follow these steps:
         cargo run -p freyja-e2e-app
 
         This will rebuild the `freyja-e2e-app` application as necessary and then run it.
+
+## Containerize the End-To-End Freyja Example Application
+
+To build and run the application in a container, follow the steps under
+[Docker Containers](../../container/README.md#docker-containers) or
+[Podman Containers](../../container/README.md#podman-containers).
+
+Use `freyja-e2e-app` for the `APP_NAME` build arg when building the container.

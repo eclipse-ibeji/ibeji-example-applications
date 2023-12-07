@@ -14,7 +14,7 @@ use service_discovery_proto::service_registry::v1::service_registry_client::Serv
 use service_discovery_proto::service_registry::v1::DiscoverRequest;
 use tonic::{transport::Channel, Request};
 
-use crate::config::{self, ChariottDiscoverRequest, Config};
+use crate::config::{ChariottDiscoverRequest, Config};
 use freyja_build_common::config_file_stem;
 use freyja_common::{config_utils, out_dir, retry_utils::execute_with_retry};
 use freyja_contracts::{
@@ -39,12 +39,10 @@ impl IbejiAdapter {
         chariott_service_discovery_uri: &str,
         chariott_discovery_request: ChariottDiscoverRequest,
     ) -> Result<String, DigitalTwinAdapterError> {
-        let chariott_uri =
-            config::get_uri(chariott_service_discovery_uri).map_err(DigitalTwinAdapterError::io)?;
-
-        let mut service_registry_client = ServiceRegistryClient::connect(chariott_uri)
-            .await
-            .map_err(DigitalTwinAdapterError::communication)?;
+        let mut service_registry_client =
+            ServiceRegistryClient::connect(chariott_service_discovery_uri.to_owned())
+                .await
+                .map_err(DigitalTwinAdapterError::communication)?;
 
         let discover_request = Request::new(DiscoverRequest {
             namespace: chariott_discovery_request.namespace,
@@ -118,14 +116,11 @@ impl DigitalTwinAdapter for IbejiAdapter {
             }
         };
 
-        let invehicle_digital_twin_uri = config::get_uri(&invehicle_digital_twin_service_uri)
-            .map_err(DigitalTwinAdapterError::io)?;
-
         let client = futures::executor::block_on(async {
             execute_with_retry(
                 max_retries,
                 Duration::from_millis(retry_interval_ms),
-                || InvehicleDigitalTwinClient::connect(invehicle_digital_twin_uri.clone()),
+                || InvehicleDigitalTwinClient::connect(invehicle_digital_twin_service_uri.clone()),
                 Some(String::from("Connection retry for connecting to Ibeji")),
             )
             .await
