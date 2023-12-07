@@ -62,7 +62,7 @@ To run the service in a Docker container:
 Dockerfile:
 
     ```shell
-    docker build -t <image_name> -f <Dockerfile> (optional: --build-arg=APP_NAME=<project name>) .
+    docker build -t <image_name> -f <Dockerfile> [--build-arg=APP_NAME=<project name>] .
     ```
 
     For example, to build an image for the `ibeji-adapter` project:
@@ -161,7 +161,7 @@ To run the service in a Podman container:
 Dockerfile:
 
     ```shell
-    podman build -t <image_name> -f <Dockerfile> (optional: --build-arg=APP_NAME=<project name>) .
+    podman build -t <image_name> -f <Dockerfile> [--build-arg=APP_NAME=<project name>] .
     ```
 
     For example, to build an image for the `ibeji-adapter` project:
