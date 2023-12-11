@@ -333,7 +333,7 @@ checksum = "e496a50fda8aacccc86d7529e2c1e0892dbd0f898a6b5645b5561b89c3210efa"
 [[package]]
 name = "core-protobuf-data-access"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/ibeji#79efe566c252f319f490ffdbe61471e31a495df5"
+source = "git+https://github.com/eclipse-ibeji/ibeji#3fbc1a56ef3a7d56e9e4200f29bc116331d225d0"
 dependencies = [
  "prost",
  "prost-types",
@@ -549,7 +549,7 @@ dependencies = [
 [[package]]
 name = "freyja"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#901faee50e7323138f3afb8cb94c620e4a14969c"
+source = "git+https://github.com/eclipse-ibeji/freyja#22d314f248794193fe14da47889fb3cda8938df2"
 dependencies = [
  "crossbeam",
  "env_logger",
@@ -570,12 +570,12 @@ dependencies = [
 [[package]]
 name = "freyja-build-common"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#901faee50e7323138f3afb8cb94c620e4a14969c"
+source = "git+https://github.com/eclipse-ibeji/freyja#22d314f248794193fe14da47889fb3cda8938df2"
 
 [[package]]
 name = "freyja-common"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#901faee50e7323138f3afb8cb94c620e4a14969c"
+source = "git+https://github.com/eclipse-ibeji/freyja#22d314f248794193fe14da47889fb3cda8938df2"
 dependencies = [
  "config",
  "freyja-contracts",
@@ -589,7 +589,7 @@ dependencies = [
 [[package]]
 name = "freyja-contracts"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#901faee50e7323138f3afb8cb94c620e4a14969c"
+source = "git+https://github.com/eclipse-ibeji/freyja#22d314f248794193fe14da47889fb3cda8938df2"
 dependencies = [
  "async-trait",
  "crossbeam",
@@ -759,7 +759,7 @@ checksum = "4271d37baee1b8c7e4b708028c57d816cf9d2434acb33a549475f78c181f6253"
 [[package]]
 name = "grpc-provider-proxy-v1"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#901faee50e7323138f3afb8cb94c620e4a14969c"
+source = "git+https://github.com/eclipse-ibeji/freyja#22d314f248794193fe14da47889fb3cda8938df2"
 dependencies = [
  "async-trait",
  "crossbeam",
@@ -856,7 +856,7 @@ dependencies = [
 [[package]]
 name = "http-mock-provider-proxy"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#901faee50e7323138f3afb8cb94c620e4a14969c"
+source = "git+https://github.com/eclipse-ibeji/freyja#22d314f248794193fe14da47889fb3cda8938df2"
 dependencies = [
  "async-trait",
  "axum",
@@ -974,7 +974,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-cloud-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#901faee50e7323138f3afb8cb94c620e4a14969c"
+source = "git+https://github.com/eclipse-ibeji/freyja#22d314f248794193fe14da47889fb3cda8938df2"
 dependencies = [
  "async-trait",
  "freyja-contracts",
@@ -986,7 +986,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-digital-twin-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#901faee50e7323138f3afb8cb94c620e4a14969c"
+source = "git+https://github.com/eclipse-ibeji/freyja#22d314f248794193fe14da47889fb3cda8938df2"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -999,7 +999,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-mapping-client"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#901faee50e7323138f3afb8cb94c620e4a14969c"
+source = "git+https://github.com/eclipse-ibeji/freyja#22d314f248794193fe14da47889fb3cda8938df2"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -1012,7 +1012,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-provider-proxy"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#901faee50e7323138f3afb8cb94c620e4a14969c"
+source = "git+https://github.com/eclipse-ibeji/freyja#22d314f248794193fe14da47889fb3cda8938df2"
 dependencies = [
  "async-trait",
  "crossbeam",
@@ -1129,7 +1129,7 @@ checksum = "b5e6163cb8c49088c2c36f57875e58ccd8c87c7427f7fbd50ea6710b2f3f2e8f"
 [[package]]
 name = "managed-subscribe-provider-proxy"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#901faee50e7323138f3afb8cb94c620e4a14969c"
+source = "git+https://github.com/eclipse-ibeji/freyja#22d314f248794193fe14da47889fb3cda8938df2"
 dependencies = [
  "async-trait",
  "core-protobuf-data-access",
@@ -1202,7 +1202,7 @@ dependencies = [
 [[package]]
 name = "mqtt-provider-proxy"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#901faee50e7323138f3afb8cb94c620e4a14969c"
+source = "git+https://github.com/eclipse-ibeji/freyja#22d314f248794193fe14da47889fb3cda8938df2"
 dependencies = [
  "async-trait",
  "crossbeam",
@@ -1504,7 +1504,7 @@ dependencies = [
 [[package]]
 name = "proc-macros"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#901faee50e7323138f3afb8cb94c620e4a14969c"
+source = "git+https://github.com/eclipse-ibeji/freyja#22d314f248794193fe14da47889fb3cda8938df2"
 dependencies = [
  "convert_case",
  "proc-macro2",
@@ -1569,7 +1569,7 @@ dependencies = [
 [[package]]
 name = "provider-proxy-selector"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#901faee50e7323138f3afb8cb94c620e4a14969c"
+source = "git+https://github.com/eclipse-ibeji/freyja#22d314f248794193fe14da47889fb3cda8938df2"
 dependencies = [
  "async-trait",
  "crossbeam",
@@ -1748,7 +1748,7 @@ checksum = "1ad4cc8da4ef723ed60bced201181d83791ad433213d8c24efffda1eec85d741"
 [[package]]
 name = "samples-protobuf-data-access"
 version = "1.0.0"
-source = "git+https://github.com/eclipse-ibeji/ibeji#79efe566c252f319f490ffdbe61471e31a495df5"
+source = "git+https://github.com/eclipse-ibeji/ibeji#3fbc1a56ef3a7d56e9e4200f29bc116331d225d0"
 dependencies = [
  "prost",
  "prost-types",
@@ -1852,7 +1852,7 @@ dependencies = [
 [[package]]
 name = "service_discovery_proto"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-chariott/chariott#81474c771d8092ec7bb5fb7bd48c328a6dc56eba"
+source = "git+https://github.com/eclipse-chariott/chariott#368bebb3f8cc902c94e7126f5ae24d9fe6ef20e1"
 dependencies = [
  "prost",
  "tokio",
@@ -2034,9 +2034,9 @@ checksum = "1f3ccbac311fea05f86f61904b462b55fb3df8837a366dfc601a0161d0532f20"
 
 [[package]]
 name = "tokio"
-version = "1.34.0"
+version = "1.35.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d0c014766411e834f7af5b8f4cf46257aab4036ca95e9d2c144a10f59ad6f5b9"
+checksum = "841d45b238a16291a4e1584e61820b8ae57d696cc5015c459c229ccc6990cc1c"
 dependencies = [
  "backtrace",
  "bytes",
