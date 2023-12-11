@@ -12,12 +12,12 @@ using Microsoft.ESDV.CloudConnector.Azure.GrpcService.Services;
 
 namespace Microsoft.ESDV.CloudConnector.Azure
 {
-    class AzureDigitalTwinsInstanceConfig
+    sealed class AzureDigitalTwinsInstanceConfig
     {
         public string AzureDigitalTwinsInstanceUrl { get; set; }
     }
 
-    class Program
+    sealed class Program
     {
         static void Main(string[] args)
         {
