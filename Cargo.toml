@@ -41,9 +41,9 @@ proc-macros = { git = "https://github.com/eclipse-ibeji/freyja" }
 service_discovery_proto = { git = "https://github.com/eclipse-chariott/chariott" }
 
 # Cargo dependencies
-async-trait = "0.1.73"
+async-trait = "0.1.75"
 env_logger = "0.10.0"
-futures = "0.3.28"
+futures = "0.3.30"
 log = "0.4.20"
 paho-mqtt = "0.12.1"
 prost = "0.12.3"
@@ -52,8 +52,8 @@ serde_json = "1.0.106"
 strum = "0.25.0"
 strum_macros = "0.25.2"
 tempfile = "3.8.0"
-time = "0.3.28"
-tokio = "1.35.0"
+time = "0.3.31"
+tokio = "1.35.1"
 tokio-stream = "0.1.14"
 tonic = "0.10"
 tonic-build = "0.10"
