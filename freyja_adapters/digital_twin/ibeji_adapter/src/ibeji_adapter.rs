@@ -17,7 +17,7 @@ use tonic::{transport::Channel, Request};
 use crate::config::{ChariottDiscoverRequest, Config};
 use freyja_build_common::config_file_stem;
 use freyja_common::{config_utils, out_dir, retry_utils::execute_with_retry};
-use freyja_contracts::{
+use freyja_common::{
     digital_twin_adapter::{
         DigitalTwinAdapter, DigitalTwinAdapterError, FindByIdRequest, FindByIdResponse,
     },

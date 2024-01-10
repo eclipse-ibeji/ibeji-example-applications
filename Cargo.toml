@@ -28,14 +28,22 @@ ibeji-adapter = { path = "freyja_adapters/digital_twin/ibeji_adapter" }
 core-protobuf-data-access = { git = "https://github.com/eclipse-ibeji/ibeji" }
 
 ## Freyja
-freyja = { git = "https://github.com/eclipse-ibeji/freyja" }
-freyja-build-common = { git = "https://github.com/eclipse-ibeji/freyja" }
-freyja-common = { git = "https://github.com/eclipse-ibeji/freyja" }
-freyja-contracts = { git = "https://github.com/eclipse-ibeji/freyja" }
-in-memory-mock-cloud-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
-in-memory-mock-digital-twin-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
-in-memory-mock-mapping-client = { git = "https://github.com/eclipse-ibeji/freyja" }
-proc-macros = { git = "https://github.com/eclipse-ibeji/freyja" }
+# freyja = { git = "https://github.com/eclipse-ibeji/freyja", branch = "wilyle/signal-store" }
+# freyja-build-common = { git = "https://github.com/eclipse-ibeji/freyja", branch = "wilyle/signal-store" }
+# freyja-common = { git = "https://github.com/eclipse-ibeji/freyja", branch = "wilyle/signal-store" }
+# #freyja-contracts = { git = "https://github.com/eclipse-ibeji/freyja" }
+# in-memory-mock-cloud-adapter = { git = "https://github.com/eclipse-ibeji/freyja", branch = "wilyle/signal-store" }
+# in-memory-mock-digital-twin-adapter = { git = "https://github.com/eclipse-ibeji/freyja", branch = "wilyle/signal-store" }
+# in-memory-mock-mapping-client = { git = "https://github.com/eclipse-ibeji/freyja", branch = "wilyle/signal-store" }
+# proc-macros = { git = "https://github.com/eclipse-ibeji/freyja", branch = "wilyle/signal-store" }
+freyja = { path = "../freyja/freyja" }
+freyja-build-common = { path = "../freyja/build_common" }
+freyja-common = { path = "../freyja/common" }
+#freyja-contracts = { git = "https://github.com/eclipse-ibeji/freyja" }
+in-memory-mock-cloud-adapter = { path = "../freyja/cloud_adapters/in_memory_mock_cloud_adapter" }
+in-memory-mock-digital-twin-adapter = { path = "../freyja/digital_twin_adapters/in_memory_mock_digital_twin_adapter" }
+in-memory-mock-mapping-client = { path = "../freyja/mapping_clients/in_memory_mock_mapping_client" }
+proc-macros = { path = "../freyja/proc_macros" }
 
 ## Chariott
 service_discovery_proto = { git = "https://github.com/eclipse-chariott/chariott" }
