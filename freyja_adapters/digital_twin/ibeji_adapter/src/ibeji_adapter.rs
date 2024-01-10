@@ -11,8 +11,7 @@ use core_protobuf_data_access::invehicle_digital_twin::v1::{
 };
 use log::info;
 use service_discovery_proto::service_registry::v1::{
-    DiscoverRequest,
-    service_registry_client::ServiceRegistryClient
+    service_registry_client::ServiceRegistryClient, DiscoverRequest,
 };
 use tonic::{transport::Channel, Request};
 

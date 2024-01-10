@@ -14,11 +14,8 @@ use tonic::transport::Channel;
 
 use freyja_build_common::config_file_stem;
 use freyja_common::{
-    cloud_adapter::{
-        CloudAdapter, CloudAdapterError, CloudMessageRequest, CloudMessageResponse,
-    },
-    config_utils,
-    out_dir,
+    cloud_adapter::{CloudAdapter, CloudAdapterError, CloudMessageRequest, CloudMessageResponse},
+    config_utils, out_dir,
     retry_utils::execute_with_retry,
 };
 
