@@ -31,7 +31,6 @@ core-protobuf-data-access = { git = "https://github.com/eclipse-ibeji/ibeji" }
 freyja = { git = "https://github.com/eclipse-ibeji/freyja" }
 freyja-build-common = { git = "https://github.com/eclipse-ibeji/freyja" }
 freyja-common = { git = "https://github.com/eclipse-ibeji/freyja" }
-#freyja-contracts = { git = "https://github.com/eclipse-ibeji/freyja" }
 in-memory-mock-cloud-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 in-memory-mock-digital-twin-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 in-memory-mock-mapping-client = { git = "https://github.com/eclipse-ibeji/freyja" }
