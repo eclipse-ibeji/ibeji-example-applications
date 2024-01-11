@@ -10,18 +10,21 @@ use core_protobuf_data_access::invehicle_digital_twin::v1::{
     FindByIdRequest as IbejiFindByIdRequest,
 };
 use log::info;
-use service_discovery_proto::service_registry::v1::service_registry_client::ServiceRegistryClient;
-use service_discovery_proto::service_registry::v1::DiscoverRequest;
+use service_discovery_proto::service_registry::v1::{
+    service_registry_client::ServiceRegistryClient, DiscoverRequest,
+};
 use tonic::{transport::Channel, Request};
 
 use crate::config::{ChariottDiscoverRequest, Config};
 use freyja_build_common::config_file_stem;
-use freyja_common::{config_utils, out_dir, retry_utils::execute_with_retry};
-use freyja_contracts::{
+use freyja_common::{
+    config_utils,
     digital_twin_adapter::{
         DigitalTwinAdapter, DigitalTwinAdapterError, FindByIdRequest, FindByIdResponse,
     },
     entity::{Entity, EntityEndpoint},
+    out_dir,
+    retry_utils::execute_with_retry,
 };
 
 /// Contacts the In-Vehicle Digital Twin Service in Ibeji
