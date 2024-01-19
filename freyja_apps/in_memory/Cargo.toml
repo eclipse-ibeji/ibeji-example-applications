@@ -9,15 +9,17 @@ edition = "2021"
 license = "MIT"
 
 [dependencies]
-# These two dependencies are required for anyone implementing a Freyja application
+# These dependencies are required for anyone implementing a Freyja application
 freyja = { workspace = true }
+freyja-common = { workspace = true }
 tokio = { workspace = true, features = ["macros"] }
 
 # Put any dependencies that you need for your adapters down here.
 # This samples utilizes the in-memory mock adapters.
 in-memory-mock-cloud-adapter = { workspace = true }
 in-memory-mock-digital-twin-adapter = { workspace = true }
-in-memory-mock-mapping-client = { workspace = true }
+in-memory-mock-mapping-adapter = { workspace = true }
+in-memory-mock-data-adapter = { workspace = true }
 
 [features]
 containerize = []

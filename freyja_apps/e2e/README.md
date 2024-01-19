@@ -6,7 +6,7 @@ This Freyja Example Application utilizes the [Ibeji Digital Twin Adapter](../../
 
 To build and run the application, follow these steps:
 
-1. (Optional) If necessary, author configuration overrides for the [`InMemoryMockMappingClient`](https://github.com/eclipse-ibeji/freyja/tree/main/mapping_clients/in_memory_mock_mapping_client). Refer to the adapter README files for instructions on how to do this. This repository provides overrides for the samples listed under [Supported Samples](../../README.md#supported-ibeji-samples).
+1. (Optional) If necessary, author configuration overrides for the [`InMemoryMockMappingAdapter`](https://github.com/eclipse-ibeji/freyja/tree/main/adapters/mapping/in_memory_mock_mapping_adapter). Refer to the adapter README files for instructions on how to do this. This repository provides overrides for the samples listed under [Supported Samples](../../README.md#supported-ibeji-samples).
 
 1. Set the `$FREYJA_HOME` environment variable. For example, to use the provided overrides for the [Ibeji mixed sample](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/mixed), you can run the command below.
 

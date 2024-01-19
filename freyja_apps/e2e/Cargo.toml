@@ -9,15 +9,19 @@ edition = "2021"
 license = "MIT"
 
 [dependencies]
-# These two dependencies are required for anyone implementing a Freyja application
+# These dependencies are required for anyone implementing a Freyja application
 freyja = { workspace = true }
+freyja-common = { workspace = true }
 tokio = { workspace = true, features = ["macros"] }
 
 # Put any dependencies that you need for your adapters down here.
 # This samples utilizes the in-memory mock adapters.
 azure-cloud-connector-adapter = { workspace = true }
 ibeji-adapter = { workspace = true }
-in-memory-mock-mapping-client = { workspace = true }
+in-memory-mock-mapping-adapter = { workspace = true }
+grpc-data-adapter = { workspace = true }
+managed-subscribe-data-adapter = { workspace = true }
+mqtt-data-adapter = { workspace = true }
 
 # If built for aarch64, enable the 'vendored-ssl' feature.
 [target.'cfg(target_arch = "aarch64")'.dependencies]
