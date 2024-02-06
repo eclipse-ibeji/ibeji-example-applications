@@ -12,10 +12,6 @@ cargo run -p freyja-in-memory-app
 
 This will rebuild the `freyja-in-memory-app` application as necessary and then run it.
 
-## Supported Versions
-
-This template is integrated with [revision `a07b033`](https://github.com/eclipse-ibeji/freyja/commit/a07b03349d23b14d0c215ace341e05d9e4e5195e) (authored 2023-11-09) of the Freyja main project.
-
 ## Containerize the In Memory Freyja Example Application
 
 To build and run the application in a container, follow the steps under

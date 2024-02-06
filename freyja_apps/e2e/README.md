@@ -1,6 +1,6 @@
 # End-To-End Freyja Example Application
 
-This Freyja Example Application utilizes the [Ibeji Digital Twin Adapter](../../freyja_adapters/digital_twin/ibeji_adapter/) and the [Azure Cloud Connector Adapter](../../freyja_adapters/cloud/azure_cloud_connector_adapter/) to show a minimal end-to-end example of how to sync data from the vehicle to the cloud.
+This Freyja Example Application utilizes the [Ibeji Digital Twin Adapter](https://github.com/eclipse-ibeji/freyja/tree/main/adapters/digital_twin/ibeji_adapter/) and the [Azure Cloud Connector Adapter](../../freyja_adapters/cloud/azure_cloud_connector_adapter/) to show a minimal end-to-end example of how to sync data from the vehicle to the cloud.
 
 ## Build and Run
 
