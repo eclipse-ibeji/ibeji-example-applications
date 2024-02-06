@@ -1,6 +1,6 @@
-# Ibeji Adapter Freyja Example Application
+# Freyja-Ibeji Integration Example Application
 
-This Freyja Example Application utilizes the [Ibeji Digital Twin Adapter](../../freyja_adapters/digital_twin/ibeji_adapter/) and an in-memory mock cloud connector adapter to show a minimal connected local example of how to retrieve data from the vehicle.
+This Freyja Example Application utilizes the [Ibeji Digital Twin Adapter](https://github.com/eclipse-ibeji/freyja/tree/main/adapters/digital_twin/ibeji_adapter) and an in-memory mock cloud connector adapter to show a minimal connected local example of how to retrieve data from the vehicle.
 
 ## Build and Run
 
@@ -16,14 +16,14 @@ To build and run the application, follow these steps:
 
 1. Run the following from the repo root:
 
-        cargo run -p freyja-ibeji-adapter-app
+        cargo run -p freyja-ibeji-integration-app
 
-    This will rebuild the `freyja-ibeji-adapter-app` application as necessary and then run it.
+    This will rebuild the `freyja-ibeji-integration-app` application as necessary and then run it.
 
-## Containerize the Ibeji Adapter Freyja Example Application
+## Containerize the Freyja-Ibeji Integration Example Application
 
 To build and run the application in a container, follow the steps under
 [Docker Containers](../../container/README.md#docker-containers) or
 [Podman Containers](../../container/README.md#podman-containers).
 
-Use `freyja-ibeji-adapter-app` for the `APP_NAME` build arg when building the container.
+Use `freyja-ibeji-integration-app` for the `APP_NAME` build arg when building the container.

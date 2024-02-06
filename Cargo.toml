@@ -9,17 +9,15 @@ members = [
     "cloud_connectors/azure/mqtt_connector",
     "cloud_connectors/azure/proto-build",
     "freyja_adapters/cloud/azure_cloud_connector_adapter",
-    "freyja_adapters/digital_twin/ibeji_adapter",
-    "freyja_apps/ibeji_adapter",
-    "freyja_apps/in_memory",
     "freyja_apps/e2e",
+    "freyja_apps/ibeji_integration",
+    "freyja_apps/in_memory",
 ]
 
 [workspace.dependencies]
 # Local dependencies
 azure-cloud-connector-adapter = { path = "freyja_adapters/cloud/azure_cloud_connector_adapter" }
 azure-cloud-connector-proto = { path = "cloud_connectors/azure/proto-build" }
-ibeji-adapter = { path = "freyja_adapters/digital_twin/ibeji_adapter" }
 
 # ESDV dependencies
 # Versioning is managed by the Cargo.lock file rather than copying rev properties to all of these
@@ -32,6 +30,7 @@ freyja = { git = "https://github.com/eclipse-ibeji/freyja" }
 freyja-build-common = { git = "https://github.com/eclipse-ibeji/freyja" }
 freyja-common = { git = "https://github.com/eclipse-ibeji/freyja" }
 grpc-data-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
+ibeji-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 in-memory-mock-cloud-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 in-memory-mock-digital-twin-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 in-memory-mock-mapping-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }

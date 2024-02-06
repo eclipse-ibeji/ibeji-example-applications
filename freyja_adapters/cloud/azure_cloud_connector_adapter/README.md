@@ -16,4 +16,4 @@ This adapter supports the following configuration settings:
 - `max_retries`: The maximum number of times to retry failed attempts to send data to the cloud connector.
 - `retry_interval_ms`: The duration between retries in milliseconds.
 
-This adapter supports the same [config override method](https://github.com/eclipse-ibeji/freyja/blob/main/docs/config-overrides.md) as the Freyja mocks. The override filename is `azure_cloud_connector_adapter_config.json`, and the default config is located at `res/azure_cloud_connector_adapter_config.default.json`.
+This adapter supports the same [config override method](https://github.com/eclipse-ibeji/freyja/blob/main/docs/tutorials/config-overrides.md) as the Freyja mocks. The override filename is `azure_cloud_connector_adapter_config.json`, and the default config is located at `res/azure_cloud_connector_adapter_config.default.json`.

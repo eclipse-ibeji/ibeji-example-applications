@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 [package]
-name = "freyja-ibeji-adapter-app"
+name = "freyja-ibeji-integration-app"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"

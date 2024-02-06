@@ -17,7 +17,7 @@ These dockerfiles default to the
 Currently the following example applications are supported:
 
 - [In Memory Example Application](../freyja_apps/in_memory/README.md)
-- [Ibeji Adapter Example Application](../freyja_apps/ibeji_adapter/README.md)
+- [Freyja-Ibeji Integration Example Application](../freyja_apps/ibeji_integration/README.md)
 - [End to End Example Application](../freyja_apps/e2e/README.md)
 
 See [Docker Containers](#docker-containers) or [Podman Containers](#podman-containers) for
@@ -65,10 +65,10 @@ Dockerfile:
     docker build -t <image_name> -f <Dockerfile> [--build-arg=APP_NAME=<project name>] .
     ```
 
-    For example, to build an image for the `ibeji-adapter` project:
+    For example, to build an image for the `freyja-ibeji-integration-app` project:
 
     ```shell
-    docker build -t ibeji_adapter -f Dockerfile.freyja_apps.amd64 --build-arg APP_NAME=freyja-ibeji-adapter-app .
+    docker build -t ibeji_integration -f Dockerfile.freyja_apps.amd64 --build-arg APP_NAME=freyja-ibeji-integration-app .
     ```
 
     Or to build an image for the `azure digital twins cloud connector` example for aarch64:
@@ -87,10 +87,10 @@ command in the project root directory:
     docker run --name <container_name> --network=host -it --rm <image_name>
     ```
 
-    For example, to run the `ibeji_adapter` image built in step 1:
+    For example, to run the `ibeji_integration` image built in step 1:
 
     ```shell
-    docker run --name ibeji_adapter --network=host -it --rm ibeji_adapter
+    docker run --name ibeji_integration --network=host -it --rm ibeji_integration
     ```
 
     >Note: A custom network is recommended when using a container for anything but testing.
@@ -105,10 +105,10 @@ command in the project root directory:
     docker stop <container_name>
     ```
 
-    For example, to stop the `ibeji_adapter` container started in step 2:
+    For example, to stop the `ibeji_integration` container started in step 2:
 
     ```shell
-    docker stop ibeji_adapter
+    docker stop ibeji_integration
     ```
 
 ### Running in Docker with overridden configuration
@@ -139,10 +139,10 @@ environment variable called CONFIG_HOME to the path to the config file:
     docker run -v ${CONFIG_HOME}:/mnt/config --name <container_name> --network=host -it --rm <image_name>
     ```
 
-    For example, to run the `ibeji_adapter` image with overridden configuration:
+    For example, to run the `ibeji_integration` image with overridden configuration:
 
     ```shell
-    docker run -v ${CONFIG_HOME}:/mnt/config --name ibeji_adapter --network=host -it --rm ibeji_adapter
+    docker run -v ${CONFIG_HOME}:/mnt/config --name ibeji_integration --network=host -it --rm ibeji_integration
     ```
 
 ## Podman Containers
@@ -164,10 +164,10 @@ Dockerfile:
     podman build -t <image_name> -f <Dockerfile> [--build-arg=APP_NAME=<project name>] .
     ```
 
-    For example, to build an image for the `ibeji-adapter` project:
+    For example, to build an image for the `freyja-ibeji-integration-app` project:
 
     ```shell
-    podman build -t ibeji_adapter -f Dockerfile.freyja_apps.amd64 --build-arg APP_NAME=freyja-ibeji-adapter-app .
+    podman build -t ibeji_integration -f Dockerfile.freyja_apps.amd64 --build-arg APP_NAME=freyja-ibeji-integration-app .
     ```
 
     Or to build an image for the `azure digital twins cloud connector` example for aarch64:
@@ -186,10 +186,10 @@ root directory:
     podman run --network=host <image_name>
     ```
 
-    For example, to run the `ibeji_adapter` image built in step 1:
+    For example, to run the `ibeji_integration` image built in step 1:
 
     ```shell
-    podman run --network=host ibeji_adapter
+    podman run --network=host ibeji_integration
     ```
 
     >Note: A custom network is recommended when using a container for anything but testing.
@@ -200,10 +200,10 @@ root directory:
     podman ps -f ancestor=<image_name> --format="{{.Names}}" | xargs podman stop
     ```
 
-    For example, to stop the `ibeji_adapter` container started in step 2:
+    For example, to stop the `ibeji_integration` container started in step 2:
 
     ```shell
-    podman ps -f ancestor=localhost/ibeji_adapter:latest --format="{{.Names}}" | xargs podman stop
+    podman ps -f ancestor=localhost/ibeji_integration:latest --format="{{.Names}}" | xargs podman stop
     ```
 
 ### Running in Podman with overridden configuration
@@ -234,8 +234,8 @@ environment variable called CONFIG_HOME to the path to the config file:
     podman run --mount=type=bind,src=${CONFIG_HOME},dst=/mnt/config,ro=true --network=host <image_name>
     ```
 
-    For example, to run the `ibeji_adapter` image with overridden configuration:
+    For example, to run the `ibeji_integration` image with overridden configuration:
 
     ```shell
-    podman run --mount=type=bind,src=${CONFIG_HOME},dst=/mnt/config,ro=true --network=host ibeji_adapter
+    podman run --mount=type=bind,src=${CONFIG_HOME},dst=/mnt/config,ro=true --network=host ibeji_integration
     ```
