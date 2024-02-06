@@ -1,0 +1,27 @@
+name: generate plantuml
+
+on:
+  push:
+    paths:
+      - '**.puml'
+
+jobs:
+  generate_plantuml:
+    runs-on: ubuntu-latest
+    name: plantuml
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+    - name: generate plantuml
+      run: |
+        sudo apt-get install -y plantuml graphviz
+        # This uses a slightly off-white background color because #ffffff renders as transparent for some reason
+        plantuml -tsvg -SbackgroundColor=fefefe -checkmetadata -v **/*.puml
+      shell: bash
+    - name: commit changes
+      uses: EndBug/add-and-commit@v9
+      with:
+        author_name: Automated Notice Generation Pipeline
+        author_email: ibeji-bot@eclipse.org
+        message: Generate PlantUML Diagrams
+        pathspec_error_handling: exitAtEnd
