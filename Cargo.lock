@@ -486,7 +486,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "freyja-ibeji-adapter-app"
+name = "freyja-ibeji-integration-app"
 version = "0.1.0"
 dependencies = [
  "freyja",
@@ -788,6 +788,7 @@ dependencies = [
 [[package]]
 name = "ibeji-adapter"
 version = "0.1.0"
+source = "git+https://github.com/eclipse-ibeji/freyja#deb162ee0b51b656dd1eb155520f4cc548b78a38"
 dependencies = [
  "async-trait",
  "core-protobuf-data-access",
