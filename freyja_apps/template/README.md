@@ -1,6 +1,6 @@
 # Freyja App Template
 
-This is a template for creating a Freyja application. For more information about writing Freyja applications, see the [Freyja documentation on custom adapters](https://github.com/eclipse-ibeji/freyja/blob/main/docs/custom-adapters.md).
+This is a template for creating a Freyja application. For more information about writing Freyja applications, see the [Freyja documentation on custom adapters](https://github.com/eclipse-ibeji/freyja/blob/main/docs/tutorials/custom-adapters.md).
 
 ## Instructions
 
