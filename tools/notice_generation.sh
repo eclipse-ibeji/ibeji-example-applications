@@ -40,7 +40,7 @@ CLOUD_CONNECTORS_AZURE_DIRECTORY="cloud_connectors/azure/"
 echo "Appending Azure Cloud Connectors' .NET Third Party licenses to $NOTICE_FILENAME"
 ./tools/dotnet_notice_generation.sh $NOTICE_FILENAME $CLOUD_CONNECTORS_AZURE_DIRECTORY ./tools/cg/license_url_to_type.json
 
-if [ -z "$(git diff --name-only $NOTICE_FILENAME)" ]
+if [ -z "$(git diff --name-only $NOTICE_FILENAME)" ] && [ -z "$(git ls-files --others --exclude-standard)"];
 then
       echo "File not changed"
 else
