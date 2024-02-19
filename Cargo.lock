@@ -306,7 +306,7 @@ dependencies = [
 [[package]]
 name = "core-protobuf-data-access"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/ibeji#13fa1dfa4e6ae3a1a904abda66620a557f255727"
+source = "git+https://github.com/eclipse-ibeji/ibeji#da3b109e36775064b7d5469488c6df361a038c97"
 dependencies = [
  "prost",
  "prost-types",
@@ -1448,7 +1448,7 @@ checksum = "f98d2aa92eebf49b69786be48e4477826b256916e84a57ff2a4f21923b48eb4c"
 [[package]]
 name = "samples-protobuf-data-access"
 version = "1.0.0"
-source = "git+https://github.com/eclipse-ibeji/ibeji#13fa1dfa4e6ae3a1a904abda66620a557f255727"
+source = "git+https://github.com/eclipse-ibeji/ibeji#da3b109e36775064b7d5469488c6df361a038c97"
 dependencies = [
  "prost",
  "prost-types",
@@ -1492,7 +1492,7 @@ dependencies = [
 [[package]]
 name = "service_discovery_proto"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-chariott/chariott#57cb120bde842e1bc32628233f6d8ceff1922306"
+source = "git+https://github.com/eclipse-chariott/chariott#a5853d7f3469264a9b5f57bcb61dc453906c0a44"
 dependencies = [
  "prost",
  "tokio",
