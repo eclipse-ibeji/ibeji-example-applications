@@ -10,7 +10,7 @@ license = "MIT"
 
 [dependencies]
 async-trait = { workspace = true }
-azure-cloud-connector-proto = { workspace = true }
+cloud-connector-proto = { workspace = true }
 env_logger = { workspace = true }
 freyja-common = { workspace = true }
 futures = { workspace = true }

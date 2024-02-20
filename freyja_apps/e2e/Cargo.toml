@@ -16,10 +16,12 @@ tokio = { workspace = true, features = ["macros"] }
 
 # Put any dependencies that you need for your adapters down here.
 # This samples utilizes the in-memory mock adapters.
-azure-cloud-connector-adapter = { workspace = true }
+chariott-service-discovery-adapter = { workspace = true }
+file-service-discovery-adapter = { workspace = true }
+grpc-cloud-adapter = { workspace = true }
 ibeji-adapter = { workspace = true }
 in-memory-mock-mapping-adapter = { workspace = true }
-grpc-data-adapter = { workspace = true }
+sample-grpc-data-adapter = { workspace = true }
 managed-subscribe-data-adapter = { workspace = true }
 mqtt-data-adapter = { workspace = true }
 

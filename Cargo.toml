@@ -7,8 +7,6 @@
 resolver = "2"
 members = [
     "cloud_connectors/azure/mqtt_connector",
-    "cloud_connectors/azure/proto-build",
-    "freyja_adapters/cloud/azure_cloud_connector_adapter",
     "freyja_apps/e2e",
     "freyja_apps/ibeji_integration",
     "freyja_apps/in_memory",
@@ -26,10 +24,14 @@ azure-cloud-connector-proto = { path = "cloud_connectors/azure/proto-build" }
 core-protobuf-data-access = { git = "https://github.com/eclipse-ibeji/ibeji" }
 
 ## Freyja
+chariott-service-discovery-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
+cloud-connector-proto = { git = "https://github.com/eclipse-ibeji/freyja" }
+file-service-discovery-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 freyja = { git = "https://github.com/eclipse-ibeji/freyja" }
 freyja-build-common = { git = "https://github.com/eclipse-ibeji/freyja" }
 freyja-common = { git = "https://github.com/eclipse-ibeji/freyja" }
-grpc-data-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
+grpc-cloud-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
+sample-grpc-data-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 ibeji-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 in-memory-mock-cloud-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 in-memory-mock-digital-twin-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
@@ -44,19 +46,19 @@ service_discovery_proto = { git = "https://github.com/eclipse-chariott/chariott"
 
 # Cargo dependencies
 async-trait = "0.1.77"
-env_logger = "0.10.0"
+env_logger = "0.11.2"
 futures = "0.3.30"
 log = "0.4.20"
 paho-mqtt = "0.12.1"
 prost = "0.12.3"
 serde = "1.0.196"
 serde_json = "1.0.113"
-strum = "0.25.0"
-strum_macros = "0.25.2"
+strum = "0.26.1"
+strum_macros = "0.26.1"
 tempfile = "3.9.0"
 time = "0.3.34"
 tokio = "1.36.0"
 tokio-stream = "0.1.14"
-tonic = "0.10"
-tonic-build = "0.10"
+tonic = "0.11.0"
+tonic-build = "0.11.0"
 tower = "0.4.13"

@@ -11,7 +11,7 @@ use env_logger::{Builder, Target};
 use log::{info, LevelFilter};
 use tonic::transport::Server;
 
-use azure_cloud_connector_proto::azure_cloud_connector::azure_cloud_connector_server::AzureCloudConnectorServer;
+use cloud_connector_proto::v1::cloud_connector_server::CloudConnectorServer;
 use mqtt_connector::MQTTConnector;
 use mqtt_connector_config::{Config, CONFIG_FILE};
 
@@ -33,7 +33,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let grpc_server_authority = config.grpc_server_authority.parse()?;
     let mqtt_connector = MQTTConnector::new(config).expect("Unable to read MQTT config");
     Server::builder()
-        .add_service(AzureCloudConnectorServer::new(mqtt_connector))
+        .add_service(CloudConnectorServer::new(mqtt_connector))
         .serve(grpc_server_authority)
         .await?;
     Ok(())
