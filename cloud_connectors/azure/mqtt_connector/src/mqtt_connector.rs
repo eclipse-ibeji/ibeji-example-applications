@@ -19,9 +19,9 @@ use freyja_common::retry_utils::execute_with_retry;
 
 use crate::mqtt_connector_config::Config;
 
-const MODEL_ID_METADATA_KEY: &'static str = "model_id";
-const INSTANCE_ID_METADATA_KEY: &'static str = "instance_id";
-const INSTANCE_PROPERTY_PATH_METADATA_KEY: &'static str = "instance_property_path";
+const MODEL_ID_METADATA_KEY: &str = "model_id";
+const INSTANCE_ID_METADATA_KEY: &str = "instance_id";
+const INSTANCE_PROPERTY_PATH_METADATA_KEY: &str = "instance_property_path";
 
 /// Implementation of the MQTTConnector gRPC trait
 pub struct MQTTConnector {
