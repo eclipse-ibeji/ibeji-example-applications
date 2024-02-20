@@ -9,11 +9,12 @@ use paho_mqtt::{self as mqtt, MQTT_VERSION_5};
 use serde::{Deserialize, Serialize};
 use tonic::{Request, Response, Status};
 
-use cloud_connector_proto::{prost_types::{value::Kind, Value}, v1::{
-    cloud_connector_server::CloudConnector,
-    UpdateDigitalTwinRequest,
-    UpdateDigitalTwinResponse
-}};
+use cloud_connector_proto::{
+    prost_types::{value::Kind, Value},
+    v1::{
+        cloud_connector_server::CloudConnector, UpdateDigitalTwinRequest, UpdateDigitalTwinResponse,
+    },
+};
 use freyja_common::retry_utils::execute_with_retry;
 
 use crate::mqtt_connector_config::Config;
@@ -103,27 +104,48 @@ impl CloudConnector for MQTTConnector {
         let model_id = request_inner
             .metadata
             .get(MODEL_ID_METADATA_KEY)
-            .ok_or_else(|| Status::invalid_argument(
-                format!("Missing `{MODEL_ID_METADATA_KEY}` key in request metadata")))?;
+            .ok_or_else(|| {
+                Status::invalid_argument(format!(
+                    "Missing `{MODEL_ID_METADATA_KEY}` key in request metadata"
+                ))
+            })?;
 
         let instance_id = request_inner
             .metadata
             .get(INSTANCE_ID_METADATA_KEY)
-            .ok_or_else(|| Status::invalid_argument(
-                format!("Missing `{INSTANCE_ID_METADATA_KEY}` key in request metadata")))?;
-        
+            .ok_or_else(|| {
+                Status::invalid_argument(format!(
+                    "Missing `{INSTANCE_ID_METADATA_KEY}` key in request metadata"
+                ))
+            })?;
+
         let instance_property_path = request_inner
             .metadata
             .get(INSTANCE_PROPERTY_PATH_METADATA_KEY)
-            .ok_or_else(|| Status::invalid_argument(
-                format!("Missing `{INSTANCE_PROPERTY_PATH_METADATA_KEY}` key in request metadata")))?;
-        
+            .ok_or_else(|| {
+                Status::invalid_argument(format!(
+                    "Missing `{INSTANCE_PROPERTY_PATH_METADATA_KEY}` key in request metadata"
+                ))
+            })?;
+
         let data = match request_inner.value {
-            Some(Value { kind: Some(Kind::StringValue(s)) }) => s,
-            Some(Value { kind: Some(Kind::BoolValue(b)) }) => b.to_string(),
-            Some(Value { kind: Some(Kind::NumberValue(n)) }) => n.to_string(),
-            Some(Value { kind: Some(_) }) => return Err(Status::invalid_argument("Unsupported value type. Request value must be a string, bool, or number.")),
-            Some(Value { kind: None }) | None => return Err(Status::invalid_argument("Missing request value")),
+            Some(Value {
+                kind: Some(Kind::StringValue(s)),
+            }) => s,
+            Some(Value {
+                kind: Some(Kind::BoolValue(b)),
+            }) => b.to_string(),
+            Some(Value {
+                kind: Some(Kind::NumberValue(n)),
+            }) => n.to_string(),
+            Some(Value { kind: Some(_) }) => {
+                return Err(Status::invalid_argument(
+                    "Unsupported value type. Request value must be a string, bool, or number.",
+                ))
+            }
+            Some(Value { kind: None }) | None => {
+                return Err(Status::invalid_argument("Missing request value"))
+            }
         };
 
         let mqtt_payload = EventGridDigitalTwinPayload {
@@ -149,13 +171,10 @@ impl CloudConnector for MQTTConnector {
 
         info!(
             "Successfully set {}{} based on model {} to {}",
-            instance_id,
-            instance_property_path,
-            model_id,
-            data
+            instance_id, instance_property_path, model_id, data
         );
 
-        Ok(Response::new(UpdateDigitalTwinResponse { }))
+        Ok(Response::new(UpdateDigitalTwinResponse {}))
     }
 }
 
@@ -172,8 +191,7 @@ mod azure_cloud_connector_tests {
             mqtt_event_grid_topic: String::new(),
         };
 
-        let builder = UpdateDigitalTwinRequestBuilder::new()
-            .string_value(String::new());
+        let builder = UpdateDigitalTwinRequestBuilder::new().string_value(String::new());
 
         let request = tonic::Request::new(builder.build());
 
