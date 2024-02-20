@@ -8,9 +8,11 @@ For this Cloud Connector sample, you will use Azure to deploy an Azure Key Vault
 
 ## Architecture
 
-The Azure MQTT Cloud Connector forwards data emitted by Freyja to an Azure Event Grid using the MQTT Protocol. This cloud connector also includes an associated Azure Function which will forward the data to Azure Digital Twins, but the data from Azure Event Grid can be ingested by any desired cloud architecture using the appropriate connector.
+The Azure MQTT Cloud Connector forwards data emitted by Freyja to an Azure Event Grid using the MQTT Protocol. This cloud connector accepts requests via gRPC using the [Freyja standard cloud connector contract](https://github.com/eclipse-ibeji/freyja/blob/main/interfaces/cloud_connector/v1/cloud_connector.proto), thus making it compatible with Freyja's standard cloud adapter. This cloud connector also includes an associated Azure Function which will forward the data to Azure Digital Twins, but the data from Azure Event Grid can be ingested by any desired cloud architecture using the appropriate connector.
 
 ![Component Diagram](../../../docs/diagrams/azure_mqtt_cloud_connector.svg)
+
+Note that since this cloud connector interfaces with MQTT, it can be configured for use with any MQTT endpoint, not just the Azure-based solution shown here. The architecture diagram and the setup steps presented in this document provide a sample of a full end-to-end architecture that integrates this connector with a cloud digital twin solution.
 
 ## Prerequisites
 
