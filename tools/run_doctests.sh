@@ -18,7 +18,7 @@ RETURN_CODE=$?
 echo $OUTPUT
 echo
 
-if [[ "$OUTPUT" =~ (error: no library targets found in packages) ]]; then
+if [[ $OUTPUT == *"error: no library targets found in packages"* ]]; then
     echo "Detected 'no library targets' error, which is being suppressed"
     exit 0
 else
