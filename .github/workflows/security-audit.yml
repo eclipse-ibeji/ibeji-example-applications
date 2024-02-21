@@ -56,6 +56,8 @@ jobs:
         uses: github/codeql-action/init@v2
         with:
           languages: ${{ matrix.language }}
+      - name: Build Digital Twins Connector
+        run: ./cloud_connectors/azure/digital_twins_connector/build.sh
       - name: Build MQTT Connector's Azure Function
         run: dotnet build cloud_connectors/azure/mqtt_connector/azure_function/src/function.csproj
       - name: Perform CodeQL Analysis

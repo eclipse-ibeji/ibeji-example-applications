@@ -1,0 +1,27 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
+# SPDX-License-Identifier: MIT
+
+[package]
+name = "azure-cloud-connector-adapter"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[dependencies]
+async-trait = { workspace = true }
+azure-cloud-connector-proto = { workspace = true }
+freyja-build-common = { workspace = true }
+freyja-common = { workspace = true }
+futures = { workspace = true }
+log = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tempfile = { workspace = true }
+tonic = { workspace = true }
+tokio = { workspace = true }
+tokio-stream = { workspace = true, features = ["net"] }
+tower = { workspace = true }
+
+[build-dependencies]
+freyja-build-common = { workspace = true }
