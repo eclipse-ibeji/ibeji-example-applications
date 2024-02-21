@@ -18,10 +18,10 @@ RETURN_CODE=$?
 echo $OUTPUT
 echo
 
-if [[ $OUTPUT == *"error: no library targets found in packages"* ]]; then
+if [[ $OUTPUT == *"no library targets found in packages"* ]]; then
     echo "Detected 'no library targets' error, which is being suppressed"
     exit 0
 else
-    echo "Command executed with code " $RETURN_CODE
+    echo "Command executed with code" $RETURN_CODE
     exit $RETURN_CODE
 fi
