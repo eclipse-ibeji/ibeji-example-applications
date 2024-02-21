@@ -12,8 +12,6 @@
 # so this script works by checking the output of the test command.
 # Although this is not robust, it is far simpler than the alternative.
 
-set +e
-
 OUTPUT=$(cargo test --workspace --doc 2>&1)
 RETURN_CODE=$?
 
@@ -24,5 +22,6 @@ if [[ $OUTPUT =~ "error: no library targets found in packages" ]]; then
     echo "Detected 'no library targets' error, which is being suppressed"
     exit 0
 else
+    echo "Command executed with code " $RETURN_CODE
     exit $RETURN_CODE
 fi
