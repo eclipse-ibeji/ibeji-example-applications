@@ -54,21 +54,21 @@ impl AzureCloudConnectorAdapter {
     ) -> Result<CloudDigitalTwinInstance, CloudAdapterError> {
         Ok(CloudDigitalTwinInstance {
             model_id: cloud_message
-                .cloud_signal
+                .metadata
                 .get(MODEL_ID_KEY)
                 .ok_or_else(|| {
                     CloudAdapterError::key_not_found(format!("Cannot find key: {MODEL_ID_KEY:}"))
                 })?
                 .clone(),
             instance_id: cloud_message
-                .cloud_signal
+                .metadata
                 .get(INSTANCE_ID_KEY)
                 .ok_or_else(|| {
                     CloudAdapterError::key_not_found(format!("Cannot find key: {INSTANCE_ID_KEY:}"))
                 })?
                 .clone(),
             instance_property_path: cloud_message
-                .cloud_signal
+                .metadata
                 .get(INSTANCE_PROPERTY_PATH_KEY)
                 .ok_or_else(|| {
                     CloudAdapterError::key_not_found(format!(
@@ -153,7 +153,7 @@ mod azure_cloud_connector_tests {
     #[tokio::test]
     async fn get_instance_info_from_message_test() {
         let cloud_message = CloudMessageRequest {
-            cloud_signal: HashMap::new(),
+            metadata: HashMap::new(),
             signal_value: String::new(),
             signal_timestamp: String::new(),
         };

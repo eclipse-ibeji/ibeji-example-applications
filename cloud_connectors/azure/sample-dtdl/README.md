@@ -46,7 +46,7 @@ The steps below will guide you on manually deploying the Azure Digital Twins res
 
 1. Set up your [Azure Digital Twin Instance](https://learn.microsoft.com/en-us/azure/digital-twins/quickstart-azure-digital-twins-explorer#set-up-azure-digital-twins).
 
-    If you wish to use the default mappings in the [.freyja directory](../../../.frejya/), create the following instances:
+    If you wish to use the default mappings in this repository, create the following instances:
 
     * vehicle
     * hvac

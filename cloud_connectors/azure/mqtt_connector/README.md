@@ -210,4 +210,4 @@ To build and run the MQTT connector, run the following command:
 cargo run -p mqtt-cloud-connector
 ```
 
-This will rebuild the project as necessary before running it. If you just want to build the project without running it, use `cargo build` instead of `cargo run`.
+This will rebuild the project as necessary before running it. If you only want to build the project without running it, use `cargo build` instead of `cargo run`.
