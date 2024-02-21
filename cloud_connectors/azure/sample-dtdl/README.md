@@ -16,8 +16,8 @@ az login --use-device-code
 
 ```shell
 cd {repo-root}/cloud_connectors/azure/scripts
-chmod +x digital_twins_setup.sh
-./digital_twins_setup.sh -r {myRG} -l westus2 -d {myADT}
+chmod u+x digital_twins_setup.sh
+./digital_twins_setup.sh -r {myRG} -l {region} -d {myADT}
 ```
 
 ### Automated Azure Digital Twins Setup for Smart Trailer Example
@@ -35,7 +35,7 @@ az login --use-device-code
 ```shell
 cd {repo-root}/cloud_connectors/azure/scripts
 chmod +x digital_twins_setup_smart_trailer.sh
-./digital_twins_setup_smart_trailer.sh -r {myRG} -l westus2 -d {myADT}
+./digital_twins_setup_smart_trailer.sh -r {myRG} -l {region} -d {myADT}
 ```
 
 ### Manual Azure Digital Twins Setup
