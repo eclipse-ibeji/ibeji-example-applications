@@ -7,6 +7,7 @@
 resolver = "2"
 members = [
     "cloud_connectors/azure/mqtt_connector",
+    "freyja_adapters/cloud/azure_cloud_connector_adapter",
     "freyja_apps/e2e",
     "freyja_apps/ibeji_integration",
     "freyja_apps/in_memory",
