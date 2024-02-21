@@ -9,12 +9,19 @@ use paho_mqtt::{self as mqtt, MQTT_VERSION_5};
 use serde::{Deserialize, Serialize};
 use tonic::{Request, Response, Status};
 
-use crate::mqtt_connector_config::Config;
-use azure_cloud_connector_proto::azure_cloud_connector::azure_cloud_connector_server::AzureCloudConnector;
-use azure_cloud_connector_proto::azure_cloud_connector::{
-    UpdateDigitalTwinRequest, UpdateDigitalTwinResponse,
+use cloud_connector_proto::{
+    prost_types::{value::Kind, Value},
+    v1::{
+        cloud_connector_server::CloudConnector, UpdateDigitalTwinRequest, UpdateDigitalTwinResponse,
+    },
 };
 use freyja_common::retry_utils::execute_with_retry;
+
+use crate::mqtt_connector_config::Config;
+
+const MODEL_ID_METADATA_KEY: &str = "model_id";
+const INSTANCE_ID_METADATA_KEY: &str = "instance_id";
+const INSTANCE_PROPERTY_PATH_METADATA_KEY: &str = "instance_property_path";
 
 /// Implementation of the MQTTConnector gRPC trait
 pub struct MQTTConnector {
@@ -84,7 +91,7 @@ impl MQTTConnector {
 }
 
 #[tonic::async_trait]
-impl AzureCloudConnector for MQTTConnector {
+impl CloudConnector for MQTTConnector {
     /// Updates a digital twin instance
     ///
     /// # Arguments
@@ -94,12 +101,58 @@ impl AzureCloudConnector for MQTTConnector {
         request: Request<UpdateDigitalTwinRequest>,
     ) -> Result<Response<UpdateDigitalTwinResponse>, Status> {
         let request_inner = request.into_inner();
+        let model_id = request_inner
+            .metadata
+            .get(MODEL_ID_METADATA_KEY)
+            .ok_or_else(|| {
+                Status::invalid_argument(format!(
+                    "Missing `{MODEL_ID_METADATA_KEY}` key in request metadata"
+                ))
+            })?;
+
+        let instance_id = request_inner
+            .metadata
+            .get(INSTANCE_ID_METADATA_KEY)
+            .ok_or_else(|| {
+                Status::invalid_argument(format!(
+                    "Missing `{INSTANCE_ID_METADATA_KEY}` key in request metadata"
+                ))
+            })?;
+
+        let instance_property_path = request_inner
+            .metadata
+            .get(INSTANCE_PROPERTY_PATH_METADATA_KEY)
+            .ok_or_else(|| {
+                Status::invalid_argument(format!(
+                    "Missing `{INSTANCE_PROPERTY_PATH_METADATA_KEY}` key in request metadata"
+                ))
+            })?;
+
+        let data = match request_inner.value {
+            Some(Value {
+                kind: Some(Kind::StringValue(s)),
+            }) => s,
+            Some(Value {
+                kind: Some(Kind::BoolValue(b)),
+            }) => b.to_string(),
+            Some(Value {
+                kind: Some(Kind::NumberValue(n)),
+            }) => n.to_string(),
+            Some(Value { kind: Some(_) }) => {
+                return Err(Status::invalid_argument(
+                    "Unsupported value type. Request value must be a string, bool, or number.",
+                ))
+            }
+            Some(Value { kind: None }) | None => {
+                return Err(Status::invalid_argument("Missing request value"))
+            }
+        };
 
         let mqtt_payload = EventGridDigitalTwinPayload {
-            model_id: request_inner.model_id.clone(),
-            instance_id: request_inner.instance_id.clone(),
-            instance_property_path: request_inner.instance_property_path.clone(),
-            data: request_inner.data.clone(),
+            model_id: model_id.clone(),
+            instance_id: instance_id.clone(),
+            instance_property_path: instance_property_path.clone(),
+            data: data.clone(),
         };
 
         let message = mqtt::MessageBuilder::new()
@@ -116,22 +169,19 @@ impl AzureCloudConnector for MQTTConnector {
             .await
             .map_err(|error| Status::internal(error.to_string()))?;
 
-        let reply = format!(
+        info!(
             "Successfully set {}{} based on model {} to {}",
-            request_inner.instance_id,
-            request_inner.instance_property_path,
-            request_inner.model_id,
-            request_inner.data
+            instance_id, instance_property_path, model_id, data
         );
 
-        info!("{reply}");
-
-        Ok(Response::new(UpdateDigitalTwinResponse { reply }))
+        Ok(Response::new(UpdateDigitalTwinResponse {}))
     }
 }
 
 #[cfg(test)]
 mod azure_cloud_connector_tests {
+    use cloud_connector_proto::v1::UpdateDigitalTwinRequestBuilder;
+
     use super::*;
 
     #[tokio::test]
@@ -141,12 +191,9 @@ mod azure_cloud_connector_tests {
             mqtt_event_grid_topic: String::new(),
         };
 
-        let request = tonic::Request::new(UpdateDigitalTwinRequest {
-            model_id: String::new(),
-            instance_id: String::new(),
-            instance_property_path: String::new(),
-            data: String::new(),
-        });
+        let builder = UpdateDigitalTwinRequestBuilder::new().string_value(String::new());
+
+        let request = tonic::Request::new(builder.build());
 
         let result = consumer_impl.update_digital_twin(request).await;
 

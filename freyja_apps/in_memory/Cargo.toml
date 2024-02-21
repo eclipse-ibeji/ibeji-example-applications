@@ -16,6 +16,7 @@ tokio = { workspace = true, features = ["macros"] }
 
 # Put any dependencies that you need for your adapters down here.
 # This samples utilizes the in-memory mock adapters.
+file-service-discovery-adapter = { workspace = true }
 in-memory-mock-cloud-adapter = { workspace = true }
 in-memory-mock-digital-twin-adapter = { workspace = true }
 in-memory-mock-mapping-adapter = { workspace = true }
