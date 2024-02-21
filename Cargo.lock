@@ -176,27 +176,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "azure-mqtt-connector"
-version = "0.1.0"
-dependencies = [
- "async-trait",
- "cloud-connector-proto",
- "env_logger",
- "freyja-common",
- "futures",
- "log",
- "paho-mqtt",
- "proc-macros",
- "prost",
- "serde",
- "serde_json",
- "time",
- "tokio",
- "tonic",
- "tonic-build 0.11.0",
-]
-
-[[package]]
 name = "backtrace"
 version = "0.3.69"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1079,6 +1058,27 @@ dependencies = [
  "libc",
  "wasi",
  "windows-sys 0.48.0",
+]
+
+[[package]]
+name = "mqtt-cloud-connector"
+version = "0.1.0"
+dependencies = [
+ "async-trait",
+ "cloud-connector-proto",
+ "env_logger",
+ "freyja-common",
+ "futures",
+ "log",
+ "paho-mqtt",
+ "proc-macros",
+ "prost",
+ "serde",
+ "serde_json",
+ "time",
+ "tokio",
+ "tonic",
+ "tonic-build 0.11.0",
 ]
 
 [[package]]
