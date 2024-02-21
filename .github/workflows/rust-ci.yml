@@ -13,7 +13,7 @@ env:
 
 jobs:
   static_code_analysis:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout repository and submodules
         uses: actions/checkout@v3
@@ -54,7 +54,7 @@ jobs:
           args: --workspace --no-deps # Warnings are treated as errors due to our .cargo/config file.
 
   build_and_test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout repository and submodules
         uses: actions/checkout@v3
