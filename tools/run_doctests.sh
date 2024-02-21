@@ -11,6 +11,9 @@
 # Unfortunately there are no tools to easily navigate a workspace and filter packages by type,
 # so this script works by checking the output of the test command.
 # Although this is not robust, it is far simpler than the alternative.
+
+set +e
+
 OUTPUT=$(cargo test --workspace --doc 2>&1)
 RETURN_CODE=$?
 
