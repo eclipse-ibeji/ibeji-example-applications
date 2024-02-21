@@ -44,11 +44,8 @@ jobs:
         with:
           command: fmt
           args: --all -- --check
-      - name: Run doctest
-        uses: actions-rs/cargo@v1
-        with:
-          command: test
-          args: --workspace --doc
+      - name: Run doctests
+        run: ./tools/run_doctests.sh
       - name: Run cargo doc
         # This step is required to detect possible errors in docs that are not doctests.
         uses: actions-rs/cargo@v1

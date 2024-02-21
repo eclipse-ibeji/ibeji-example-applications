@@ -12,7 +12,7 @@ The Azure MQTT Cloud Connector forwards data emitted by Freyja to an Azure Event
 
 ![Component Diagram](../../../docs/diagrams/azure_mqtt_cloud_connector.svg)
 
-Note that since this cloud connector interfaces with MQTT, it can be configured for use with any MQTT endpoint, not just the Azure-based solution shown here. The architecture diagram and the setup steps presented in this document provide a sample of a full end-to-end architecture that integrates this connector with a cloud digital twin solution.
+Note that since this cloud connector interfaces with MQTT, it can be configured for use with any MQTT endpoint, not only the Azure-based solution shown here. The architecture diagram and the setup steps presented in this document provide a sample of a full end-to-end architecture that integrates this connector with a cloud digital twin solution.
 
 ## Prerequisites
 
