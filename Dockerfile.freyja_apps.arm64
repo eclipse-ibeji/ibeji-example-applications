@@ -13,8 +13,12 @@ ARG RUST_VERSION=1.72.1
 ARG APP_NAME=freyja-in-memory-app
 ARG UID=10001
 
+# CONFIG_PATH must be relative to the project root
+ARG CONFIG_PATH=""
+
 FROM docker.io/library/rust:${RUST_VERSION}-slim-bullseye AS build
 ARG APP_NAME
+ARG CONFIG_PATH
 WORKDIR /sdv
 
 COPY ./ .
@@ -24,6 +28,13 @@ RUN /sdv/container/scripts/argument_sanitizer.sh \
     --arg-value "${APP_NAME}" \
     --regex "^[a-zA-Z_0-9-]+$" || \
     ( echo "Argument sanitizer failed for ARG 'APP_NAME'"; exit 1 )
+
+# Check that CONFIG_PATH argument is valid if it is not empty.
+RUN [ -z "${CONFIG_PATH}" ] || \
+    /sdv/container/scripts/argument_sanitizer.sh \
+    --arg-value "${CONFIG_PATH}" \
+    --regex "^[.\/a-zA-Z_0-9-]+$" || \
+    ( echo "Argument sanitizer failed for ARG 'CONFIG_PATH'"; exit 1 )
 
 # Add Build dependencies.
 RUN apt update && apt upgrade -y && apt install -y \
@@ -41,6 +52,12 @@ RUN cargo build --release --target=aarch64-unknown-linux-gnu -p "${APP_NAME}"
 # Copy the built application to working directory.
 RUN cp ./target/aarch64-unknown-linux-gnu/release/"${APP_NAME}" /sdv/service
 
+# Create the config override directory and if CONFIG_PATH is provided, copy files from it
+RUN mkdir -p /sdv/config \
+    && if [ -n "${CONFIG_PATH}" ]; then \
+        cp -r "${CONFIG_PATH}"/* /sdv/config; \
+    fi
+
 ################################################################################
 # Create a new stage for running the application that contains the minimal
 # runtime dependencies for the application. This often uses a different base
@@ -54,6 +71,7 @@ RUN cp ./target/aarch64-unknown-linux-gnu/release/"${APP_NAME}" /sdv/service
 # (e.g., debian@sha256:ac707220fbd7b67fc19b112cee8170b41a9e97f703f588b2cdbbcdcecdd8af57).
 FROM docker.io/arm64v8/debian:bullseye-slim AS final
 ARG UID
+ARG CONFIG_PATH
 
 # Copy container scripts.
 COPY ./container/scripts/*.sh /sdv/scripts/
@@ -89,6 +107,9 @@ WORKDIR /sdv
 # Copy the executable from the "build" stage.
 COPY --from=build /sdv/service /sdv/
 COPY --from=build /sdv/target/aarch64-unknown-linux-gnu/release/build/ /sdv/target/aarch64-unknown-linux-gnu/release/build/
+
+# Copy from config override directory into where Freyja expects it
+COPY --from=build /sdv/config /sdv/.freyja/config
 
 ENV FREYJA_HOME=/sdv/.freyja
 
