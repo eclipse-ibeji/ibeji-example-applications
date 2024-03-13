@@ -2,7 +2,7 @@
 // Licensed under the MIT license.
 // SPDX-License-Identifier: MIT
 
-use std::{env, time::Duration};
+use std::{env, sync::Arc, time::Duration};
 
 use async_trait::async_trait;
 use azure_cloud_connector_proto::azure_cloud_connector::{
@@ -10,6 +10,7 @@ use azure_cloud_connector_proto::azure_cloud_connector::{
 };
 use log::debug;
 use serde::{Deserialize, Serialize};
+use tokio::sync::Mutex;
 use tonic::transport::Channel;
 
 use freyja_build_common::config_file_stem;
@@ -17,6 +18,7 @@ use freyja_common::{
     cloud_adapter::{CloudAdapter, CloudAdapterError, CloudMessageRequest, CloudMessageResponse},
     config_utils, out_dir,
     retry_utils::execute_with_retry,
+    service_discovery_adapter_selector::ServiceDiscoveryAdapterSelector,
 };
 
 use crate::config::Config;
@@ -83,7 +85,12 @@ impl AzureCloudConnectorAdapter {
 #[async_trait]
 impl CloudAdapter for AzureCloudConnectorAdapter {
     /// Creates a new instance of a CloudAdapter with default settings
-    fn create_new() -> Result<Self, CloudAdapterError> {
+    ///
+    /// # Arguments
+    /// - `_selector`: the service discovery adapter selector to use (unused by this adapter)
+    fn create_new(
+        _selector: Arc<Mutex<dyn ServiceDiscoveryAdapterSelector>>,
+    ) -> Result<Self, CloudAdapterError> {
         let cloud_connector_client = futures::executor::block_on(async {
             let config: Config = config_utils::read_from_files(
                 config_file_stem!(),
