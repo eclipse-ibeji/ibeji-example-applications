@@ -26,15 +26,15 @@ azure-cloud-connector-proto = { path = "cloud_connectors/azure/proto-build" }
 core-protobuf-data-access = { git = "https://github.com/eclipse-ibeji/ibeji" }
 
 ## Freyja
-chariott-service-discovery-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 cloud-connector-proto = { git = "https://github.com/eclipse-ibeji/freyja" }
 file-service-discovery-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 freyja = { git = "https://github.com/eclipse-ibeji/freyja" }
 freyja-build-common = { git = "https://github.com/eclipse-ibeji/freyja" }
 freyja-common = { git = "https://github.com/eclipse-ibeji/freyja" }
 grpc-cloud-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
+grpc-digital-twin-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
+grpc-service-discovery-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 sample-grpc-data-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
-ibeji-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 in-memory-mock-cloud-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 in-memory-mock-digital-twin-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
 in-memory-mock-mapping-adapter = { git = "https://github.com/eclipse-ibeji/freyja" }
