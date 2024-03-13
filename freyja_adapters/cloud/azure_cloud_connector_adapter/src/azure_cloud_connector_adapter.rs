@@ -17,7 +17,8 @@ use freyja_build_common::config_file_stem;
 use freyja_common::{
     cloud_adapter::{CloudAdapter, CloudAdapterError, CloudMessageRequest, CloudMessageResponse},
     config_utils, out_dir,
-    retry_utils::execute_with_retry, service_discovery_adapter_selector::ServiceDiscoveryAdapterSelector,
+    retry_utils::execute_with_retry,
+    service_discovery_adapter_selector::ServiceDiscoveryAdapterSelector,
 };
 
 use crate::config::Config;
