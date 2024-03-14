@@ -125,6 +125,8 @@ WORKDIR /sdv
 # Copy the executable from the "build" stage.
 COPY --from=build /sdv/service /sdv/
 
+COPY --from=build /sdv/target /sdv/target
+
 # Copy from config override directory into where Freyja expects it
 COPY --from=build /sdv/config /sdv/.freyja/config
 
