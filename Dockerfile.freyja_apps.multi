@@ -45,7 +45,7 @@ RUN /sdv/container/scripts/argument_sanitizer.sh \
 RUN if [ -n "${CONFIG_PATH}" ]; then \
         /sdv/container/scripts/argument_sanitizer.sh \
         --arg-value "${CONFIG_PATH}" \
-        --regex "^[.\/a-zA-Z_0-9-]+$" || \
+        --regex "^[\.\/a-zA-Z_0-9-]+$" || \
         ( echo "Argument sanitizer failed for ARG 'CONFIG_PATH'"; exit 1 ); \
     fi
 
@@ -124,8 +124,6 @@ WORKDIR /sdv
 
 # Copy the executable from the "build" stage.
 COPY --from=build /sdv/service /sdv/
-
-COPY --from=build /sdv/target /sdv/target
 
 # Copy from config override directory into where Freyja expects it
 COPY --from=build /sdv/config /sdv/.freyja/config
