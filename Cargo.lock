@@ -603,6 +603,7 @@ dependencies = [
  "in-memory-mock-data-adapter",
  "in-memory-mock-digital-twin-adapter",
  "in-memory-mock-mapping-adapter",
+ "paho-mqtt",
  "tokio",
 ]
 

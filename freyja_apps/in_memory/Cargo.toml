@@ -22,5 +22,6 @@ in-memory-mock-digital-twin-adapter = { workspace = true }
 in-memory-mock-mapping-adapter = { workspace = true }
 in-memory-mock-data-adapter = { workspace = true }
 
-[features]
-containerize = []
+# If built for certain architectures, enable the 'vendored-ssl' feature.
+[target.'cfg(any(target_arch = "aarch64", target_arch = "x86_64"))'.dependencies]
+paho-mqtt = { workspace = true, features = ["vendored-ssl"] }
