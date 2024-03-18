@@ -22,15 +22,11 @@ To run the provided deployment scripts, you must install the following:
 
 * [Azure IoT CLI Extension](https://github.com/Azure/azure-iot-cli-extension)
 
-* [Azure Functions Core Tools](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Cportal%2Cv2%2Cbash&pivots=programming-language-csharp) (required only for the [MQTT Connector](./mqtt_connector/README.md)).
+* [Azure Functions Core Tools](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Cportal%2Cv2%2Cbash&pivots=programming-language-csharp)
 
 #### Azure Resource Group Role-Based Access Control
 
 You will need to be an Owner for your Azure resource group to deploy Azure resources using the scripts. Please see [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) for more details.
-
-#### Self-Signed X.509 Certificate
-
-Please see steps 1-3 in [Azure Event Grid with MQTT](#2-azure-event-grid-with-mqtt) for additional info on generating an X.509 self-signed certificate and getting its thumbprint.
 
 ### Deploy Azure Digital Twins
 
@@ -54,12 +50,13 @@ In your Azure Digital Twins resource, you will also need to create digital twin 
     ./digital_twins_setup.sh -r {myRG} -l {region} -d {myADT}
     ```
 
-    Use the following to deploy the setup for the smart trailer sample:
+    Or use the following to deploy the setup for the smart trailer sample:
 
     ```shell
     cd {repo-root}/cloud_connectors/azure/scripts
     chmod +x digital_twins_setup_smart_trailer.sh
     ./digital_twins_setup_smart_trailer.sh -r {myRG} -l {region} -d {myADT}
+    ```
 
 If you experience permission or deployment errors, try running the script again as sometimes it takes a while for some dependencies to be fully deployed. If you use the same name or identifier for each Azure resource, the script will not create additional copies of that Azure resource.
 
@@ -142,7 +139,7 @@ chmod +x mqtt_connector_setup.sh
     -z myEventgridNamespace -m myMqttClientAuthenticationName
 ```
 
-#### Manual Deployment of Azure Key Vault, Event Grid, and Azure Function App
+#### Manual Deployment
 
 ##### 1. Azure Key Vault
 
@@ -156,31 +153,33 @@ You have successfully deployed your Key Vault if you see an `ADT-INSTANCE-URL` s
 
 ##### 2. Azure Event Grid with MQTT
 
-1. Create a private key. Replace the `{PrivateKeyName}` placeholder with the name you wish to use.
+1. Create a self-signed certificate:
 
-    ```shell
-    openssl genpkey -out {PrivateKeyName}.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
-    ```
+    1. Create a private key. Replace the `{PrivateKeyName}` placeholder with the name you wish to use.
 
-1. Create a certificate signing request. Replace the placeholders with their respective values, and fill in the prompts of the certificate signing request.
+        ```shell
+        openssl genpkey -out {PrivateKeyName}.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+        ```
 
-    ```shell
-    openssl req -new -key {PrivateKeyName}.key -out {CertificateSigningRequestName}.csr
-    ```
+    1. Create a certificate signing request. Replace the placeholders with their respective values, and fill in the prompts of the certificate signing request.
 
-1. Create an X.509 self-signed certificate. Replace the placeholders with their respective values.
+        ```shell
+        openssl req -new -key {PrivateKeyName}.key -out {CertificateSigningRequestName}.csr
+        ```
 
-    ```shell
-    openssl x509 -req -days 365 -in {CertificateSigningRequestName}.csr -signkey {PrivateKeyName}.key -out {CertificateName}.cer
-    ```
+    1. Create an X.509 self-signed certificate. Replace the placeholders with their respective values.
 
-1. Get the thumbprint of your certificate in DER format. You will need the thumbprint when [creating a client](https://learn.microsoft.com/en-us/azure/event-grid/mqtt-publish-and-subscribe-portal#create-clients) for your Event Grid in step 6.
+        ```shell
+        openssl x509 -req -days 365 -in {CertificateSigningRequestName}.csr -signkey {PrivateKeyName}.key -out {CertificateName}.cer
+        ```
 
-    ```shell
-    openssl x509 -in {CertificateName}.cer -outform DER -out {CertificateName}.crt
-    sha256sum {CertificateName}.crt | awk '{print $1}'
-    rm {CertificateName}.crt
-    ```
+    1. Get the thumbprint of your certificate in DER format. You will need the thumbprint when [creating a client](https://learn.microsoft.com/en-us/azure/event-grid/mqtt-publish-and-subscribe-portal#create-clients) for your Event Grid in step 6.
+
+        ```shell
+        openssl x509 -in {CertificateName}.cer -outform DER -out {CertificateName}.crt
+        sha256sum {CertificateName}.crt | awk '{print $1}'
+        rm {CertificateName}.crt
+        ```
 
 1. Follow the [Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure portal](https://learn.microsoft.com/en-us/azure/event-grid/mqtt-publish-and-subscribe-portal) guide for creating an Azure Event Grid, topic namespace, and client. You can skip the *Generate sample client certificate and thumbprint* section as you have generated a self-signed certificate in steps 1-3.
 
