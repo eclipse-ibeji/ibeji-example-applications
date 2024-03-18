@@ -6,7 +6,7 @@
 # The default resolver for workspaces is different than for regular packages, so use v2 to avoid warnings
 resolver = "2"
 members = [
-    "cloud_connectors/azure/mqtt_connector",
+    "cloud_connectors/mqtt_connector",
     "freyja_apps/e2e",
     "freyja_apps/ibeji_integration",
     "freyja_apps/in_memory",

@@ -25,17 +25,7 @@ information on how to build and run supported applications in a container.
 
 ### Freyja Cloud Connectors
 
-To containerize the
-[Azure Digitals Twin Cloud Connector](../cloud_connectors/azure/digital_twins_connector/README.md)
-use one of the following dockerfiles:
-
-- [cloud_connectors/azure/Dockerfile.dt_connector.amd64](../cloud_connectors/azure/Dockerfile.dt_connector.amd64) -
-For x86-64 architecture.
-- [cloud_connectors/azure/Dockerfile.dt_connector.arm64](../cloud_connectors/azure/Dockerfile.dt_connector.arm64) -
-For aarch64 architecture.
-
-See [Docker Containers](#docker-containers) or [Podman Containers](#podman-containers) for
-information on how to build and run supported applications in a container.
+The sample cloud connectors do not currently support containerization.
 
 ## Configuration Overrides
 

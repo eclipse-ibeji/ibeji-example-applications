@@ -86,8 +86,6 @@ The steps below will guide you on manually deploying the Azure Digital Twins res
 
 #### Automated Deployment
 
-Before starting this section, please view [Prerequisites for Automated Deployment of Azure Resources](../README.md#prerequisites-for-automated-deployment-of-azure-resources).
-
 1. Sign in with Azure CLI. Follow the prompts after entering the following command.
 
 ```shell

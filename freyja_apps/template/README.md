@@ -7,7 +7,7 @@ This is a template for creating a Freyja application. For more information about
 To create your own Freyja application, you can copy this template and make the following changes:
 
 1. Choose the adapters to use. Freyja requires users to select a Cloud Adapter, a Digital Twin Adapter, a Mapping Adapter, at least one Data Adapter Factory, and at least one Service Discovery Adapter. Some potential choices are:
-    1. Freyja-provided adapters. These are enumerated in [Appendix A of the Freyja quickstart documentation](https://github.com/eclipse-ibeji/freyja/blob/main/docs/tutorials/quickstart.md#appendix-a).
+    1. Freyja-provided adapters. These are enumerated in [Appendix A of the Freyja custom adapters documentation](https://github.com/eclipse-ibeji/freyja/blob/main/docs/tutorials/custom-adapters.md#appendix-a).
     1. A custom adapter implementation. For more information on how to write and use these, see the see the [Freyja custom adapter documentation](https://github.com/eclipse-ibeji/freyja/blob/main/docs/tutorials/custom-adapters.md).
 1. Edit `Cargo.template.toml`:
     1. Add dependencies for the package(s) you need for your adapters. You can implement adapters in the same crate and import their dependencies here, or you can implement them in separate crates and import those.
