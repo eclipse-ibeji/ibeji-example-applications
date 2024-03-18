@@ -6,7 +6,7 @@ This is an example implementation of a Cloud Connector. The role of the Cloud Co
 
 The MQTT Cloud Connector forwards data emitted by Freyja to an MQTT broker. In the sample architecture presented here, this is an Azure Event Grid using the MQTT Protocol. This cloud connector accepts requests via gRPC using the [Freyja standard cloud connector contract](https://github.com/eclipse-ibeji/freyja/blob/main/interfaces/cloud_connector/v1/cloud_connector.proto), thus making it compatible with Freyja's standard cloud adapter. This cloud connector also includes an associated Azure Function which will forward the data to Azure Digital Twins, but the data from Azure Event Grid can be ingested by any desired cloud architecture using the appropriate connector.
 
-![Component Diagram](../../../docs/diagrams/azure_mqtt_cloud_connector.svg)
+![Component Diagram](../../docs/diagrams/azure_mqtt_cloud_connector.svg)
 
 Note that since this cloud connector interfaces with MQTT, it can be configured for use with any MQTT endpoint, not only the Azure-based solution shown here. The architecture diagram and the setup steps presented in this document provide a sample of a full end-to-end architecture that integrates this connector with a cloud digital twin solution.
 
@@ -30,7 +30,7 @@ You will need to be an Owner for your Azure resource group to deploy Azure resou
 
 ### Deploy Azure Digital Twins
 
-In your Azure Digital Twins resource, you will also need to create digital twin instances. This repository contains [DTDL samples](../sample-dtdl/) to get started.
+In your Azure Digital Twins resource, you will also need to create digital twin instances. This repository contains [DTDL samples](../resources/sample_dtdl/) to get started.
 
 >NOTE: The deployment scripts are compatible with the [`mixed` sample for Ibeji](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/mixed) and the smart trailer sample from this repository. These scripts will will upload these sample models and create instances of them for you. Modification of the Cloud Digital Twin or setup scripts may be required for other scenarios.
 

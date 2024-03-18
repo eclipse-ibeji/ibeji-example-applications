@@ -31,7 +31,7 @@ jobs:
             ${{ runner.os }}-nuget
       - name: Build MQTT Connector's Azure Function
         run: |
-          dotnet build cloud_connectors/azure/mqtt_connector/azure_function/src/function.csproj -warnaserror
-          dotnet build cloud_connectors/azure/mqtt_connector/azure_function/tests/MQTTConnectorAzureFunction.Tests.csproj -warnaserror
+          dotnet build cloud_connectors/resources/azure_function/src/function.csproj -warnaserror
+          dotnet build cloud_connectors/resources/azure_function/tests/MQTTConnectorAzureFunction.Tests.csproj -warnaserror
       - name: MQTT Connector's Azure Function Tests
-        run: dotnet test cloud_connectors/azure/mqtt_connector/azure_function/tests/MQTTConnectorAzureFunction.Tests.csproj
+        run: dotnet test cloud_connectors/resources/azure_function/tests/MQTTConnectorAzureFunction.Tests.csproj

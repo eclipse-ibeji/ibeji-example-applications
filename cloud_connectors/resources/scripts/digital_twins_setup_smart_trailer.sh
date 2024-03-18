@@ -72,9 +72,9 @@ echo -e "\nAssigning the Azure Digital Twins Data Owner role"
 user_object_id=$(az ad signed-in-user show --query id -o tsv)
 az dt role-assignment create --dt-name "$digital_twin_name" --assignee "$user_object_id"  --role "Azure Digital Twins Data Owner"
 
-# Upload the sample-dtdl models
-echo -e "\nUploading sample-dtdl models"
-for file in $(find ../sample-dtdl -name "trailer.json"); do
+# Upload the sample dtdl models
+echo -e "\nUploading sample dtdl models"
+for file in $(find ../sample_dtdl -name "trailer.json"); do
     if ! az dt model create --dt-name ${digital_twin_name} --models $file; then
         echo "$file" dtdl already uploaded.
     fi

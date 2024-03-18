@@ -57,6 +57,6 @@ jobs:
         with:
           languages: ${{ matrix.language }}
       - name: Build MQTT Connector's Azure Function
-        run: dotnet build cloud_connectors/azure/mqtt_connector/azure_function/src/function.csproj
+        run: dotnet build cloud_connectors/resources/azure_function/src/function.csproj
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
