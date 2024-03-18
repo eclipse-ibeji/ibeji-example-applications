@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
+# SPDX-License-Identifier: MIT
+
 set -e
 
 # Set the current directory to where the script lives.
