@@ -30,7 +30,7 @@ You will need to be an Owner for your Azure resource group to deploy Azure resou
 
 ### Deploy Azure Digital Twins
 
-In your Azure Digital Twins resource, you will also need to create digital twin instances. This repository contains [DTDL samples](../sample-dtdl/) to get started. 
+In your Azure Digital Twins resource, you will also need to create digital twin instances. This repository contains [DTDL samples](../sample-dtdl/) to get started.
 
 >NOTE: The deployment scripts are compatible with the [`mixed` sample for Ibeji](https://github.com/eclipse-ibeji/ibeji/tree/main/samples/mixed) and the smart trailer sample from this repository. These scripts will will upload these sample models and create instances of them for you. Modification of the Cloud Digital Twin or setup scripts may be required for other scenarios.
 
@@ -254,9 +254,9 @@ Also your Function App will need the Key Vault Reader role to read the `ADT-INST
 
     * `mqtt_client_id`: The client ID for identifying the MQTT client used in this Cloud Connector. You can keep the default value or change it. The client ID can be any unique value, as long as it's not the same client ID of another client that's publishing to your Azure Event Grid.
 
-    * `mqtt_client_authentication_name`: The client authentication name that you specified in step 1 of [Automated Deployment of Azure Key Vault, Event Grid, and Azure Function App](#automated-deployment-of-azure-key-vault-event-grid-and-azure-function-app), or step 6 of [Azure Event Grid with MQTT](#2-azure-event-grid-with-mqtt) for manual deployment.
+    * `mqtt_client_authentication_name`: The client authentication name that you specified during deployment. If you followed the automated deployment steps, you can get this from your deployment config file.
 
-    * `event_grid_topic`: The topic that you specified in step 1 of [Automated Deployment of Azure Key Vault, Event Grid, and Azure Function App](#automated-deployment-of-azure-key-vault-event-grid-and-azure-function-app), or step 7 of [Azure Event Grid with MQTT](#2-azure-event-grid-with-mqtt) for manual deployment.
+    * `event_grid_topic`: The event grid topic that you specified during deployment. If you followed the automated deployment steps, you can get this from your deployment config file.
 
     * `event_grid_namespace_host_name`: The Event Grid Namespace MQTT hostname. You can find the hostname by clicking on your event grid namespace, then copy the MQTT hostname.
 
