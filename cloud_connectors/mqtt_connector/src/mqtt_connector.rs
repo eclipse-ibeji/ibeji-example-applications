@@ -180,8 +180,6 @@ impl CloudConnector for MQTTConnector {
 
 #[cfg(test)]
 mod azure_cloud_connector_tests {
-    use cloud_connector_proto::v1::UpdateDigitalTwinRequestBuilder;
-
     use super::*;
 
     #[tokio::test]
@@ -191,11 +189,16 @@ mod azure_cloud_connector_tests {
             mqtt_event_grid_topic: String::new(),
         };
 
-        let builder = UpdateDigitalTwinRequestBuilder::new().string_value(String::new());
+        let request = UpdateDigitalTwinRequest {
+            value: Some(Value {
+                kind: Some(Kind::StringValue(String::new())),
+            }),
+            ..Default::default()
+        };
 
-        let request = tonic::Request::new(builder.build());
-
-        let result = consumer_impl.update_digital_twin(request).await;
+        let result = consumer_impl
+            .update_digital_twin(tonic::Request::new(request))
+            .await;
 
         assert!(result.is_err());
     }
