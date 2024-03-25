@@ -54,7 +54,7 @@ In your Azure Digital Twins resource, you will also need to create digital twin 
 
     ```shell
     cd {repo-root}/cloud_connectors/azure/scripts
-    chmod +x digital_twins_setup_smart_trailer.sh
+    chmod u+x digital_twins_setup_smart_trailer.sh
     ./digital_twins_setup_smart_trailer.sh -r {myRG} -l {region} -d {myADT}
     ```
 
@@ -98,7 +98,7 @@ If you wish to pass a config, then please copy the `mqtt_connector_setup.templat
 
 ```shell
 cd {freyja-root-dir}/cloud_connectors/azure/scripts
-chmod +x mqtt_connector_setup.sh
+chmod u+x mqtt_connector_setup.sh
 ./mqtt_connector_setup.sh -c <MQTT_CONFIG_JSON_PATH>
 ```
 
@@ -130,7 +130,7 @@ If you wish to pass in arguments, then please do the following:
 
 ```shell
 cd {freyja-root-dir}/cloud_connectors/azure/scripts
-chmod +x mqtt_connector_setup.sh
+chmod u+x mqtt_connector_setup.sh
   ./mqtt_connector_setup.sh -r myResourceGroup -s mySubscriptionId -d myDigitalTwinsName \
     -t myThumbprint -S myStorageAccountName -f myFunctionAppName \
     -k myKeyVaultName -x myEventGridTopic -y myEventGridSubscriptionName \
