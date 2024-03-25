@@ -190,7 +190,9 @@ mod azure_cloud_connector_tests {
         };
 
         let mut request = UpdateDigitalTwinRequest::default();
-        request.value = Some(Value { kind: Some(Kind::StringValue(String::new())) });
+        request.value = Some(Value {
+            kind: Some(Kind::StringValue(String::new())),
+        });
 
         let request = tonic::Request::new(request);
 
