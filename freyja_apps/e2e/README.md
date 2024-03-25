@@ -1,6 +1,6 @@
 # End-To-End Freyja Example Application
 
-This Freyja Example Application utilizes the [Ibeji Digital Twin Adapter](https://github.com/eclipse-ibeji/freyja/tree/main/adapters/digital_twin/ibeji_adapter/) and the [Standard GRPC Cloud Adapter](https://github.com/eclipse-ibeji/freyja/tree/main/adapters/cloud/grpc_cloud_adapter/) to show a minimal end-to-end example of how to sync data from the vehicle to the cloud.
+This Freyja Example Application utilizes the [Standard gRPC Digital Twin Adapter](https://github.com/eclipse-ibeji/freyja/tree/main/adapters/digital_twin/grpc_digital_twin_adapter/) configured to connect to Ibeji and the [Standard gRPC Cloud Adapter](https://github.com/eclipse-ibeji/freyja/tree/main/adapters/cloud/grpc_cloud_adapter/) to show a minimal end-to-end example of how to sync data from the vehicle to the cloud.
 
 ## Build and Run
 

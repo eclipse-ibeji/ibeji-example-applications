@@ -1,6 +1,6 @@
 # Freyja-Ibeji Integration Example Application
 
-This Freyja Example Application utilizes the [Ibeji Digital Twin Adapter](https://github.com/eclipse-ibeji/freyja/tree/main/adapters/digital_twin/ibeji_adapter) and an in-memory mock cloud connector adapter to show a minimal connected local example of how to retrieve data from the vehicle.
+This Freyja Example Application utilizes the [Standard gRPC Digital Twin Adapter](https://github.com/eclipse-ibeji/freyja/tree/main/adapters/digital_twin/grpc_digital_twin_adapter/) configured to connect to Ibeji, as well as the in-memory mock mapping service and cloud connector adapter to show a minimal connected local example of how to retrieve data from the vehicle.
 
 ## Build and Run
 
