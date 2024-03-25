@@ -189,14 +189,16 @@ mod azure_cloud_connector_tests {
             mqtt_event_grid_topic: String::new(),
         };
 
-        let mut request = UpdateDigitalTwinRequest::default();
-        request.value = Some(Value {
-            kind: Some(Kind::StringValue(String::new())),
-        });
+        let request = UpdateDigitalTwinRequest {
+            value: Some(Value {
+                kind: Some(Kind::StringValue(String::new())),
+            }),
+            ..Default::default()
+        };
 
-        let request = tonic::Request::new(request);
-
-        let result = consumer_impl.update_digital_twin(request).await;
+        let result = consumer_impl
+            .update_digital_twin(tonic::Request::new(request))
+            .await;
 
         assert!(result.is_err());
     }
