@@ -115,9 +115,9 @@ dependencies = [
 
 [[package]]
 name = "async-trait"
-version = "0.1.79"
+version = "0.1.80"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a507401cad91ec6a857ed5513a2073c82a9b9048762b885bb98655b306964681"
+checksum = "c6fa2087f2753a7da8cc1c0dbfcf89579dd57458e36769de5ac750b4671737ca"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -253,7 +253,7 @@ dependencies = [
 [[package]]
 name = "cloud-connector-proto"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "prost",
  "prost-types",
@@ -340,7 +340,7 @@ dependencies = [
 [[package]]
 name = "core-protobuf-data-access"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "freyja-build-common",
  "prost",
@@ -488,7 +488,7 @@ checksum = "658bd65b1cf4c852a3cc96f18a8ce7b5640f6b703f905c7d74532294c2a63984"
 [[package]]
 name = "file-service-discovery-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -530,7 +530,7 @@ dependencies = [
 [[package]]
 name = "freyja"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "async-trait",
  "env_logger",
@@ -552,7 +552,7 @@ dependencies = [
 [[package]]
 name = "freyja-build-common"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "tonic-build",
  "ureq",
@@ -561,7 +561,7 @@ dependencies = [
 [[package]]
 name = "freyja-common"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "async-trait",
  "config",
@@ -751,7 +751,7 @@ checksum = "4271d37baee1b8c7e4b708028c57d816cf9d2434acb33a549475f78c181f6253"
 [[package]]
 name = "grpc-cloud-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "async-trait",
  "cloud-connector-proto 0.1.0 (git+https://github.com/eclipse-ibeji/freyja)",
@@ -767,7 +767,7 @@ dependencies = [
 [[package]]
 name = "grpc-digital-twin-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "async-trait",
  "core-protobuf-data-access",
@@ -782,7 +782,7 @@ dependencies = [
 [[package]]
 name = "grpc-mapping-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -798,7 +798,7 @@ dependencies = [
 [[package]]
 name = "grpc-service-discovery-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -962,7 +962,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-cloud-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "async-trait",
  "freyja-common",
@@ -974,7 +974,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-data-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -987,7 +987,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-digital-twin-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -999,7 +999,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-mapping-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -1087,7 +1087,7 @@ checksum = "90ed8c1e510134f979dbc4f070f87d4313098b704861a105fe34231c70a3901c"
 [[package]]
 name = "managed-subscribe-data-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "async-trait",
  "core-protobuf-data-access",
@@ -1102,7 +1102,7 @@ dependencies = [
 [[package]]
 name = "mapping-service-proto"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "freyja-common",
  "prost",
@@ -1179,7 +1179,7 @@ dependencies = [
 [[package]]
 name = "mqtt-data-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -1425,9 +1425,9 @@ dependencies = [
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.79"
+version = "1.0.81"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e835ff2298f5721608eb1a980ecaee1aef2c132bf95ecc026a11b7bf3c01c02e"
+checksum = "3d1597b0c024618f09a9c3b8655b7e430397a36d23fdafec26d6965e9eec3eba"
 dependencies = [
  "unicode-ident",
 ]
@@ -1435,7 +1435,7 @@ dependencies = [
 [[package]]
 name = "proc-macros"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "convert_case",
  "proc-macro2",
@@ -1503,13 +1503,13 @@ version = "0.1.0"
 [[package]]
 name = "proto-common"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 
 [[package]]
 name = "quote"
-version = "1.0.35"
+version = "1.0.36"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "291ec9ab5efd934aaf503a6466c5d5251535d108ee747472c3977cc5acc868ef"
+checksum = "0fa76aaf39101c457836aec0ce2316dbdc3ab723cdda1c6bd4e6ad4208acaca7"
 dependencies = [
  "proc-macro2",
 ]
@@ -1675,7 +1675,7 @@ checksum = "e86697c916019a8588c99b5fac3cead74ec0b4b819707a682fd4d23fa0ce1ba1"
 [[package]]
 name = "sample-grpc-data-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -1691,7 +1691,7 @@ dependencies = [
 [[package]]
 name = "samples-protobuf-data-access"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "freyja-build-common",
  "prost",
@@ -1702,18 +1702,18 @@ dependencies = [
 
 [[package]]
 name = "serde"
-version = "1.0.197"
+version = "1.0.198"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3fb1c873e1b9b056a4dc4c0c198b24c3ffa059243875552b2bd0933b1aee4ce2"
+checksum = "9846a40c979031340571da2545a4e5b7c4163bdae79b301d5f86d03979451fcc"
 dependencies = [
  "serde_derive",
 ]
 
 [[package]]
 name = "serde_derive"
-version = "1.0.197"
+version = "1.0.198"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7eb0b34b42edc17f6b7cac84a52a1c5f0e1bb2227e997ca9011ea3dd34e8610b"
+checksum = "e88edab869b01783ba905e7d0153f9fc1a6505a96e4ad3018011eedb838566d9"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1722,9 +1722,9 @@ dependencies = [
 
 [[package]]
 name = "serde_json"
-version = "1.0.115"
+version = "1.0.116"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "12dc5c46daa8e9fdf4f5e71b6cf9a53f2487da0e86e55808e2d35539666497dd"
+checksum = "3e17db7126d17feb94eb3fad46bf1a96b034e8aacbc2e775fe81505f8b0b2813"
 dependencies = [
  "itoa",
  "ryu",
@@ -1743,7 +1743,7 @@ dependencies = [
 [[package]]
 name = "service_discovery_proto"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c8ef0dd223f42a76e4d8da6ffead27e0de6913cd"
+source = "git+https://github.com/eclipse-ibeji/freyja#6b371ff3240c4217fee09bb443c57f761cf38139"
 dependencies = [
  "freyja-build-common",
  "prost",
@@ -1809,9 +1809,9 @@ checksum = "81cdd64d312baedb58e21336b31bc043b77e01cc99033ce76ef539f78e965ebc"
 
 [[package]]
 name = "syn"
-version = "2.0.58"
+version = "2.0.60"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "44cfb93f38070beee36b3fef7d4f5a16f27751d94b187b666a5cc5e9b0d30687"
+checksum = "909518bc7b1c9b779f1bbf07f2929d35af9f0f37e47c6e9ef7f9dddc1e1821f3"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1858,9 +1858,9 @@ dependencies = [
 
 [[package]]
 name = "time"
-version = "0.3.34"
+version = "0.3.36"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c8248b6521bb14bc45b4067159b9b6ad792e2d6d754d6c41fb50e29fefe38749"
+checksum = "5dfd88e563464686c916c7e46e623e520ddc6d79fa6641390f2e3fa86e83e885"
 dependencies = [
  "deranged",
  "itoa",
@@ -1879,9 +1879,9 @@ checksum = "ef927ca75afb808a4d64dd374f00a2adf8d0fcff8e7b184af886c3c87ec4a3f3"
 
 [[package]]
 name = "time-macros"
-version = "0.2.17"
+version = "0.2.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7ba3a3ef41e6672a2f0f001392bb5dcd3ff0a9992d618ca761a11c3121547774"
+checksum = "3f252a68540fde3a3877aeea552b832b40ab9a69e318efd078774a01ddee1ccf"
 dependencies = [
  "num-conv",
  "time-core",
