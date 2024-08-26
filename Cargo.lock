@@ -62,7 +62,7 @@ version = "1.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a64c907d4e79225ac72e2a354c9ce84d50ebb4586dee56c82b3ee73004f537f5"
 dependencies = [
- "windows-sys 0.52.0",
+ "windows-sys",
 ]
 
 [[package]]
@@ -72,7 +72,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "61a38449feb7068f52bb06c12759005cf459ee52bb4adc1d5a7c4322d716fb19"
 dependencies = [
  "anstyle",
- "windows-sys 0.52.0",
+ "windows-sys",
 ]
 
 [[package]]
@@ -116,9 +116,9 @@ dependencies = [
 
 [[package]]
 name = "async-trait"
-version = "0.1.80"
+version = "0.1.81"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c6fa2087f2753a7da8cc1c0dbfcf89579dd57458e36769de5ac750b4671737ca"
+checksum = "6e0c28dcc82d7c8ead5cb13beb15405b57b8546e93215673ff8ca0349a028107"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -260,7 +260,7 @@ dependencies = [
 [[package]]
 name = "cloud-connector-proto"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "prost",
  "prost-types",
@@ -347,7 +347,7 @@ dependencies = [
 [[package]]
 name = "core-protobuf-data-access"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "freyja-build-common",
  "prost",
@@ -453,9 +453,9 @@ dependencies = [
 
 [[package]]
 name = "env_logger"
-version = "0.11.3"
+version = "0.11.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "38b35839ba51819680ba087cd351788c9a3c476841207e0b8cee0b04722343b9"
+checksum = "e13fa619b91fb2381732789fc5de83b45675e882f66623b7d8cb4f643017018d"
 dependencies = [
  "anstream",
  "anstyle",
@@ -477,7 +477,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "534c5cf6194dfab3db3242765c03bbe257cf92f22b38f6bc0c58d59108a820ba"
 dependencies = [
  "libc",
- "windows-sys 0.52.0",
+ "windows-sys",
 ]
 
 [[package]]
@@ -495,7 +495,7 @@ checksum = "9fc0510504f03c51ada170672ac806f1f105a88aa97a5281117e1ddc3368e51a"
 [[package]]
 name = "file-service-discovery-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -537,7 +537,7 @@ dependencies = [
 [[package]]
 name = "freyja"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "async-trait",
  "env_logger",
@@ -559,7 +559,7 @@ dependencies = [
 [[package]]
 name = "freyja-build-common"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "tonic-build",
  "ureq",
@@ -568,7 +568,7 @@ dependencies = [
 [[package]]
 name = "freyja-common"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "async-trait",
  "config",
@@ -758,7 +758,7 @@ checksum = "40ecd4077b5ae9fd2e9e169b102c6c330d0605168eb0e8bf79952b256dbefffd"
 [[package]]
 name = "grpc-cloud-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "async-trait",
  "cloud-connector-proto 0.1.0 (git+https://github.com/eclipse-ibeji/freyja)",
@@ -774,7 +774,7 @@ dependencies = [
 [[package]]
 name = "grpc-digital-twin-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "async-trait",
  "core-protobuf-data-access",
@@ -789,7 +789,7 @@ dependencies = [
 [[package]]
 name = "grpc-mapping-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -805,7 +805,7 @@ dependencies = [
 [[package]]
 name = "grpc-service-discovery-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -871,7 +871,7 @@ version = "0.5.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e3d1354bf6b7235cb4a0576c2619fd4ed18183f689b12b006a0ee7329eeff9a5"
 dependencies = [
- "windows-sys 0.52.0",
+ "windows-sys",
 ]
 
 [[package]]
@@ -963,7 +963,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-cloud-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "async-trait",
  "freyja-common",
@@ -975,7 +975,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-data-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -988,7 +988,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-digital-twin-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -1000,7 +1000,7 @@ dependencies = [
 [[package]]
 name = "in-memory-mock-mapping-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -1087,14 +1087,14 @@ checksum = "78b3ae25bc7c8c38cec158d1f2757ee79e9b3740fbc7ccf0e59e4b08d793fa89"
 
 [[package]]
 name = "log"
-version = "0.4.21"
+version = "0.4.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "90ed8c1e510134f979dbc4f070f87d4313098b704861a105fe34231c70a3901c"
+checksum = "a7a70ba024b9dc04c27ea2f0c0548feb474ec5c54bba33a7f72f873a39d07b24"
 
 [[package]]
 name = "managed-subscribe-data-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "async-trait",
  "core-protobuf-data-access",
@@ -1109,7 +1109,7 @@ dependencies = [
 [[package]]
 name = "mapping-service-proto"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "freyja-common",
  "prost",
@@ -1153,13 +1153,14 @@ dependencies = [
 
 [[package]]
 name = "mio"
-version = "0.8.11"
+version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a4a650543ca06a924e8b371db273b2756685faae30f8487da1b56505a8f78b0c"
+checksum = "80e04d1dcff3aae0704555fe5fee3bcfaf3d1fdf8a7e521d5b9d2b42acb52cec"
 dependencies = [
+ "hermit-abi",
  "libc",
  "wasi",
- "windows-sys 0.48.0",
+ "windows-sys",
 ]
 
 [[package]]
@@ -1186,7 +1187,7 @@ dependencies = [
 [[package]]
 name = "mqtt-data-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -1219,16 +1220,6 @@ name = "num-conv"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "51d515d32fb182ee37cda2ccdcb92950d6a3c2893aa280e540671c2cd0f3b1d9"
-
-[[package]]
-name = "num_cpus"
-version = "1.16.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4161fcb6d602d4d2081af7c3a45852d875a03dd337a6bfdd6e06407b61342a43"
-dependencies = [
- "hermit-abi",
- "libc",
-]
 
 [[package]]
 name = "object"
@@ -1442,7 +1433,7 @@ dependencies = [
 [[package]]
 name = "proc-macros"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "convert_case",
  "proc-macro2",
@@ -1510,7 +1501,7 @@ version = "0.1.0"
 [[package]]
 name = "proto-common"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 
 [[package]]
 name = "quote"
@@ -1592,7 +1583,7 @@ dependencies = [
  "libc",
  "spin",
  "untrusted",
- "windows-sys 0.52.0",
+ "windows-sys",
 ]
 
 [[package]]
@@ -1633,7 +1624,7 @@ dependencies = [
  "errno",
  "libc",
  "linux-raw-sys",
- "windows-sys 0.52.0",
+ "windows-sys",
 ]
 
 [[package]]
@@ -1682,7 +1673,7 @@ checksum = "f3cb5ba0dc43242ce17de99c180e96db90b235b8a9fdc9543c96d2209116bd9f"
 [[package]]
 name = "sample-grpc-data-adapter"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "async-trait",
  "freyja-build-common",
@@ -1698,7 +1689,7 @@ dependencies = [
 [[package]]
 name = "samples-protobuf-data-access"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "freyja-build-common",
  "prost",
@@ -1709,18 +1700,18 @@ dependencies = [
 
 [[package]]
 name = "serde"
-version = "1.0.203"
+version = "1.0.209"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7253ab4de971e72fb7be983802300c30b5a7f0c2e56fab8abfc6a214307c0094"
+checksum = "99fce0ffe7310761ca6bf9faf5115afbc19688edd00171d81b1bb1b116c63e09"
 dependencies = [
  "serde_derive",
 ]
 
 [[package]]
 name = "serde_derive"
-version = "1.0.203"
+version = "1.0.209"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "500cbc0ebeb6f46627f50f3f5811ccf6bf00643be300b4c3eabc0ef55dc5b5ba"
+checksum = "a5831b979fd7b5439637af1752d535ff49f4860c0f341d1baeb6faf0f4242170"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1729,11 +1720,12 @@ dependencies = [
 
 [[package]]
 name = "serde_json"
-version = "1.0.117"
+version = "1.0.127"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "455182ea6142b14f93f4bc5320a2b31c1f266b66a4a5c858b013302a5d8cbfc3"
+checksum = "8043c06d9f82bd7271361ed64f415fe5e12a77fdb52e573e7f06a516dea329ad"
 dependencies = [
  "itoa",
+ "memchr",
  "ryu",
  "serde",
 ]
@@ -1750,7 +1742,7 @@ dependencies = [
 [[package]]
 name = "service_discovery_proto"
 version = "0.1.0"
-source = "git+https://github.com/eclipse-ibeji/freyja#c7f0502e388b429775f69ed0a661110c5ab36b2e"
+source = "git+https://github.com/eclipse-ibeji/freyja#c0542e36def2c5b336b67494604bd3a2fe2b0e47"
 dependencies = [
  "freyja-build-common",
  "prost",
@@ -1786,7 +1778,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ce305eb0b4296696835b71df73eb912e0f1ffd2556a501fcede6e0c50349191c"
 dependencies = [
  "libc",
- "windows-sys 0.52.0",
+ "windows-sys",
 ]
 
 [[package]]
@@ -1797,9 +1789,9 @@ checksum = "6980e8d7511241f8acf4aebddbb1ff938df5eebe98691418c4468d0b72a96a67"
 
 [[package]]
 name = "strum_macros"
-version = "0.26.3"
+version = "0.26.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f7993a8e3a9e88a00351486baae9522c91b123a088f76469e5bd5cc17198ea87"
+checksum = "4c6bee85a5a24955dc440386795aa378cd9cf82acd5f764469152d2270e581be"
 dependencies = [
  "heck",
  "proc-macro2",
@@ -1840,7 +1832,7 @@ dependencies = [
  "cfg-if",
  "fastrand",
  "rustix",
- "windows-sys 0.52.0",
+ "windows-sys",
 ]
 
 [[package]]
@@ -1920,19 +1912,18 @@ checksum = "1f3ccbac311fea05f86f61904b462b55fb3df8837a366dfc601a0161d0532f20"
 
 [[package]]
 name = "tokio"
-version = "1.38.0"
+version = "1.39.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ba4f4a02a7a80d6f274636f0aa95c7e383b912d41fe721a31f29e29698585a4a"
+checksum = "9babc99b9923bfa4804bd74722ff02c0381021eafa4db9949217e3be8e84fff5"
 dependencies = [
  "backtrace",
  "bytes",
  "libc",
  "mio",
- "num_cpus",
  "pin-project-lite",
  "socket2",
  "tokio-macros",
- "windows-sys 0.48.0",
+ "windows-sys",
 ]
 
 [[package]]
@@ -1947,9 +1938,9 @@ dependencies = [
 
 [[package]]
 name = "tokio-macros"
-version = "2.3.0"
+version = "2.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5f5ae998a069d4b5aba8ee9dad856af7d520c3699e6159b185c2acd48155d39a"
+checksum = "693d596312e88961bc67d7f1f97af8a70227d9f90c31bba5806eec004978d752"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2249,35 +2240,11 @@ dependencies = [
 
 [[package]]
 name = "windows-sys"
-version = "0.48.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "677d2418bec65e3338edb076e806bc1ec15693c5d0104683f2efe857f61056a9"
-dependencies = [
- "windows-targets 0.48.5",
-]
-
-[[package]]
-name = "windows-sys"
 version = "0.52.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "282be5f36a8ce781fad8c8ae18fa3f9beff57ec1b52cb3de0789201425d9a33d"
 dependencies = [
- "windows-targets 0.52.5",
-]
-
-[[package]]
-name = "windows-targets"
-version = "0.48.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9a2fa6e2155d7247be68c096456083145c183cbbbc2764150dda45a87197940c"
-dependencies = [
- "windows_aarch64_gnullvm 0.48.5",
- "windows_aarch64_msvc 0.48.5",
- "windows_i686_gnu 0.48.5",
- "windows_i686_msvc 0.48.5",
- "windows_x86_64_gnu 0.48.5",
- "windows_x86_64_gnullvm 0.48.5",
- "windows_x86_64_msvc 0.48.5",
+ "windows-targets",
 ]
 
 [[package]]
@@ -2286,21 +2253,15 @@ version = "0.52.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6f0713a46559409d202e70e28227288446bf7841d3211583a4b53e3f6d96e7eb"
 dependencies = [
- "windows_aarch64_gnullvm 0.52.5",
- "windows_aarch64_msvc 0.52.5",
- "windows_i686_gnu 0.52.5",
+ "windows_aarch64_gnullvm",
+ "windows_aarch64_msvc",
+ "windows_i686_gnu",
  "windows_i686_gnullvm",
- "windows_i686_msvc 0.52.5",
- "windows_x86_64_gnu 0.52.5",
- "windows_x86_64_gnullvm 0.52.5",
- "windows_x86_64_msvc 0.52.5",
+ "windows_i686_msvc",
+ "windows_x86_64_gnu",
+ "windows_x86_64_gnullvm",
+ "windows_x86_64_msvc",
 ]
-
-[[package]]
-name = "windows_aarch64_gnullvm"
-version = "0.48.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2b38e32f0abccf9987a4e3079dfb67dcd799fb61361e53e2882c3cbaf0d905d8"
 
 [[package]]
 name = "windows_aarch64_gnullvm"
@@ -2310,21 +2271,9 @@ checksum = "7088eed71e8b8dda258ecc8bac5fb1153c5cffaf2578fc8ff5d61e23578d3263"
 
 [[package]]
 name = "windows_aarch64_msvc"
-version = "0.48.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dc35310971f3b2dbbf3f0690a219f40e2d9afcf64f9ab7cc1be722937c26b4bc"
-
-[[package]]
-name = "windows_aarch64_msvc"
 version = "0.52.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9985fd1504e250c615ca5f281c3f7a6da76213ebd5ccc9561496568a2752afb6"
-
-[[package]]
-name = "windows_i686_gnu"
-version = "0.48.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a75915e7def60c94dcef72200b9a8e58e5091744960da64ec734a6c6e9b3743e"
 
 [[package]]
 name = "windows_i686_gnu"
@@ -2340,21 +2289,9 @@ checksum = "87f4261229030a858f36b459e748ae97545d6f1ec60e5e0d6a3d32e0dc232ee9"
 
 [[package]]
 name = "windows_i686_msvc"
-version = "0.48.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8f55c233f70c4b27f66c523580f78f1004e8b5a8b659e05a4eb49d4166cca406"
-
-[[package]]
-name = "windows_i686_msvc"
 version = "0.52.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "db3c2bf3d13d5b658be73463284eaf12830ac9a26a90c717b7f771dfe97487bf"
-
-[[package]]
-name = "windows_x86_64_gnu"
-version = "0.48.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "53d40abd2583d23e4718fddf1ebec84dbff8381c07cae67ff7768bbf19c6718e"
 
 [[package]]
 name = "windows_x86_64_gnu"
@@ -2364,21 +2301,9 @@ checksum = "4e4246f76bdeff09eb48875a0fd3e2af6aada79d409d33011886d3e1581517d9"
 
 [[package]]
 name = "windows_x86_64_gnullvm"
-version = "0.48.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0b7b52767868a23d5bab768e390dc5f5c55825b6d30b86c844ff2dc7414044cc"
-
-[[package]]
-name = "windows_x86_64_gnullvm"
 version = "0.52.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "852298e482cd67c356ddd9570386e2862b5673c85bd5f88df9ab6802b334c596"
-
-[[package]]
-name = "windows_x86_64_msvc"
-version = "0.48.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ed94fce61571a4006852b7389a063ab983c02eb1bb37b47f8272ce92d06d9538"
 
 [[package]]
 name = "windows_x86_64_msvc"
